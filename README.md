@@ -14,15 +14,27 @@ Freenove ESP32-S3 Board can be uploaded code using Arduino® IDE.
 
 ### Download
 
-Click the green "Code" button, then click "Download ZIP" button in the pop-up window.  
-Do NOT click the "Open in Desktop" button, it will lead you to install Github software.
+* **Use command in console**
 
-> If you meet any difficulties, please contact our technical team for help.
+	Run following command to download all the files in this repository.
+
+	`git clone https://github.com/Freenove/Freenove_Media_Kit_for_ESP32-S3.git`
+
+* **Manually download in browser**
+
+	Click the green "Clone or download" button, then click "Download ZIP" button in the pop-up window.
+	Do NOT click the "Open in Desktop" button, it will lead you to install Github software.
+
+> If you meet any difficulties, please contact our support team for help.
 
 ### Use
 
 1. Download the ZIP file as above.
 2. Unzip it and you will get a folder contains tutorials and related files.
+3. If you are interested in the source code of OpenAI or Xiaozhi AI, you can visit the Urls:
+	Open AI:[https://github.com/Freenove/openai-realtime-embedded](https://github.com/Freenove/openai-realtime-embedded)
+	Xiaozhi Ai:[https://github.com/Freenove/xiaozhi-esp32](https://github.com/Freenove/xiaozhi-esp32)
+	Xiaozhi Ai Server[https://github.com/Freenove/xiaozhi-esp32-server](https://github.com/Freenove/xiaozhi-esp32-server)
 
 ### Support
 
