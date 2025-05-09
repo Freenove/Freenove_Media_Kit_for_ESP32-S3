@@ -2,7 +2,7 @@
 
 A kit with a Freenove® ESP32-S3 Board for learning programming and electronics.
 
-<img src='FNK0102_Media_Kit.png' width='40%'/>
+<img src='FNK0102_Media_Kit.png' width='100%'/>
 
 ESP32-S3 chip is manufactured by Espressif®.
 >Espressif® is a trademark of Espressif Systems (Shanghai) Co.Ltd (https://www.espressif.com/).
