@@ -33,11 +33,11 @@ Freenove ESP32-S3 Board can be uploaded code using Arduino® IDE.
 2. Unzip it and you will get a folder contains tutorials and related files.
 3. If you are interested in the source code of OpenAI or Xiaozhi AI, you can visit the Urls:
 
-	Open AI:[https://github.com/Freenove/openai-realtime-embedded](https://github.com/Freenove/openai-realtime-embedded)
+	Open AI: [https://github.com/Freenove/openai-realtime-embedded](https://github.com/Freenove/openai-realtime-embedded)
 	
-	Xiaozhi Ai:[https://github.com/Freenove/xiaozhi-esp32](https://github.com/Freenove/xiaozhi-esp32)
+	Xiaozhi Ai: [https://github.com/Freenove/xiaozhi-esp32](https://github.com/Freenove/xiaozhi-esp32)
 	
-	Xiaozhi Ai Server[https://github.com/Freenove/xiaozhi-esp32-server](https://github.com/Freenove/xiaozhi-esp32-server)
+	Xiaozhi Ai Server: [https://github.com/Freenove/xiaozhi-esp32-server](https://github.com/Freenove/xiaozhi-esp32-server)
 
 ### Support
 
