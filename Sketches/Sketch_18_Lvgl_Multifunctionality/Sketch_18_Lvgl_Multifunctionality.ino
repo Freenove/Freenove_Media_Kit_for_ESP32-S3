@@ -28,11 +28,10 @@ void setup() {
   while (!Serial) {
     delay(10);
   }
-
   camera_init(0);
+  sdmmc_init(SD_MMC_CLK, SD_MMC_CMD, SD_MMC_D0);
   audio_input_init(AUDIO_INPUT_SCK, AUDIO_INPUT_WS, AUDIO_INPUT_DIN);
   audio_output_init(AUDIO_OUTPUT_BCLK, AUDIO_OUTPUT_LRC, AUDIO_OUTPUT_DOUT);
-  sdmmc_init(SD_MMC_CLK, SD_MMC_CMD, SD_MMC_D0);
   audio_output_set_volume(21);
 
   create_dir(CAMERA_FOLDER);
@@ -61,3 +60,4 @@ void loop() {
   screen.routine(); /* Let the GUI do its work */  // Handle routine display tasks
   delay(5);                                        // Add a small delay to prevent the loop from running too fast
 }
+

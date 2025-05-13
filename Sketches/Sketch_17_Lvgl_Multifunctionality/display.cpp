@@ -116,9 +116,18 @@ void my_keypad_read(lv_indev_drv_t *drv, lv_indev_data_t *data)
   data->key = last_key; // Set the key value in the input device data
 }
 
+void tftRst(void) {
+  pinMode(TFT_BL, OUTPUT);
+  digitalWrite(TFT_BL, LOW);
+  delay(50);
+  digitalWrite(TFT_BL, HIGH);
+  delay(50);
+}
+
 // Setup the TFT display
 void setupTFT(int direction)
 {
+  tftRst();
   display.setTftShowDirection(direction);
   tft.begin();                                    // Initialize the TFT
   tft.setRotation(display.getTftShowDirection()); // Set the rotation of the TFT using the tft_show_dirction macro

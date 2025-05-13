@@ -2,11 +2,26 @@
 #include "driver_audio_output.h"
 #include "SD_MMC.h"
 #include "Audio.h"
+#include <ESP_I2S.h>
 
 Audio audio;
+I2SClass i2s_output; 
+
+bool i2s_output_init(int bclk, int lrc, int dout) {
+  i2s_output.setPins(bclk, lrc, dout, -1);
+  if (!i2s_output.begin(I2S_MODE_STD, 16000, I2S_DATA_BIT_WIDTH_16BIT, I2S_SLOT_MODE_MONO, I2S_STD_SLOT_RIGHT)) {
+    Serial.println("Failed to initialize I2S output bus!");
+    return false;
+  }
+  i2s_output.write(0); 
+  i2s_output.write(0); 
+  i2s_output.end();
+  return true;
+}
 
 //Initialize the audio interface
 int audio_output_init(int bclk, int lrc, int dout) {
+  i2s_output_init(bclk, lrc, dout);
   return audio.setPinout(bclk, lrc, dout);
 }
 

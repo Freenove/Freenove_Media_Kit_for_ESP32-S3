@@ -12,15 +12,24 @@
 #define CAMERA_MODEL_ESP32S3_EYE  // Has PSRAM
 #include "camera_pins.h"
 
+#define TFT_BL 20
 #define TFT_DIRECTION 0  // Define the direction of the TFT display (0, 1, 2, or 3)
 
 TFT_eSPI tft = TFT_eSPI();
+
+void tftRst(void) {
+  pinMode(TFT_BL, OUTPUT);
+  digitalWrite(TFT_BL, LOW);
+  delay(50);
+  digitalWrite(TFT_BL, HIGH);
+  delay(50);
+}
 
 void setup() {
   Serial.begin(115200);
   Serial.setDebugOutput(true);
   Serial.println();
-
+  tftRst();
   tft.init();                      // Initialize the TFT display
   tft.setRotation(TFT_DIRECTION);  // Set the rotation of the TFT display
   camera_init();                   // Initialize the camera

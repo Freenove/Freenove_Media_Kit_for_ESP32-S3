@@ -17,10 +17,5 @@ void audio_output_loop(void);
 void audio_info(const char *info);
 void audio_eof_mp3(const char *info);
 
-
-
-
-
-
 #endif
 

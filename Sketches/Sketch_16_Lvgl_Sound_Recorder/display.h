@@ -5,6 +5,7 @@
 #include "TFT_eSPI.h"
 #include "driver_button.h"
 
+#define TFT_BL 20
 #define BUTTON_PIN 19
 #define TFT_DIRECTION 1           // Define the direction of the TFT display
 extern lv_indev_t* indev_keypad;  // External declaration of the keypad input device

@@ -17,12 +17,14 @@
 #define SD_MMC_CMD 38  // Please do not modify it.
 #define SD_MMC_CLK 39  // Please do not modify it.
 #define SD_MMC_D0 40   // Please do not modify it.
+#define TFT_BL 20
 
 TFT_eSPI tft = TFT_eSPI();
 
 void camera_init(int state);
 void cameraShow(void);
 void cameraPhoto(void);
+void tft_rst(void);
 
 void setup() {
   Serial.begin(115200);
@@ -31,6 +33,7 @@ void setup() {
   analogReadResolution(12);
   analogSetAttenuation(ADC_11db);
   pinMode(BUTTON_PIN, INPUT_PULLUP);
+  tft_rst();
   tft.init();
   tft.setRotation(0);
   camera_init(0);
@@ -42,6 +45,14 @@ void setup() {
 void loop() {
   cameraShow();   // Continuously display the camera feed on the TFT screen
   cameraPhoto();  // Check for button press to take a photo
+}
+
+void tft_rst(void) {
+  pinMode(TFT_BL, OUTPUT);
+  digitalWrite(TFT_BL, LOW);
+  delay(50);
+  digitalWrite(TFT_BL, HIGH);
+  delay(50);
 }
 
 void camera_init(int state) {

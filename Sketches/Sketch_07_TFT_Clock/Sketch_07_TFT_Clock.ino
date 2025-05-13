@@ -10,6 +10,7 @@
 #include <TFT_eSPI.h>  // Graphics and font library for ST7735 driver chip
 #include <SPI.h>
 
+#define TFT_BL 20
 #define TFT_DIRECTION 1  // Define the direction of the TFT display (0, 1, 2, or 3)
 
 TFT_eSPI tft = TFT_eSPI();  // Invoke library, pins defined in User_Setup.h
@@ -36,7 +37,16 @@ uint8_t hh = conv2d(__TIME__), mm = conv2d(__TIME__ + 3), ss = conv2d(__TIME__ +
 
 bool initial = 1;  // Flag to indicate initial setup
 
+void tftRst(void) {
+  pinMode(TFT_BL, OUTPUT);
+  digitalWrite(TFT_BL, LOW);
+  delay(50);
+  digitalWrite(TFT_BL, HIGH);
+  delay(50);
+}
+
 void setup(void) {
+  tftRst();
   tft.init();                             // Initialize the TFT display
   tft.setRotation(TFT_DIRECTION);         // Set the rotation of the display
   tft.fillScreen(TFT_GREY);               // Fill the screen with grey color
