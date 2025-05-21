@@ -5,13 +5,12 @@
 
 typedef struct lvgl_main {
   lv_obj_t *main;
-  lv_obj_t *main_panel;
   lv_obj_t *main_label_logo;
-  lv_obj_t *main_imgbtn_ws2812;
-  lv_obj_t *main_imgbtn_camera;
-  lv_obj_t *main_imgbtn_picture;
-  lv_obj_t *main_imgbtn_music;
-  lv_obj_t *main_imgbtn_recorder;
+  lv_obj_t *main_btn_ws2812;
+  lv_obj_t *main_btn_camera;
+  lv_obj_t *main_btn_picture;
+  lv_obj_t *main_btn_music;
+  lv_obj_t *main_btn_recorder;
 } lvgl_main_ui;  // main ui struct
 
 extern lvgl_main_ui guider_main_ui;     // main ui structure

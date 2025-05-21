@@ -22,7 +22,6 @@
 #include "picture_ui.h"
 #include "music_ui.h"
 #include "recorder_ui.h"
-#include "lv_img.h"
 
 #define CAMERA_FOLDER   "/picture"
 #define PICTURE_FOLDER  "/picture"

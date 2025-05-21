@@ -6,7 +6,7 @@ Freenove_ESP32_WS2812 strip = Freenove_ESP32_WS2812(LEDS_COUNT, LEDS_PIN, CHANNE
 // Initialize the WS2812 LED strip
 bool ws2812_init(void) {
   strip.begin();           // Start the LED strip
-  strip.setBrightness(0);  // Set initial brightness
+  strip.setBrightness(1);  // Set initial brightness
   return 1;                // Return success
 }
 

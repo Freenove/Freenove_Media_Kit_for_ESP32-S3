@@ -1,6 +1,6 @@
 #include "driver_button.h"
 
-Button::Button(int pin) : pin(pin) {
+Button::Button(int pin): pin(pin) {
   // Initialize variables
   thresholdRange = 0;
   pinState = KEY_STATE_IDLE;
