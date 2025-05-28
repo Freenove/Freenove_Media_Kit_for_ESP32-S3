@@ -33,6 +33,6 @@ This product provides the following online documents.
    :maxdepth: 1
    :caption: FNK0102
 
-   fnk0102/codes/tutorial/XiaoZhi_AI_User_Guide_(Based_on_FNK0102).rst
-   fnk0102/codes/tutorial/XiaoZhi_AI_Code.rst
-   fnk0102/codes/tutorial/Local_Server.rst
+   fnk0102/codes/xiaozhi.rst
+   fnk0102/codes/Openai.rst
+   fnk0102/codes/Main.rst

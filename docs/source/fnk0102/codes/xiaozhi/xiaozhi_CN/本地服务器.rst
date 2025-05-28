@@ -1,0 +1,787 @@
+##############################################################################
+本地服务器
+##############################################################################
+
+小智AI服务器使用声明
+********************************
+
+本项目基于网络开源项目https://github.com/xinnan-tech/xiaozhi-esp32-server。该项目开源协议类型为MIT协议。我们仅在此基础上提供适配，用做第三方学习和AI功能试用，不做商业性质推广和应用。本教程仅给爱好者附加学习使用。
+
+小智AI本地服务器部署
+********************************
+
+如果您不想使用小智AI服务器，您也可以使用自己的电脑搭建一个简易版本的服务器，这个章节我们将使用开源项目https://github.com/xinnan-tech/xiaozhi-esp32-server来部署一个本地服务器，并和ESP32 S3 WROOM建立连接。如果您在使用过程中发现代码存在bug，请在https://github.com/xinnan-tech/xiaozhi-esp32-server上提交issue，我们对此项目并不进入深入了解，无法为您提供太多帮助。
+
+安装Ollama
+===============================
+
+Window
+-------------------------------
+
+在开始之前，我们需要在本地先安装Ollama工具，它可以在我们的电脑上安装任意开源模型。
+
+如果您还没有安装Ollama，请访问https://ollama.com/download 进行下载和安装。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_00.png
+    :align: center
+
+运行Ollama安装包，点击Install.
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_01.png
+    :align: center
+
+安装完成后，您可以在电脑的右下角看到图标。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_02.png
+    :align: center
+
+回到电脑的桌面位置，选择此电脑，按下鼠标右键，选择“Properties”.
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_03.png
+    :align: center
+
+在新弹出的界面中，找到“Advances system settings”，然后点击它。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_04.png
+    :align: center
+
+在新的窗口中，点击“Environment Variables”.
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_05.png
+    :align: center
+
+点击”New”.
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_06.png
+    :align: center
+
+变量名称输入“OLLAMA_HOST”，变量值输入“0.0.0.0:11434”，然后点击OK。
+
+这样局域网内所有的设备都可以通过IP地址访问Ollama。否则只能电脑本身访问Ollama.
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_07.png
+    :align: center
+
+MAC 
+---------------------------------
+
+在开始之前，我们需要在本地先安装Ollama工具，它可以在我们的电脑上安装任意开源模型。
+
+如果您还没有安装Ollama，请访问https://ollama.com/download 进行下载和安装。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_08.png
+    :align: center
+
+在Downloads中找到“Ollama.app”，双击运行它。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_09.png
+    :align: center
+
+点击”Next”，然后点击“Install”，最后点击“Finish”
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_10.png
+    :align: center
+
+安装完成后，界面会直接关闭。
+
+打开终端，通过指令查看Ollama是否已经安装完成。
+
+.. code-block:: console
+    
+    ollama --version
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_11.png
+    :align: center
+
+请注意，Ollama存放在Applications中。如上图所示，如果您的Ollama已经在运行，则运行“ollama --version”时，会直接打印Ollama的版本号。如果您的Ollama没有运行，则运行“ollama --version”时，会提示您无法连接到运行中的Ollama.
+
+Linux 
+------------------------------
+
+在开始之前，我们需要在本地先安装Ollama工具，它可以在我们的电脑上安装任意开源模型。
+
+如果您还没有安装Ollama，请访问https://ollama.com/download 进行下载和安装。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_12.png
+    :align: center
+
+打开终端。输入指令，开始安装Ollama.
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_13.png
+    :align: center
+
+安装完成如下图所示。当然，您可以使用“ollama --version”查看是否已经安装Ollama.
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_14.png
+    :align: center
+
+.. _LLM:
+
+LLM模型
+-----------------------------------
+
+请访问https://ollama.com/search，选择适合您电脑的，或者您喜欢的LLM模型。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_15.png
+    :align: center
+
+这里我以qwen2.5举例。点击“qwen2.5”模型。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_16.png
+    :align: center
+
+请注意，在选择模型时，需要根据您的电脑显卡内存或者CPU内存条配置，选择合适的模型。
+
+1，模型越大，智能化程度越高。模型越小，智能化程度越低。
+
+2，如果您的配置比较高，您可以选择比较大的模型，如果您的电脑配置比较低，您可以选择比较小的模型。
+
+3，如果您的电脑配置较低，而您选择的模型过大，可能会导致模型无法运行，或者运行的速度变慢。
+
+通过下拉框，可以选择合适的模型参数。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_17.png
+    :align: center
+
+模型越小，越不智能，但是运行速度越快，这里只是作为演示，我们选择qwen2.5:0.5b来作为示范。复制网页中的指令：“ollama run qwen2.5:0.5b”
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_18.png
+    :align: center
+
+接下来请根据您的电脑系统，安装您喜欢的LLM模型。
+
+Window
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+您可以使用指令“Win+R”，在弹出的窗口中输入“CMD”，打开CMD界面。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_19.png
+    :align: center
+
+输入指令“ollama --version”，查看是否已经安装了ollama。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_20.png
+    :align: center
+
+输入“ollama run qwen2.5:0.5b”，将模型下载到本地中。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_21.png
+    :align: center
+
+MAC
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+打开终端，输入指令“ollama --version”，查看是否已经安装了ollama。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_25.png
+    :align: center
+
+如果出现“Warning: could not connect to a running Ollama instance”的提示，请先运行Ollama.
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_26.png
+    :align: center
+
+重新使用指令，查看Ollama是否正常运行。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_27.png
+    :align: center
+
+输入“ollama run qwen2.5:0.5b”，将模型下载到本地中。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_28.png
+    :align: center
+
+当安装完成后，你可以直接在终端界面中和qwen2.5:0.5b进行聊天。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_29.png
+    :align: center
+
+您可以使用指令“Ctrl+d”，退出聊天模式。
+
+您可以通过指令“ollama serve”来运行ollama服务器。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_30.png
+    :align: center
+
+如果您的Ollama已经运行，则会提示您下面的界面。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_31.png
+    :align: center
+
+:red:`您可以输入Ollama，查看Ollama的使用说明。`
+
+Linux
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+打开终端，输入指令“ollama --version”，查看是否已经安装了ollama。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_32.png
+    :align: center
+
+输入“ollama run qwen2.5:0.5b”，将模型下载到本地中。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_33.png
+    :align: center
+
+当安装完成后，你可以直接在终端界面中和qwen2.5:0.5b进行聊天。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_34.png
+    :align: center
+
+您可以使用指令“Ctrl+d”，退出聊天模式。
+ 
+您可以输入Ollama，查看Ollama的使用说明。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_35.png
+    :align: center
+
+安装Conda
+===================================
+
+xiaozhi-esp32-server这个开源项目提供了4种安装方式，在本教程中，我们选择最简单的配置示例作为示范，其他使用方法请参考网站进行探索学习。
+
+Window
+-----------------------------------
+
+本示例使用conda管理依赖环境。因此我们需要事先在电脑上安装Conda环境。如果您的电脑还没安装Conda，您可以访问这个链接下载并安装它：https://www.anaconda.com/download/success  
+
+选择适合您电脑平台的软件包下载。Miniconda is an installer by Anaconda that comes preconfigured for use with the Anaconda Repository.
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_36.png
+    :align: center
+
+双击打开Conda软件，点击Next.
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_37.png
+    :align: center
+
+点击“I Agree”.
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_38.png
+    :align: center
+
+根据需求，选择合适的安装类型，一般我们选择“All Users”.
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_39.png
+    :align: center
+
+选择安装软件的位置。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_40.png
+    :align: center
+
+保持默认即可。点击Install。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_41.png
+    :align: center
+
+等待安装，可能需要等待一小会。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_42.png
+    :align: center
+
+至此，软件就安装完成了。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_43.png
+    :align: center
+
+您可以使用“Win+R”打开Run界面。输入“CMD”，并按下回车键，进入CMD界面。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_44.png
+    :align: center
+
+输入“conda --version”，并按下回车键。如果您的Anaconda3已经安装完成，您可以看到下面的提示信息。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_45.png
+    :align: center
+
+Mac
+-----------------------------------
+
+本示例使用conda管理依赖环境。因此我们需要事先在电脑上安装Conda环境。如果您的电脑还没安装Conda，您可以访问这个链接下载并安装它：https://www.anaconda.com/download/success  
+
+选择适合您电脑平台的软件包下载。Miniconda is an installer by Anaconda that comes preconfigured for use with the Anaconda Repository.
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_46.png
+    :align: center
+
+双击打开Conda软件，点击Continue.
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_47.png
+    :align: center
+
+点击Continue.
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_48.png
+    :align: center
+
+点击Continue.
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_49.png
+    :align: center
+
+点击Agree.
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_50.png
+    :align: center
+
+保持默认，点击Continue.
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_51.png
+    :align: center
+
+点击Install.
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_52.png
+    :align: center
+
+这里需要等待几分钟。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_53.png
+    :align: center
+
+点击Continue.
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_54.png
+    :align: center
+
+点击Close.
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_55.png
+    :align: center
+
+至此，您可以安装了Conda。您可以在您的应用列表中找到它。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_56.png
+    :align: center
+
+双击运行它，这一步不会有任何现象。
+
+再次打开终端。您可以发现，出现了”(base)”的提示词。您也可以通过指令“conda --version”查看conda的版本。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_57.png
+    :align: center
+
+您可以使用conda -h来查看更多的使用方法。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_58.png
+    :align: center
+
+如果您是第一次使用conda，您需要使用指令“conde init”，让安装的conda环境初始化并生效。
+
+.. code-block:: console
+    
+    conda init
+
+您可以使用conda activate来激活虚拟环境。或者通过conda deactivate来退出虚拟环境。 
+
+.. code-block:: console
+    
+    conda activate
+    conda deactivate
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_59.png
+    :align: center
+
+如果您想要打开终端就自动进入虚拟环境，您可以使用“conda config --set auto_activate_base true”指令。如果您不想要打开终端就自动进入虚拟环境，您可以使用“conda config --set auto_activate_base flase”指令。
+
+.. code-block:: console
+    
+    conda config --set auto_activate_base false
+    conda config --set auto_activate_base true
+
+Linux
+-------------------------------
+
+本示例使用conda管理依赖环境。因此我们需要事先在电脑上安装Conda环境。
+
+如果您的电脑还没安装Conda，您可以访问这个链接下载并安装它：https://www.anaconda.com/download/success
+
+选择适合您电脑平台的软件包下载。Miniconda is an installer by Anaconda that comes preconfigured for use with the Anaconda Repository.
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_60.png
+    :align: center
+
+此处我下载的文件名称为“Anaconda3-2024.10-1-Linux-x86_64.sh”，不同的电脑，名称可能不同。
+
+打开终端，使用下面的指令安装Anaconda。
+
+.. code-block:: console
+    
+    sh Anaconda3-2024.10-1-Linux-x86_64.sh
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_61.png
+    :align: center
+
+按住回车键不松开，直到出现下方的的提示信息。输入“Yes”。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_62.png
+    :align: center
+
+安装过程需要网络，请确保您的网络稳定，并耐心等待几分钟。直到您的界面出现下方的提示信息。
+
+请注意，这里需要输入Yes.
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_63.png
+    :align: center
+
+出现下方的提示，说明您已经成功安装conda.
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_64.png
+    :align: center
+
+如果您想要打开终端就自动进入虚拟环境，您可以使用“conda config --set auto_activate_base true”指令。
+
+如果您不想要打开终端就自动进入虚拟环境，您可以使用“conda config --set auto_activate_base flase”指令。
+
+.. code-block:: console
+    
+    conda config --set auto_activate_base false
+    conda config --set auto_activate_base true
+
+这里，我们建议使用“conda config --set auto_activate_base false”。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_65.png
+    :align: center
+
+重启终端，您可以通过指令查看conda的版本号。
+
+.. code-block:: console
+    
+    conda -version
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_66.png
+    :align: center
+
+您可以使用conda activate来激活虚拟环境。或者通过conda deactivate来退出虚拟环境。 
+
+.. code-block:: console
+    
+    conda activate
+    conda deactivate
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_67.png
+    :align: center
+
+如果您查看conda的版本号时报错如下。
+
+.. code-block:: console
+    
+    conda -version
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_68.png
+    :align: center
+
+这说明您的文件Conda虽然已经安装，但是没有添加到PATH中。
+
+请按照下面的步骤将conda添加到PATH中。
+
+使用nano编辑”.bashrc”文件.
+
+.. code-block:: console
+    
+    cd ~
+    sudo nano ./.bashrc
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_69.png
+    :align: center
+
+在文件的最下方，添加一行内容。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_70.png
+    :align: center
+
+使用Ctrl+O保存文件，使用Ctrl+X退出编辑器。
+
+使用source指令，让文件生效。并查看conda的版本。
+
+.. code-block:: console
+    
+    source ./.bashrc
+    conda --version
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_71.png
+    :align: center
+
+部署虚拟环境
+================================
+
+请注意，部署虚拟环境的指令，在Window，MAC，Ubuntu中是通用的，这里以Window举例，其他平台操作相同。
+
+打开CMD界面，使用指令创建一个带有python3.10的虚拟环境，并命名为“xiaozhi-esp32-server”
+
+.. code-block:: console
+    
+    conda create -n xiaozhi-esp32-server python=3.10 -y
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_72.png
+    :align: center
+
+当看到下面的消息，说明虚拟环境已经创建完成。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_73.png
+    :align: center
+
+如果您想删除这个虚拟环境，请使用下面的指令。
+
+.. code-block:: console
+    
+    conda remove -n xiaozhi-esp32-server --all -y
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_74.png
+    :align: center
+
+同样，您随时可以使用这两个指令，开启和关闭虚拟环境：
+
+.. code-block:: console
+    
+    conda activate xiaozhi-esp32-server
+    conda deactivate
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_75.png
+    :align: center
+
+:red:`请注意，有时候使用开启虚拟环境会提示您需要使用“conda init”指令。请执行它，并重启终端。`
+
+部署xiaozhi-esp32-server服务器
+==========================================
+
+如果您是Window用户，请打开CMD界面。如果您是MAC或者Ubuntu用户，请打开终端。接下来的教程以window系统配图作为示例，有不同之处，我们会附上其他系统图片作为补充解释。
+
+激活虚拟环境。
+
+.. code-block:: console
+    
+    conda activate xiaozhi-esp32-server 
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_76.png
+    :align: center
+
+在虚拟环境中安装libopus。
+
+.. code-block:: console
+    
+    conda install libopus -y
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_77.png
+    :align: center
+
+在虚拟环境中安装ffmpeg。
+
+.. code-block:: console
+    
+    conda install ffmpeg -y
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_78.png
+    :align: center
+
+在虚拟环境中在虚拟环境中安装git.
+
+.. code-block:: console
+    
+    conda install git -y
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_79.png
+    :align: center
+
+使用git clone指令下载服务器源码。
+
+.. code-block:: console
+    
+    git clone https://github.com/Freenove/xiaozhi-esp32-server.git
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_80.png
+    :align: center
+
+进入服务器源码文件夹。
+
+如果您是window用户，请注意路径是反斜杠。
+
+.. code-block:: console
+    
+    cd xiaozhi-esp32-server\\main\\xiaozhi-server
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_81.png
+    :align: center
+
+如果您是mac用户或者Linux用户，请注意路径是正斜杠。
+
+.. code-block:: console
+    
+    cd xiaozhi-esp32-server/main/xiaozhi-server
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_82.png
+    :align: center
+
+安装服务器源码需要的库环境。这个步骤需要较长一段时间，请确保您的网络良好，不要退出安装。
+
+.. code-block:: console
+    
+    pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/
+    pip install -r requirements.txt
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_83.png
+    :align: center
+
+安装完成如下图所示。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_84.png
+    :align: center
+
+下载声音模型。
+
+.. code-block:: console
+    
+    git clone https://www.modelscope.cn/iic/SenseVoiceSmall.git
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_85.png
+    :align: center
+
+使用复制指令，将SenseVoiceSmall中的model.pt文件拷贝到models/SenseVoiceSmall文件夹中。
+
+如果您是window用户，使用copy指令。
+
+.. code-block:: console
+    
+    copy .\\SenseVoiceSmall\\model.pt .\\models\\SenseVoiceSmall\\
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_86.png
+    :align: center
+
+如果您是mac用户或者Linux用户，使用cp指令。
+
+.. code-block:: console
+    
+    cp ./SenseVoiceSmall/model.pt ./models/SenseVoiceSmall/
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_87.png
+    :align: center
+
+在CMD界面中输入“mkdir data && copy config.yaml data\.config.yaml”，它将在xiaozhi-server中创建一个文件夹并命名为“data”，并将当前目录下的“config.yaml”复制到“data”文件夹下，然后命名为“.config.yaml”。
+
+如果您是window用户，请执行这个指令。
+
+.. code-block:: console
+    
+    mkdir data && copy config.yaml data\\.config.yaml
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_88.png
+    :align: center
+
+如果您是MAC/Linux用户，请执行这个指令。
+
+.. code-block:: console
+    
+    mkdir data && cp config.yaml data/.config.yaml
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_89.png
+    :align: center
+
+打开并修改.config.yaml文件。
+
+如果您是window用户，请执行这个指令。
+
+.. code-block:: console
+    
+    code .\data\.config.yaml
+
+如果您是MAC/Linux用户，请执行这个指令。
+
+.. code-block:: console
+    
+    code ./data/.config.yaml
+
+.. note:: 
+    
+    :red:`如果您的Vscode没有正确安装，使用指令可能会报错。您同样可以手动使用Vscode打开这个文件。`
+
+找到“selected_module:”，将其中的“LLM: ChatGLMLLM”修改为“LLM: OllamaLLM”
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_90.png
+    :align: center
+
+找到”LLM:”中的“OllamaLLM:”，将其中的“model_name: qwen2.5”修改为“model_name: qwen2.5:0.5b”. 
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_91.png
+    :align: center
+
+保存文件并退出。
+
+当然，您可以也选择其他模型，比如默认的ChatGLMLLM。请注意，配置不同的LLM模型需要您自行探索并配置。
+
+运行xiaozhi-esp32-verser代码。
+
+.. code-block:: console
+    
+    python app.py
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_103.png
+    :align: center
+
+请注意，此时，服务器会打印一个访问端口。记住它，后面的教程需要用到。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_92.png
+    :align: center
+
+此时，您可以使用浏览器，打开“xiaozhi-esp32-server\\main\\xiaozhi-server\\test”中的html文件。
+
+测试步骤如下所示。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_93.png
+    :align: center
+
+点击 **“连接”**.
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_94.png
+    :align: center
+
+您可以在文本框中输入任意内容，并点击发送，测试xiaozhi-esp32-server是否正常运行。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_95.png
+    :align: center
+
+如果服务器正常工作，您可以和它进行聊天。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_96.png
+    :align: center
+
+请注意，必须同时运行xiaozhi-esp32-server和Ollama，如果您的Ollama没有运行，您可以看到如下方所示的提示。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_97.png
+    :align: center
+
+您可以查看 :ref:`LLM模型 <LLM>` 来运行Ollama。
+
+ESP32S3访问xiaozhi-esp-server服务器
+*************************************************
+
+请注意，前面的代码中，我们讲解了小智AI代码的配置，在这个章节中，我们需要对工程的配置进行修改，从而让ESP32S3可以访问xiaozhi-esp32-server本地服务器。
+
+打开Visual Studio Code，选择之前的xiaozhi-esp32工程。点击SDK Configuration Editor (menuconfig)。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_98.png
+    :align: center
+
+将Connection Type设置为“Websocket”，并填写xiaozhi-esp32-server打印的服务器端口链接。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_99.png
+    :align: center
+
+点击保存，然后重新编译代码。如下所示。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_100.png
+    :align: center
+
+在界面下方点击“Build Project”，编译代码。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_101.png
+    :align: center
+
+在界面下方点击“Flash Device”，将代码上传到ESP32S3中。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_102.png
+    :align: center
+
+至此，您已经完成小智AI的全部工作。对着麦克风说，“Hi, ESP”。您就可以和本地服务器进行聊天。
+
+请注意，本地服务器对电脑的配置要求较高，如果您的电脑配置不高，您可以考虑将LLM模型选择大公司开放的LLM接口。这样对电脑的配置相对要低很多。

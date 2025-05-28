@@ -34,9 +34,15 @@ extensions = [
     "sphinx.ext.extlinks",
     "sphinx.ext.autosectionlabel",
     "sphinxcontrib.googleanalytics",
+    'sphinx.ext.mathjax',
     # "sphinx_favicon"
 ]
-
+mathjax_path = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+mathjax3_config = {
+    'TeX': {
+        'extensions': ['AMSmath.js', 'AMSsymbols.js', 'boldsymbol.js']
+    }
+}
 autosectionlabel_prefix_document = True
 googleanalytics_id="G-THC0SQQTDX"
 
@@ -84,8 +90,11 @@ gettext_uuid = True  # optional.
 
 rst_prolog = """
 .. include:: <s5defs.txt>
-.. include:: ../../../_static/style/custom-style.txt
+.. include:: /_static/style/custom-style.txt
 """
+
+pygments_style = 'monokai'       # dark style
+# pygments_style = 'github-dark' # github dark style
 
 variables_to_export = [
     "project",
@@ -102,9 +111,12 @@ print(rst_prolog)
 del frozen_locals
 
 html_css_files = [
-    'https://cdn.jsdelivr.net/gh/Freenove/freenove-docs/docs/source/_static/css/color-roles.css',
-    'https://cdn.jsdelivr.net/gh/Freenove/freenove-docs/docs/source/_static/css/custom.css',
-    'https://cdn.jsdelivr.net/gh/Freenove/freenove-docs/docs/source/_static/css/navigationStyle.css',
+    "css/color-roles.css",
+    "css/custom.css",
+    "css/navigationStyle.css",
+    # 'https://cdn.jsdelivr.net/gh/Freenove/freenove-docs/docs/source/_static/css/color-roles.css',
+    # 'https://cdn.jsdelivr.net/gh/Freenove/freenove-docs/docs/source/_static/css/custom.css',
+    # 'https://cdn.jsdelivr.net/gh/Freenove/freenove-docs/docs/source/_static/css/navigationStyle.css',
 ]
 
 html_js_files = [
@@ -128,7 +140,7 @@ intersphinx_disabled_reftypes = ["*"]
 
 def setup(app):
     pass
-    # app.add_css_file("css/custom.css")
+    # app.add_css_file("")
     # app.add_css_file('https://cdn.jsdelivr.net/gh/Freenove/freenove-docs/docs/source/_static/css/custom.css')
 
 suppress_warnings = ['autosectionlabel.*']
