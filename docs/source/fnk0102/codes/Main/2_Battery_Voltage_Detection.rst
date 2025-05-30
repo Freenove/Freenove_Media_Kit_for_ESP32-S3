@@ -127,14 +127,13 @@ Since voltage is the difference in potential, it can be converted into:
 By simplifying it, we can get:
 
 .. math::
-
-.. math::
    
    \boldsymbol{V_1} \boldsymbol{=} \boldsymbol{V_o} \left( \boldsymbol{1} \boldsymbol{+} \boldsymbol{\frac{R_1}{R_2}} \boldsymbol{+} \boldsymbol{\frac{R_1}{R_3}} \right) \boldsymbol{-} \boldsymbol{V_2} \boldsymbol{\times} \boldsymbol{\frac{R_1}{R_2}} \boldsymbol{-} \boldsymbol{V_3} \boldsymbol{\times} \boldsymbol{\frac{R_1}{R_3}}
 
 Substituting the actual resistance value, we can finally get
 
 .. math::
+
    \boldsymbol{V_1} \boldsymbol{=} \boldsymbol{V_o} \boldsymbol{\times} \boldsymbol{2.5} \boldsymbol{-} \boldsymbol{3300}
 
 Where:
