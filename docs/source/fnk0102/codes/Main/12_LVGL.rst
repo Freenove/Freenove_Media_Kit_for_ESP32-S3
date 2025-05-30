@@ -25,37 +25,40 @@ Component knowledge
 
 LVGL is a widely-used embedded GUI library that is implemented in pure C, making it highly portable and performant. It offers rich features and content, supporting both display and input devices such as touchscreens and keyboards.
 
-+-----+-----------------------------------------------------------------------------------------------------------------+
-|     |                                           Features supported by LVGL                                            |
-+=====+=================================================================================================================+
-| 1   | Powerful building blocks such as buttons, charts, lists, sliders, images, and more.                             |
-+-----+-----------------------------------------------------------------------------------------------------------------+
-| 2   | Advanced graphics with animation, anti-aliasing, opacity, and smooth scrolling.                                 |
-+-----+-----------------------------------------------------------------------------------------------------------------+
-| 3   | Various input devices, such as touchpads, mice, keyboards, encoders, and more.                                  |
-+-----+-----------------------------------------------------------------------------------------------------------------+
-| 4   | Multiple languages with UTF-8 encoding.                                                                         |
-+-----+-----------------------------------------------------------------------------------------------------------------+
-| 5   | Multiple display types, including TFT and monochrome displays.                                                  |
-+-----+-----------------------------------------------------------------------------------------------------------------+
-| 6   | Fully customizable graphical elements.                                                                          |
-+-----+-----------------------------------------------------------------------------------------------------------------+
-| 7   | LVGL can be used independently of any microcontroller or display hardware.                                      |
-+-----+-----------------------------------------------------------------------------------------------------------------+
-| 8   | Highly extensible and can be configured to use very little memory (e.g. 64 kB of flash and 16 kB of RAM)        |
-+-----+-----------------------------------------------------------------------------------------------------------------+
-| 9   | It can be used with or without an operating system, and supports external memory and GPUs as optional features. |
-+-----+-----------------------------------------------------------------------------------------------------------------+
-| 10  | Single-frame buffer operation, even with advanced graphics effects.                                             |
-+-----+-----------------------------------------------------------------------------------------------------------------+
-| 11  | Written in C language to achieve maximum compatibility (compatible with C++ as well).                           |
-+-----+-----------------------------------------------------------------------------------------------------------------+
-| 12  | LVGL has a simulator that allows for embedded GUI design on a PC without any embedded hardware.                 |
-+-----+-----------------------------------------------------------------------------------------------------------------+
-| 13  | Resources to help developers quickly get started with the library, including tutorials, examples, and themes.   |
-+-----+-----------------------------------------------------------------------------------------------------------------+
-| 14  | A wide range of resources.                                                                                      |
-+-----+-----------------------------------------------------------------------------------------------------------------+
+.. table:: 
+    :align: center
+
+    +-----+-----------------------------------------------------------------------------------------------------------------+
+    |     |                                           Features supported by LVGL                                            |
+    +=====+=================================================================================================================+
+    | 1   | Powerful building blocks such as buttons, charts, lists, sliders, images, and more.                             |
+    +-----+-----------------------------------------------------------------------------------------------------------------+
+    | 2   | Advanced graphics with animation, anti-aliasing, opacity, and smooth scrolling.                                 |
+    +-----+-----------------------------------------------------------------------------------------------------------------+
+    | 3   | Various input devices, such as touchpads, mice, keyboards, encoders, and more.                                  |
+    +-----+-----------------------------------------------------------------------------------------------------------------+
+    | 4   | Multiple languages with UTF-8 encoding.                                                                         |
+    +-----+-----------------------------------------------------------------------------------------------------------------+
+    | 5   | Multiple display types, including TFT and monochrome displays.                                                  |
+    +-----+-----------------------------------------------------------------------------------------------------------------+
+    | 6   | Fully customizable graphical elements.                                                                          |
+    +-----+-----------------------------------------------------------------------------------------------------------------+
+    | 7   | LVGL can be used independently of any microcontroller or display hardware.                                      |
+    +-----+-----------------------------------------------------------------------------------------------------------------+
+    | 8   | Highly extensible and can be configured to use very little memory (e.g. 64 kB of flash and 16 kB of RAM)        |
+    +-----+-----------------------------------------------------------------------------------------------------------------+
+    | 9   | It can be used with or without an operating system, and supports external memory and GPUs as optional features. |
+    +-----+-----------------------------------------------------------------------------------------------------------------+
+    | 10  | Single-frame buffer operation, even with advanced graphics effects.                                             |
+    +-----+-----------------------------------------------------------------------------------------------------------------+
+    | 11  | Written in C language to achieve maximum compatibility (compatible with C++ as well).                           |
+    +-----+-----------------------------------------------------------------------------------------------------------------+
+    | 12  | LVGL has a simulator that allows for embedded GUI design on a PC without any embedded hardware.                 |
+    +-----+-----------------------------------------------------------------------------------------------------------------+
+    | 13  | Resources to help developers quickly get started with the library, including tutorials, examples, and themes.   |
+    +-----+-----------------------------------------------------------------------------------------------------------------+
+    | 14  | A wide range of resources.                                                                                      |
+    +-----+-----------------------------------------------------------------------------------------------------------------+
 
 Circuit
 ===================================

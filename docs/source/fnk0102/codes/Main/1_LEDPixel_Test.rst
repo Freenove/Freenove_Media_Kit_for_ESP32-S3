@@ -14,11 +14,14 @@ Note: Both the LED Pixels on the ESP32S3 board and on the extension board are co
 Component List 
 ==========================================
 
-+------------------------------------+----------------+
-| Freenove Media Kit for ESP32-S3 x1 | USB cable x1   |
-|                                    |                |
-| |Chapter01_00|                     | |Chapter01_01| |
-+------------------------------------+----------------+
+.. table:: 
+    :align: center
+
+    +------------------------------------+----------------+
+    | Freenove Media Kit for ESP32-S3 x1 | USB cable x1   |
+    |                                    |                |
+    | |Chapter01_00|                     | |Chapter01_01| |
+    +------------------------------------+----------------+
 
 .. |Chapter01_00| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_00.png
 .. |Chapter01_01| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_01.png

@@ -12,15 +12,18 @@ Connect the ESP32-S3 to your computer with the USB cable. Check its IP address t
 Component List 
 =========================================
 
-+-------------------+-------------------+
-| SD card x1        | USB cable x1      |
-|                   |                   |
-| |Chapter07_00|    | |Chapter07_01|    |
-+-------------------+-------------------+
-| Freenove Media Kit for ESP32-S3 x1    |
-|                                       |
-| |Chapter07_02|                        |
-+---------------------------------------+
+.. table:: 
+    :align:  center
+
+    +-------------------+-------------------+
+    | SD card x1        | USB cable x1      |
+    |                   |                   |
+    | |Chapter07_00|    | |Chapter07_01|    |
+    +-------------------+-------------------+
+    | Freenove Media Kit for ESP32-S3 x1    |
+    |                                       |
+    | |Chapter07_02|                        |
+    +---------------------------------------+
 
 .. |Chapter07_00| image:: ../_static/imgs/Main/7_Video_Web_Server/Chapter07_00.png
 .. |Chapter07_01| image:: ../_static/imgs/Main/7_Video_Web_Server/Chapter07_01.png

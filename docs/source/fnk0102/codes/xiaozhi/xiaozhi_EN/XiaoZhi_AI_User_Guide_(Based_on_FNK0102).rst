@@ -654,30 +654,6 @@ Open a browser on your device and visit: https://xiaozhi.me/
 
 If you don't have an account yet, please click Console and register using your mobile number.
 
-Please note that currently, XiaoZhi AI servers only support mobile number registration from the following countries.
-
-+-------------------------+-----------------+------------------+---------------------------+
-| Mainland China +86      | Germany +49     | Philippines +63  | Pakistan +92              |
-+-------------------------+-----------------+------------------+---------------------------+
-| Hong Kong +852          | Poland +48      | New Zealand +64  | Nigeria +234              |
-+-------------------------+-----------------+------------------+---------------------------+
-| Macau +853              | Switzerland +41 | Singapore +65    | Bangladesh +880           |
-+-------------------------+-----------------+------------------+---------------------------+
-| Taiwan +886             | Spain +34       | Thailand +66     | Saudi Arabia +966         |
-+-------------------------+-----------------+------------------+---------------------------+
-| United States/Canada +1 | Denmark +45     | Japan +81        | United Arab Emirates +971 |
-+-------------------------+-----------------+------------------+---------------------------+
-| United Kingdom +44      | Malaysia +60    | South Korea +82  | Brazil +55                |
-+-------------------------+-----------------+------------------+---------------------------+
-| France +33              | Australia +61   | Vietnam +84      | Mexico +52                |
-+-------------------------+-----------------+------------------+---------------------------+
-| Italy +39               | Indonesia +62   | India +91        | Chile +56                 |
-+-------------------------+-----------------+------------------+---------------------------+
-| Argentina +54           | Egypt +20       | South Africa +27 | Kenya +254                |
-+-------------------------+-----------------+------------------+---------------------------+
-| Tanzania +255           | Kazakhstan +7   |                  |                           |
-+-------------------------+-----------------+------------------+---------------------------+
-
 If you do not have an account yet, please register one and login.
 
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_85.png

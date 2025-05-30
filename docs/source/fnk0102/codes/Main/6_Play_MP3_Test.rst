@@ -10,6 +10,7 @@ Project 6.1 Play MP3
 In this project, we will read files in mp3 format from SD card, decode them through ESP32-S3, and use Audio Converter & Amplifier module to transcode into stereo output.
 
 .. list-table::
+    :align: center
 
     * - Freenove Media Kit for ESP32-S3 x1
       - USB cable x1
