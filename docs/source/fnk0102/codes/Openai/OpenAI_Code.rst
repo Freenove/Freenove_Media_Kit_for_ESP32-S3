@@ -410,3 +410,69 @@ After the upload completes, the serial monitor will automatically open and estab
 
 .. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_61.png
     :align: center
+
+Computer End
+-------------------------------------------
+
+Enable Wi-Fi, locate "**OpenAI**" in the Wi-Fi settings, and click "**Connect**".
+
+.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_62.png
+    :align: center
+
+Open the browser, enter 192.168.4.1 in the address bar, and press Enter to access the network configuration page.
+
+.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_63.png
+    :align: center
+
+Enter the Wi-Fi name and password, as well as the API key of OpenAI, and then click Submit.
+
+.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_64.png
+    :align: center
+
+The following interface indicates successful configuration.
+
+.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_65.png
+    :align: center
+
+When you see the "**How can I help**" prompt, you can start communicate with openAI.
+
+.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_66.png
+    :align: center
+
+The chat logs will be displayed simultaneously in VS Code's Serial Monitor.
+
+.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_67.png
+    :align: center
+
+Mobile End
+--------------------------------------
+
+Enable Wi-Fi, locate "OpenAI" in the Wi-Fi settings to connect.
+
+.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_68.png
+    :align: center
+
+Open the browser on your phone, input **192.168.4.1** in the address bar to enter the network settings interface.
+
+.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_73.png
+    :align: center
+
+Enter the Wi-Fi name and password, as well as the API key of OpenAI, and then click Submit.
+
+.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_69.png
+    :align: center
+
+The following interface indicates successful configuration.
+
+.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_70.png
+    :align: center
+
+When you see the "**How can I help**" prompt, you can start communicate with openAI.
+
+.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_71.png
+    :align: center
+
+The chat logs will be displayed simultaneously in VS Code's Serial Monitor.
+
+.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_72.png
+    :align: center
