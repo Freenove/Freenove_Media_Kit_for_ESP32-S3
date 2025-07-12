@@ -419,12 +419,12 @@ Enable Wi-Fi, locate "**OpenAI**" in the Wi-Fi settings, and click "**Connect**"
 .. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_62.png
     :align: center
 
-Open the browser, enter 192.168.4.1 in the address bar, and press Enter to access the network configuration page.
+Open the browser, enter **192.168.4.1** in the address bar, and press Enter to access the network configuration page.
 
 .. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_63.png
     :align: center
 
-Enter the Wi-Fi name and password, as well as the API key of OpenAI, and then click Submit.
+Enter the Wi-Fi name and password, as well as the API key of OpenAI, and then click **Submit**.
 
 .. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_64.png
     :align: center
