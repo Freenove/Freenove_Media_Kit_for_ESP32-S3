@@ -136,7 +136,7 @@ After uploading the code, the TFT screen will display the camera's captured imag
 
 To achieve the desired display, configure the settings according to real-time preview feedback during setup.
 
-Project 9.2
+Project 9.2 Take a Photo
 ****************************
 
 In the previous section, we learned how to capture camera images and display them on a TFT screen. This section will explain how to save the images captured by the camera to an SD card.
