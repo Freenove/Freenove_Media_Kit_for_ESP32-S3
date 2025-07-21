@@ -14,23 +14,23 @@ Freenove has adapted this project for its Media Kit product. This article will g
 Cautions
 *******************************
 
-- Project Copyright: The original author of this project is OpenAI. Freenove forked and adapted it for Media Kit, and the project is licensed under the MIT License.
+- **Project Copyright**: The original author of this project is OpenAI. Freenove forked and adapted it for Media Kit, and the project is licensed under the MIT License.
 
-- Supported Countries/Regions: This project uses OpenAI's GPT-4o RealTime API, which is not available in all countries/regions. Please check OpenAI's supported countries list:
+- **Supported Countries/Regions**: This project uses OpenAI's GPT-4o RealTime API, which is not available in all countries/regions. Please check OpenAI's supported countries list:
 
-https://platform.openai.com/docs/supported-countries. 
+  https://platform.openai.com/docs/supported-countries. 
+  
+  If you cannot access this link, OpenAI's services are likely unavailable in your location.
 
-If you cannot access this link, OpenAI's services are likely unavailable in your location.
+- **Supported Languages**: OpenAI supports many languages but has no official list. For reference, see:
 
-- Supported Languages: OpenAI supports many languages but has no official list. For reference, see:
+  https://platform.openai.com/docs/api-reference/realtime-sessions/create
+  
+  https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes
 
-https://platform.openai.com/docs/api-reference/realtime-sessions/create
+- **Pricing**: The GPT-4o RealTime API is a paid service, and you must purchase credits from OpenAI to use it.
 
-https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes
-
-- Pricing: The GPT-4o RealTime API is a paid service, and you must purchase credits from OpenAI to use it.
-
-- Seeking Help: If you have followed the tutorial but still encounter issues, contact us at support@freenove.com 
+- **Seeking Help**: If you have followed the tutorial but still encounter issues, contact us at support@freenove.com 
 
 .. note::
     
@@ -45,33 +45,32 @@ OpenAI not only provides powerful AI models but also offers API services that en
 
 However, it's important to note that:
 
-- 1.	OpenAI currently does not offer free services
+  - 1. OpenAI currently does not offer free services
 
-- 2.	The Realtime API currently only supports: 
+  - 2. The Realtime API currently only supports: 
 
-GPT-4o and GPT-4o mini models
+       GPT-4o and GPT-4o mini models
+       
+       The latest transcription models: GPT-4o Transcribe and GPT-4o mini Transcribe
 
-The latest transcription models: GPT-4o Transcribe and GPT-4o mini Transcribe
-
-For more information about Realtime API, please refer to Realtime API - OpenAI API
+For more information about Realtime API, please refer to `Realtime API - OpenAI API <https://platform.openai.com/docs/guides/realtime>`_
 
 OpenAI-Realtime-Embedded Disclaimer
+*********************************************
 
-This implementation is an adaptation of the open-source project available at 
-
-https://github.com/openai/openai-realtime-embedded, provided for third-party learning and AI functionality testing purposes, without any promotion or support for commercial applications. This tutorial is intended solely for personal learning and development by technology enthusiasts.
+This implementation is an adaptation of the open-source project available at https://github.com/openai/openai-realtime-embedded, provided for third-party learning and AI functionality testing purposes, without any promotion or support for commercial applications. This tutorial is intended solely for personal learning and development by technology enthusiasts.
 
 .. note::
 
-    1.	As this is a third-party open-source project, if you encounter issues during your learning process, please submit an issue to the original repository https://github.com/openai/openai-realtime-embedded/issues
+    1. As this is a third-party open-source project, if you encounter issues during your learning process, please submit an issue to the original repository https://github.com/openai/openai-realtime-embedded/issues
 
-    2.	The OpenAI API is a paid service. You must subscribe and enable billing to access any API functionality. Without an active paid account, all OpenAI API features will be unavailable.
+    2. The OpenAI API is a paid service. You must subscribe and enable billing to access any API functionality. Without an active paid account, all OpenAI API features will be unavailable.
 
-    3.	To use OpenAI services, you must apply for your own API key directly from OpenAI. We do not provide or share any API key information.
+    3. To use OpenAI services, you must apply for your own API key directly from OpenAI. We do not provide or share any API key information.
 
-For details about OpenAI API access, please visit:
-
-https://platform.openai.com/docs/api-reference/introduction
+       For details about OpenAI API access, please visit:
+   
+       https://platform.openai.com/docs/api-reference/introduction
 
 Please see the following flowchart. 
 
@@ -123,12 +122,12 @@ If you would not like to download the installation package, you can open "Freeno
 .. image:: ../_static/imgs/Openai/AI_Voice_Assistant_Based_on_OpenAI_Realtime_model/Chapter01_04.png
     :align: center
 
-2.	Open the folder "Freenove_Media_Kit_for_ESP32-S3/CH343/Windows/"
+2.	Open the folder **"Freenove_Media_Kit_for_ESP32-S3/CH343/Windows/"**.
 
 .. image:: ../_static/imgs/Openai/AI_Voice_Assistant_Based_on_OpenAI_Realtime_model/Chapter01_05.png
     :align: center
 
-3.	Double click "CH343SER.EXE".
+3.	Double click **"CH343SER.EXE"**.
 
 .. image:: ../_static/imgs/Openai/AI_Voice_Assistant_Based_on_OpenAI_Realtime_model/Chapter01_06.png
     :align: center
@@ -157,7 +156,7 @@ Please make sure you use the USB data cable, not a charging cable.
 .. image:: ../_static/imgs/Openai/AI_Voice_Assistant_Based_on_OpenAI_Realtime_model/Chapter01_10.png
     :align: center
 
-7.	So far, CH343 has been installed successfully. Close all dialog boxes. 
+7.	So far, CH343 has been installed successfully. Close all dialog boxes.
 
 MAC
 ===========================================
@@ -167,7 +166,7 @@ First, download CH343 driver, click http://www.wch-ic.com/search?t=all&q=ch343 t
 .. image:: ../_static/imgs/Openai/AI_Voice_Assistant_Based_on_OpenAI_Realtime_model/Chapter01_11.png
     :align: center
 
-If you would not like to download the installation package, you can open "Freenove_Media_Kit_for_ESP32-S3/CH343", we have prepared the installation package.
+If you would not like to download the installation package, you can open **"Freenove_Media_Kit_for_ESP32-S3/CH343"**, we have prepared the installation package.
 
 Second, open the folder **"Freenove_Media_Kit_for_ESP32-S3/CH343/MAC/"**
 

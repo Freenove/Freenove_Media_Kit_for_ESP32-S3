@@ -153,20 +153,20 @@ If it failed, locate your chosen ESP-IDF directory, remove the failed installati
 .. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_21.png
     :align: center
 
-:red:`This step may take a while, so please ensure you have a stable and fast internet connection.`
+:combo:`red font-bolder:This step may take a while, so please ensure you have a stable and fast internet connection.`
 
 If the installation continues to fail, check the relevant link for your operating system below:
 
-Window: https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/windows-setup.html 
+**Window**: https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/windows-setup.html 
 
-Mac & Linux: https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/linux-macos-setup.html 
+**Mac & Linux**: https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/linux-macos-setup.html 
 
 The complete installation is as shown below.
 
 .. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_22.png
     :align: center
 
-For more about ESP-IDF, please refer to
+For more about ESP-IDF, please refer to:
 
 https://docs.espressif.com/projects/vscode-esp-idf-extension/en/latest/installation.html 
 
@@ -258,12 +258,12 @@ Connect the ESP32S3 WROOM board to your computer with the USB cable (do not use 
 .. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_34.png
     :align: center
 
-Click on 'COMx' in the bottom-left corner to display all available COM ports on your computer. Locate and select the entry labeled 'ESP32-S3'.
+Click on '**COMx**' in the bottom-left corner to display all available COM ports on your computer. Locate and select the entry labeled 'ESP32-S3'.
 
 .. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_35.png
     :align: center
 
-Click the 'ESP32' button in the bottom-left corner to display all available ESP32 models, then select 'ESP32S3' from the list."
+Click the '**ESP32**' button in the bottom-left corner to display all available ESP32 models, then select '**ESP32S3**' from the list."
 
 .. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_36.png
     :align: center
@@ -297,11 +297,6 @@ If it continues to fail, it indicates that the ESP-IDF is not successfully insta
 
 Registering Open API Keys
 ====================================
-
-Click "**privateConfig.json**". On the right side, enter your router name, password, and OpenAI API key. If you don't have an OpenAI API key, you'll need to `register and purchase one <https://platform.openai.com/>`_. Currently, OpenAI does not offer free services.
-
-.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_42.png
-    :align: center
 
 If you don't have an OpenAI API key yet, please visit https://platform.openai.com/docs/overview to sign up and purchase one.
 
@@ -345,7 +340,7 @@ Name it whatever you like, and then click "Generate API Key".
 .. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_50.png
     :align: center
 
-:red:`Click Copy and paste your "My test key" somewhere to save it.` If you click "Continue", you will no longer be able to view the key again!
+:combo:`red font-bolder:Click Copy and paste your "My test key" somewhere to save it.` If you click "Continue", you will no longer be able to view the key again!
 
 We recommend creating a separate document to store your key securely and prevent loss.
 
@@ -374,11 +369,6 @@ Click "Billing" to check your available balance, or click "Add Payment Details" 
 
 Now you have your own working OpenAI API keys. Feel free to explore more features on the website.
 
-Next, let's return to the code. Enter your router name, password, and OpenAI API key in their respective fields, then save the file.
-
-.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_56.png
-    :align: center
-
 Code Compilation and Uploading
 ===========================================
 
@@ -401,7 +391,7 @@ If you encounter the following error during compilation, it's typically caused b
 .. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_59.png
     :align: center
 
-When the code compilation is complete and you upload it for the first time, you will see the prompt below. Please select "UART".
+When the code compilation is complete and you upload it for the first time, you will see the prompt below. Please select "**UART**".
 
 .. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_60.png
     :align: center

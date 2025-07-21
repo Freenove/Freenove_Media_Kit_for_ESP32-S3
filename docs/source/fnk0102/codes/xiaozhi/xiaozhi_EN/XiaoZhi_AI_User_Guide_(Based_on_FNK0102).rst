@@ -425,7 +425,7 @@ Type "CMD" in the file address bar and press Enter.
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_42.png
     :align: center
 
-Type "python --version" to check if Python is installed. If no Python version information is displayed, it means Python is not properly installed—please reinstall it.
+Type "**python --version**" to check if Python is installed. If no Python version information is displayed, it means Python is not properly installed—please reinstall it.
 
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_43.png
     :align: center
