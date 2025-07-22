@@ -14,6 +14,7 @@ The ESP32-S3-WROOM-1 offers two antenna options: the PCB on-board antenna and th
 .. list-table::
    :header-rows: 1
    :align: center
+   :class: table-line
 
    * - PCB on-board antenna
      - IPEX antenna
@@ -29,6 +30,7 @@ The ESP32-S3 WROOM of this product is based on the ESP32-S3-WROOM-1 module with 
 .. list-table::
    :header-rows: 1
    :align: center
+   :class: table-line
 
    * - ESP32-S3 WROOM
    * - |Preface02|
@@ -45,6 +47,7 @@ Compare the left and right images. We've boxed off the resources on the ESP32-S3
 .. list-table::
    :header-rows: 1
    :align: center
+   :class: table-line
 
    * - Box color 
      - Corresponding resources introduction
@@ -124,26 +127,26 @@ Commercially available batteries may have two different wiring polarities (posit
 .. image:: ../_static/imgs/Main/Preface/Preface14.png
     :align: center
 
-We recommend using the dedicated charger designed for your lithium battery.
+**We recommend using the dedicated charger designed for your lithium battery.**
 
-Since lithium batteries vary in specifications and quality, using the correct charger helps ensure optimal performance, safety, and longevity.
+**Since lithium batteries vary in specifications and quality, using the correct charger helps ensure optimal performance, safety, and longevity.**
 
-While our product also supports USB charging as a backup option, please note that this method does not support fast charging and provides only a slow, standard charge.
+**While our product also supports USB charging as a backup option, please note that this method does not support fast charging and provides only a slow, standard charge.**
 
 .. image:: ../_static/imgs/Main/Preface/Preface15.png
     :align: center
 
-Charging & Power Indicators:
+**Charging & Power Indicators:**
 
-When using the USB port on the board to charge the battery:
+**When using the USB port on the board to charge the battery:**
 
-While charging, the blue LED will blink.
+**While charging, the blue LED will blink.**
 
-When charging is complete, the blue LED will stay lit.
+**When charging is complete, the blue LED will stay lit.**
 
-If no battery is connected, the blue LED will keep blinking.
+**If no battery is connected, the blue LED will keep blinking.**
 
-When the device is not connected to USB, it runs on battery power, and the green LED remains steadily lit.
+**When the device is not connected to USB, it runs on battery power, and the green LED remains steadily lit.**
 
 Speaker and Headphone Connector
 ==========================================
@@ -157,7 +160,6 @@ The following table shows the specifications of the speaker.
 
 .. table::
     :class: freenove-ow
-    :align: center
 
     +----------------------+----------------------------------------+---------------+
     | Specifications       | Description                            | Typical value |
@@ -183,7 +185,7 @@ The following table shows the specifications of the speaker.
     | Dimensions           | The length and width of the speaker.   | 18mm * 18mm   |
     +----------------------+----------------------------------------+---------------+
 
-1.	Resistor R15 is not soldered by default (as shown in the figure below).
+1.	**Resistor R15 is not soldered by default** (as shown in the figure below).
     
     - When R15 is not soldered: Inserting a headphone plug disconnects the speaker.
     
@@ -192,7 +194,7 @@ The following table shows the specifications of the speaker.
 .. image:: ../_static/imgs/Main/Preface/Preface17.png
     :align: center
 
-2.	Resistor R1 is soldered by default, while R3 is not soldered by default.
+2.	Resistor R1 is soldered by default, **while R3 is not soldered by default.**
     
     - When only R1 is soldered: The right channel is active.
     
@@ -220,41 +222,42 @@ TRRS Jacks (3-ring) come in two common standards: OMTP and CTIA, differing in th
 
 .. table::
     :align: center
+    :class: table-line
 
-    +------------------+-------------+--------+---------------+
-    | |Preface20|                    | Tip    | Left channel  |
-    +                                +--------+---------------+
-    |                                | Ring   | Right channel |
-    +                                +--------+---------------+
-    |                                | Sleeve | GND           |
-    +------------------+-------------+--------+---------------+
-    | :xx-large:`OMTP` | |Preface21| | Tip    | Left channel  |
-    +                  +             +--------+---------------+
-    |                  |             | Ring1  | Right channel |
-    +                  +             +--------+---------------+
-    |                  |             | Ring2  | Microphone    |
-    +                  +             +--------+---------------+
-    |                  |             | Sleeve | GND           |
-    +------------------+-------------+--------+---------------+
-    | :xx-large:`CTIA` | |Preface21| | Tip    | Left channel  |
-    +                  +             +--------+---------------+
-    |                  |             | Ring1  | Right channel |
-    +                  +             +--------+---------------+
-    |                  |             | Ring2  | GND           |
-    +                  +             +--------+---------------+
-    |                  |             | Sleeve | Microphone    |
-    +------------------+-------------+--------+---------------+
+    +------------------+-------------+------------+-------------------+
+    | |Preface20|                    | **Tip**    | **Left channel**  |
+    +                                +------------+-------------------+
+    |                                | **Ring**   | **Right channel** |
+    +                                +------------+-------------------+
+    |                                | **Sleeve** | **GND**           |
+    +------------------+-------------+------------+-------------------+
+    | :xx-large:`OMTP` | |Preface21| | **Tip**    | **Left channel**  |
+    +                  +             +------------+-------------------+
+    |                  |             | **Ring1**  | **Right channel** |
+    +                  +             +------------+-------------------+
+    |                  |             | **Ring2**  | **Microphone**    |
+    +                  +             +------------+-------------------+
+    |                  |             | **Sleeve** | **GND**           |
+    +------------------+-------------+------------+-------------------+
+    | :xx-large:`CTIA` | |Preface21| | **Tip**    | **Left channel**  |
+    +                  +             +------------+-------------------+
+    |                  |             | **Ring1**  | **Right channel** |
+    +                  +             +------------+-------------------+
+    |                  |             | **Ring2**  | **GND**           |
+    +                  +             +------------+-------------------+
+    |                  |             | **Sleeve** | **Microphone**    |
+    +------------------+-------------+------------+-------------------+
 
 .. |Preface20| image:: ../_static/imgs/Main/Preface/Preface20.png
 .. |Preface21| image:: ../_static/imgs/Main/Preface/Preface21.png
 
-:red:`Important Notes:`
+:combo:`red font-bolder:Important Notes:`
 
-:red:`1. If you connect headphones to the 3.5mm female socket, set the volume to 5 or lower (max volume = 21) in your code. Excessive volume may damage your headphones. The Freenove Media Kit for ESP32-S3 is fully compatible with CTIA-standard (modern) headphones, but only partially supports OMTP-standard (older) headphones. Please verify compatibility before use.`
+:combo:`red font-bolder:1. If you connect headphones to the 3.5mm female socket, set the volume to 5 or lower (max volume = 21) in your code. Excessive volume may damage your headphones. The Freenove Media Kit for ESP32-S3 is fully compatible with CTIA-standard (modern) headphones, but only partially supports OMTP-standard (older) headphones. Please verify compatibility before use.`
 
-:red:`2. If you connect a speaker to the 3.5mm socket, refer to the wiring diagram below for proper connection.`
+:combo:`red font-bolder:2. If you connect a speaker to the 3.5mm socket, refer to the wiring diagram below for proper connection.`
 
-- :red:`Maximum Supported Speaker Power: The built-in audio output supports up to 2.5W speakers. For higher-power speakers, an external amplifier is required.`
+- :combo:`red font-bolder:Maximum Supported Speaker Power: The built-in audio output supports up to 2.5W speakers. For higher-power speakers, an external amplifier is required.`
 
 .. image:: ../_static/imgs/Main/Preface/Preface22.png
     :align: center
@@ -266,10 +269,11 @@ Freenove Media Kit for ESP32-S3 comes with a 1GB SD card and a SD card reader (s
 
 The SD card uses SDMMC communication protocol, providing faster speeds and better performance compared to SPI proocol.
 
-:red:`Please note that the included card reader cannot be used as a USB flash driver. It is specifically designed for SD card access only.`
+:combo:`red font-bolder:Please note that the included card reader cannot be used as a USB flash driver. It is specifically designed for SD card access only.`
 
 .. table::
     :align: center
+    :class: table-line
 
     +-------------+-------------------------------+
     | SD card x1  | Card reader x1 (random color) |
@@ -373,6 +377,7 @@ For further details on MEMS microphone technology, refer to Chapter 10
 .. list-table::
     :header-rows: 1
     :align: center
+    :class: table-line
 
     * - Top
       - Bottom
@@ -477,6 +482,7 @@ The functions of the pins are allocated as follows:
 
 .. table::
     :align: center
+    :class: table-line
 
     +----------------+-----------------+-------------------------+
     | ESP32-S3 N16R8 |    Funtions     |       Description       |
@@ -640,12 +646,12 @@ If you would not like to download the installation package, you can open "Freeno
 .. image:: ../_static/imgs/Main/Preface/Preface37.png
     :align: center
 
-2. Open the folder "Freenove_Media_Kit_for_ESP32-S3/CH343/Windows/"
+2. Open the folder **"Freenove_Media_Kit_for_ESP32-S3/CH343/Windows/"**
 
 .. image:: ../_static/imgs/Main/Preface/Preface38.png
     :align: center
 
-3. Double click "CH343SER.EXE".
+3. Double click **"CH343SER.EXE"**.
 
 .. image:: ../_static/imgs/Main/Preface/Preface39.png
     :align: center
@@ -675,9 +681,9 @@ First, download CH343 driver. Click http://www.wch-ic.com/search?t=all&q=ch343 t
 .. image:: ../_static/imgs/Main/Preface/Preface43.png
     :align: center
 
-If you would not like to download the installation package, you can open "Freenove_Media_Kit_for_ESP32-S3/CH343". We have prepared the installation package.
+If you would not like to download the installation package, you can open **"Freenove_Media_Kit_for_ESP32-S3/CH343"**. We have prepared the installation package.
 
-Second, open the folder "Freenove_Media_Kit_for_ESP32-S3/CH343/MAC/"
+Second, open the folder **"Freenove_Media_Kit_for_ESP32-S3/CH343/MAC/"**
 
 .. image:: ../_static/imgs/Main/Preface/Preface44.png
     :align: center
@@ -935,6 +941,7 @@ Programs written with Arduino Software (IDE) are called sketches. These sketches
 
 .. list-table::
     :align: center
+    :class: table-line
     
     * - |Preface77|
       - Verify 
@@ -999,13 +1006,15 @@ Third, fill in https://raw.githubusercontent.com/espressif/arduino-esp32/gh-page
 .. image:: ../_static/imgs/Main/Preface/Preface85.png
     :align: center
 
-Note: if you copy and paste the URL directly, you may lose the "-". Please check carefully to make sure the link is correct.
+.. note::
+    
+    if you copy and paste the URL directly, you may lose the "-". Please check carefully to make sure the link is correct.
 
 Fourth, click "Boards Manager". Enter "esp32" in Boards manager, select 3.2.0, and  click "INSTALL".
 
 .. note::
     
-    :red:`Currently only version 3.0.7 is supported. Higer versions may lead to code running failure.`
+    :combo:`red font-bolder:Currently only version 3.0.7 is supported. Higer versions may lead to code running failure.`
 
 .. image:: ../_static/imgs/Main/Preface/Preface86.png
     :align: center
@@ -1030,7 +1039,7 @@ Before starting the learning process, it is necessary to install some libraries 
 .. image:: ../_static/imgs/Main/Preface/Preface89.png
     :align: center
 
-2. Select Sketch->Include Library->Add .ZIP library….
+2. Select Sketch -> Include Library -> Add .ZIP library….
 
 .. image:: ../_static/imgs/Main/Preface/Preface90.png
     :align: center
@@ -1044,7 +1053,7 @@ Before starting the learning process, it is necessary to install some libraries 
 
 .. note::
 
-    :red:`Some libraries are not the latest version. Please do not update them even if it prompts every time you open the IDE. Just click LATER. Otherwise, it may lead to compilation failure.`
+    :combo:`red font-bolder:Some libraries are not the latest version. Please do not update them even if it prompts every time you open the IDE. Just click LATER. Otherwise, it may lead to compilation failure.`
 
 .. image:: ../_static/imgs/Main/Preface/Preface92.png
     :align: center

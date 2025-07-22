@@ -28,18 +28,18 @@ The following analog signal will be divided accordingly.
 
 The conversion formula is as follows:
 
-.. :math::
-    
-    ADC Value=(Analog Voltage)/3.3*1023
+.. math::
+
+    \boldsymbol{\text{ADC Value} = \frac{\text{Analog Voltage}}{3.3} \times 1023}
 
 Kirchhoff's Laws
 -----------------------------
 
-Kirchhoff's Laws are the two fundamental principles of circuit analysis, formulated by German physicist Gustav Kirchhoff in 1845. Consisting of Kirchhoff’s Current Law (KCL) and Voltage Law (KVL), they are applicable to all lumped-parameter circuits — regardless of whether they are linear or nonlinear, time-varying or time-invariant. These laws represent one of the key manifestations of the conservation of energy in electrical circuits.
+Kirchhoff's Laws are the two fundamental principles of circuit analysis, formulated by German physicist Gustav Kirchhoff in 1845. Consisting of Kirchhoff's Current Law (KCL) and Voltage Law (KVL), they are applicable to all lumped-parameter circuits — regardless of whether they are linear or nonlinear, time-varying or time-invariant. These laws represent one of the key manifestations of the conservation of energy in electrical circuits.
 
 Kirchhoff's Current Law (KCL) states:
 
-At any given node in a lumped-parameter circuit, the algebraic sum of all currents entering (or leaving) the node at any instant is always zero.
+**At any given node in a lumped-parameter circuit, the algebraic sum of all currents entering (or leaving) the node at any instant is always zero.**
 
 Mathematically, this is expressed as:
 
@@ -49,7 +49,7 @@ Mathematically, this is expressed as:
 
 Kirchhoff's Voltage Law (KVL) states:
 
-In any closed loop of a circuit, the algebraic sum of all voltage drops is always equal to zero.
+**In any closed loop of a circuit, the algebraic sum of all voltage drops is always equal to zero.**
 
 Mathematically, this is expressed as:
 
@@ -72,11 +72,11 @@ Mathematically, it is expressed as:
 
 Where:
 
-- U represents Voltage(Unit: Volt,V)
+    - U represents Voltage(Unit: Volt,V)
 
-- I refer to current(Unit: Ampere, A)
+    - I refer to current(Unit: Ampere, A)
 
-- R denotes resistance(Unit: Ohm, Ω)
+    - R denotes resistance(Unit: Ohm, Ω)
 
 Based on the above, the following relationships can be derived from the formula:
 
@@ -90,7 +90,7 @@ Based on the above, the following relationships can be derived from the formula:
 Battery Voltage Detection
 -------------------------------------
 
-The maximum input voltage for the GPIO pins of the Freenove Media Kit for ESP32-S3 is 3.3V. Exceeding this limit may cause permanent damage to the device. Since the full charge voltage of a 3.7V lithium battery can theoretically reach 4.2V, it is strictly prohibited to directly connect the lithium battery to the GPIO pins of the Freenove Media Kit for ESP32-S3. The input voltage must be regulated within the safe range through circuit design (as shown in the figure below).
+The maximum **input voltage** for the GPIO pins of the Freenove Media Kit for ESP32-S3 is 3.3V. Exceeding this limit may cause permanent damage to the device. Since the full charge voltage of a 3.7V lithium battery can theoretically reach **4.2V**, it is strictly prohibited to directly connect the lithium battery to the GPIO pins of the Freenove Media Kit for ESP32-S3. The input voltage must be regulated within the safe range through circuit design (as shown in the figure below).
 
 .. image:: ../_static/imgs/Main/2_Battery_Voltage_Detection/Chapter02_01.png
     :align: center

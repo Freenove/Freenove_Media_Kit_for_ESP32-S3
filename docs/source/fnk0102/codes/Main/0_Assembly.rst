@@ -6,6 +6,7 @@ If the product you received is pre-assembled, you can skip this chapter.
 
 .. table:: 
     :align: center
+    :class: table-line
 
     +----------------+----------------+
     | |Chapter00_00| | |Chapter00_01| |
@@ -18,6 +19,7 @@ If you need to assemble it, please follow the following instructions step by ste
 
 .. table:: 
     :align: center
+    :class: table-line
 
     +------------------------------------------------------------------------------------------------------------+
     | First, connect the camera to the board.                                                                    |
@@ -89,6 +91,7 @@ To depart the housing, please do as following:
 
 .. table:: 
     :align: center
+    :class: table-line
  
     +----------------------------------------------------------------------------------------------------+
     | :red:`Caution: The housing is fragile. Avoid using excessive force during disassembly`             |

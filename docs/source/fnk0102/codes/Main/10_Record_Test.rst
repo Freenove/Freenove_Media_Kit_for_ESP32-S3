@@ -12,6 +12,7 @@ Component List
 
 .. list-table::
     :align: center
+    :class: table-line
 
     * - Freenove Media Kit for ESP32-S3 x1
       - USB cable x1
@@ -165,6 +166,7 @@ Component List
 
 .. list-table::
     :align: center
+    :class: table-line
 
     * - Freenove Media Kit for ESP32-S3 x1
       - USB cable x1
@@ -236,16 +238,16 @@ Record an audio for five seconds.
     :lines: 87-102
     :dedent:
 
-After uploading the code, press and hold the button to start recording; release the button to automatically stop. Once recording is complete, the system will automatically play back the recorded audio, and the file will be saved in the 'recorder' folder
+After uploading the code, press and hold the button to start recording; release the button to automatically stop. Once recording is complete, the system will automatically play back the recorded audio, and the file will be saved in the '**recorder**' folder
 
 .. note::
     
-    :red:`For optimal recording quality, please stay as close to the microphone as possible during recording (the microphone location is shown in the figure below).`
-
-**If you have any concerns, please feel free to contact us via** support@freenove.com
+    :combo:`red font-bolder:For optimal recording quality, please stay as close to the microphone as possible during recording (the microphone location is shown in the figure below).`
 
 .. image:: ../_static/imgs/Main/10_Record_Test/Chapter10_04.png
     :align: center
+
+**If you have any concerns, please feel free to contact us via** support@freenove.com
 
 Project 10.3 Record and Play
 ***************************************
@@ -255,6 +257,7 @@ Component List
 
 .. list-table::
     :align: center
+    :class: table-line
 
     * - Freenove Media Kit for ESP32-S3 x1
       - USB cable x1
@@ -304,9 +307,9 @@ After uploading the code, pressing different directions of the 5-way navigation 
 
 .. note::
 
-    :red:`1. In the initial state, playback and stop functions (Directions 2 & 3) are disabled. They become active only after a recording is initiated via Button 1.`
+    :combo:`red font-bolder:1. In the initial state, playback and stop functions (Directions 2 & 3) are disabled. They become active only after a recording is initiated via Button 1.`
 
-    :red:`2. For optimal recording quality, please stay as close to the microphone as possible during recording (the microphone location is shown in the figure below).`
+    :combo:`red font-bolder:2. For optimal recording quality, please stay as close to the microphone as possible during recording (the microphone location is shown in the figure below).`
 
 .. image:: ../_static/imgs/Main/10_Record_Test/Chapter10_06.png
     :align: center

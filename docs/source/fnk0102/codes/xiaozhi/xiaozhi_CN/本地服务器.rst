@@ -20,7 +20,7 @@ Window
 
 在开始之前，我们需要在本地先安装Ollama工具，它可以在我们的电脑上安装任意开源模型。
 
-如果您还没有安装Ollama，请访问https://ollama.com/download 进行下载和安装。
+如果您还没有安装Ollama，请访问 https://ollama.com/download 进行下载和安装。
 
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_00.png
     :align: center
@@ -67,7 +67,7 @@ MAC
 
 在开始之前，我们需要在本地先安装Ollama工具，它可以在我们的电脑上安装任意开源模型。
 
-如果您还没有安装Ollama，请访问https://ollama.com/download 进行下载和安装。
+如果您还没有安装Ollama，请访问 https://ollama.com/download 进行下载和安装。
 
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_08.png
     :align: center
@@ -100,7 +100,7 @@ Linux
 
 在开始之前，我们需要在本地先安装Ollama工具，它可以在我们的电脑上安装任意开源模型。
 
-如果您还没有安装Ollama，请访问https://ollama.com/download 进行下载和安装。
+如果您还没有安装Ollama，请访问 https://ollama.com/download 进行下载和安装。
 
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_12.png
     :align: center
@@ -120,7 +120,7 @@ Linux
 LLM模型
 -----------------------------------
 
-请访问https://ollama.com/search，选择适合您电脑的，或者您喜欢的LLM模型。
+请访问 https://ollama.com/search，选择适合您电脑的，或者您喜欢的LLM模型。
 
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_15.png
     :align: center
@@ -143,7 +143,7 @@ LLM模型
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_17.png
     :align: center
 
-模型越小，越不智能，但是运行速度越快，这里只是作为演示，我们选择qwen2.5:0.5b来作为示范。复制网页中的指令：“ollama run qwen2.5:0.5b”
+模型越小，越不智能，但是运行速度越快，这里只是作为演示，我们选择qwen2.5:0.5b来作为示范。复制网页中的指令： **“ollama run qwen2.5:0.5b”**
 
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_18.png
     :align: center
@@ -153,7 +153,7 @@ LLM模型
 Window
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-您可以使用指令“Win+R”，在弹出的窗口中输入“CMD”，打开CMD界面。
+您可以使用指令 **“Win+R”**，在弹出的窗口中输入“CMD”，打开CMD界面。
 
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_19.png
     :align: center
@@ -163,7 +163,7 @@ Window
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_20.png
     :align: center
 
-输入“ollama run qwen2.5:0.5b”，将模型下载到本地中。
+输入 **“ollama run qwen2.5:0.5b”** ，将模型下载到本地中。
 
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_21.png
     :align: center
@@ -171,7 +171,7 @@ Window
 MAC
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-打开终端，输入指令“ollama --version”，查看是否已经安装了ollama。
+打开终端，输入指令 **“ollama --version”** ，查看是否已经安装了ollama。
 
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_25.png
     :align: center
@@ -186,7 +186,7 @@ MAC
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_27.png
     :align: center
 
-输入“ollama run qwen2.5:0.5b”，将模型下载到本地中。
+输入 **“ollama run qwen2.5:0.5b”** ，将模型下载到本地中。
 
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_28.png
     :align: center
@@ -198,7 +198,7 @@ MAC
 
 您可以使用指令“Ctrl+d”，退出聊天模式。
 
-您可以通过指令“ollama serve”来运行ollama服务器。
+您可以通过指令 **“ollama serve”** 来运行ollama服务器。
 
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_30.png
     :align: center
@@ -213,12 +213,12 @@ MAC
 Linux
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-打开终端，输入指令“ollama --version”，查看是否已经安装了ollama。
+打开终端，输入指令 **“ollama --version”** ，查看是否已经安装了ollama。
 
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_32.png
     :align: center
 
-输入“ollama run qwen2.5:0.5b”，将模型下载到本地中。
+输入 **“ollama run qwen2.5:0.5b”** ，将模型下载到本地中。
 
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_33.png
     :align: center
@@ -245,7 +245,7 @@ Window
 
 本示例使用conda管理依赖环境。因此我们需要事先在电脑上安装Conda环境。如果您的电脑还没安装Conda，您可以访问这个链接下载并安装它：https://www.anaconda.com/download/success  
 
-选择适合您电脑平台的软件包下载。Miniconda is an installer by Anaconda that comes preconfigured for use with the Anaconda Repository.
+选择适合您电脑平台的软件包下载。Miniconda 是 Anaconda 提供的一个轻量级安装程序，已预先配置好，可直接用于 Anaconda 软件仓库。
 
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_36.png
     :align: center
@@ -410,10 +410,15 @@ Linux
     
     sh Anaconda3-2024.10-1-Linux-x86_64.sh
 
-.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_61.png
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_104.png
     :align: center
 
 按住回车键不松开，直到出现下方的的提示信息。输入“Yes”。
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_61.png
+    :align: center
+
+选择您的安装位置。按下回车键，使用默认安装位置即可。
 
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_62.png
     :align: center
@@ -506,7 +511,7 @@ Linux
 部署虚拟环境
 ================================
 
-请注意，部署虚拟环境的指令，在Window，MAC，Ubuntu中是通用的，这里以Window举例，其他平台操作相同。
+**请注意，部署虚拟环境的指令，在Window，MAC，Ubuntu中是通用的，这里以Window举例，其他平台操作相同。**
 
 打开CMD界面，使用指令创建一个带有python3.10的虚拟环境，并命名为“xiaozhi-esp32-server”
 
@@ -541,7 +546,7 @@ Linux
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_75.png
     :align: center
 
-:red:`请注意，有时候使用开启虚拟环境会提示您需要使用“conda init”指令。请执行它，并重启终端。`
+:combo:`red font-bolder:请注意，有时候使用开启虚拟环境会提示您需要使用“conda init”指令。请执行它，并重启终端。`
 
 部署xiaozhi-esp32-server服务器
 ==========================================
@@ -657,7 +662,7 @@ Linux
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_87.png
     :align: center
 
-在CMD界面中输入“mkdir data && copy config.yaml data\.config.yaml”，它将在xiaozhi-server中创建一个文件夹并命名为“data”，并将当前目录下的“config.yaml”复制到“data”文件夹下，然后命名为“.config.yaml”。
+在CMD界面中输入 **“mkdir data && copy config.yaml data\\.config.yaml”** ，它将在xiaozhi-server中创建一个文件夹并命名为“data”，并将当前目录下的“config.yaml”复制到“data”文件夹下，然后命名为“.config.yaml”。
 
 如果您是window用户，请执行这个指令。
 
@@ -677,7 +682,7 @@ Linux
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_89.png
     :align: center
 
-打开并修改.config.yaml文件。
+打开并修改 **.config.yaml** 文件。
 
 如果您是window用户，请执行这个指令。
 
@@ -693,16 +698,23 @@ Linux
 
 .. note:: 
     
-    :red:`如果您的Vscode没有正确安装，使用指令可能会报错。您同样可以手动使用Vscode打开这个文件。`
+    :combo:`red font-bolder:如果您的Vscode没有正确安装，使用指令可能会报错。您同样可以手动使用Vscode打开这个文件。`
 
-找到“selected_module:”，将其中的“LLM: ChatGLMLLM”修改为“LLM: OllamaLLM”
+找到 **“selected_module:”** ，将其中的“ **LLM: ChatGLMLLM** ”修改为“ **LLM: OllamaLLM** ”
 
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_90.png
     :align: center
 
-找到”LLM:”中的“OllamaLLM:”，将其中的“model_name: qwen2.5”修改为“model_name: qwen2.5:0.5b”. 
+找到” **LLM:** ”中的“ **OllamaLLM:** ”，将其中的“ **model_name: qwen2.5** ”修改为“ **model_name: qwen2.5:0.5b** ”. 
 
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_91.png
+    :align: center
+
+:combo:`red font-bolder:请注意：为确保您能够顺利使用小智AI的视觉识别功能，请按照以下步骤配置视觉识别大模型（VLLM）；若您当前无需使用该功能，则可直接跳过此步骤继续后续操作。`
+
+继续修改config.yaml文件，先按照提示步骤注册对应的api key，再将生成的api key填入到代码中
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_105.png
     :align: center
 
 保存文件并退出。

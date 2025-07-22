@@ -208,14 +208,14 @@ Open the terminal and download the code with the git command.
 Configure Code Environment
 ===================================
 
-Extract the downloaded ZIP file.
+**Extract the downloaded ZIP file.**
 
 On Visual Studio Code, click "File" -> "Open Folder...".
 
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_Code/Chapter02_28.png
     :align: center
 
-Select the Unzipped folder. Here, the interface of the Windows system is taken as an example. The operation of the mac system is similar to that of Linux.
+Select the  **xiaozhi-esp32** folder. Here, the interface of the Windows system is taken as an example. The operation of the mac system is similar to that of Linux.
 
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_Code/Chapter02_29.png
     :align: center

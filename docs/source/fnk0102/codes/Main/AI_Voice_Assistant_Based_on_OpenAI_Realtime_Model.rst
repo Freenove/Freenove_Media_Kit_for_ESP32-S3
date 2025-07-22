@@ -2,7 +2,6 @@
 AI Voice Assistant Based on OpenAI Realtime Model
 ##############################################################################
 
-
 This project applies the Media Kit to develop an AI voice assistant for conversations with OpenAI. It requires basic programming skills and some familiarity with OpenAI.
 
 About the Project
@@ -46,17 +45,18 @@ OpenAI not only provides powerful AI models but also offers API services that en
 
 However, it's important to note that:
 
-- 1.	OpenAI currently does not offer free services
+- 1. **OpenAI currently does not offer free services**
 
-- 2.	The Realtime API currently only supports: 
+- 2. The Realtime API currently only supports: 
 
-GPT-4o and GPT-4o mini models
+     GPT-4o and GPT-4o mini models
+ 
+     The latest transcription models: GPT-4o Transcribe and GPT-4o mini Transcribe
 
-The latest transcription models: GPT-4o Transcribe and GPT-4o mini Transcribe
-
-For more information about Realtime API, please refer to Realtime API - OpenAI API
+For more information about Realtime API, please refer to `Realtime API - OpenAI API <https://platform.openai.com/docs/guides/realtime>`_
 
 OpenAI-Realtime-Embedded Disclaimer
+*****************************************
 
 This implementation is an adaptation of the open-source project available at 
 

@@ -13,6 +13,7 @@ Component List
 .. list-table::
     :header-rows: 1
     :align: center
+    :class: table-line
 
     * - Freenove Media Kit for ESP32-S3 x1
       - USB cable x1
@@ -44,21 +45,21 @@ Open Arduino IDE, click Sketch -> Include Library -> Add .ZIP Library. In the po
 .. image:: ../_static/imgs/Main/8_TFT_Clock/Chapter08_00.png
     :align: center
 
-Select TFT_eSPI.Zip and click Open.
+Select **TFT_eSPI.Zip** and click Open.
 
 .. image:: ../_static/imgs/Main/8_TFT_Clock/Chapter08_01.png
     :align: center
 
-Install the TFT_eSPI_Setups library with the same approach. Select TFT_eSPI_Setups.zip that locates in this directory, and click OPEN.
+Install the **TFT_eSPI_Setups** library with the same approach. Select TFT_eSPI_Setups.zip that locates in this directory, and click OPEN.
 
 .. note::
     
-    :red:`TFT_eSPI_Setups.Zip and TFT_eSPI.Zip are different and both are needed.`
+    :combo:`red font-bolder:TFT_eSPI_Setups.Zip and TFT_eSPI.Zip are different and both are needed.`
 
 .. image:: ../_static/imgs/Main/8_TFT_Clock/Chapter08_02.png
     :align: center
 
-Select TFT_eSPI_Setups.Zip and click Open.
+Select **TFT_eSPI_Setups.Zip** and click Open.
 
 .. image:: ../_static/imgs/Main/8_TFT_Clock/Chapter08_03.png
     :align: center
@@ -70,12 +71,12 @@ Open This PC, input **%USERPROFILE%\\Documents\\Arduino\\libraries\\TFT_eSPI** a
 .. image:: ../_static/imgs/Main/8_TFT_Clock/Chapter08_04.png
     :align: center
 
-Right click User_Setup_Select.h, click Edit.
+Right click User_Setup_Select.h, click **Edit**.
 
 .. image:: ../_static/imgs/Main/8_TFT_Clock/Chapter08_05.png
     :align: center
 
-Add the following contents to Line 28 of the file.
+Add the following contents to **Line 28** of the file.
 
 .. code-block:: c
     :linenos:
@@ -89,12 +90,12 @@ Save the change and exit the file.
 
 .. warning::
     
-    If the following updating message shows up, click LATER. Updating the TFT_eSPI library will reset all related configurations. If you click INSTALL, follow the aforementioned steps to re-add the header file to ensure proper project operation.
+    :combo:`red font-bolder:If the following updating message shows up, click LATER. Updating the TFT_eSPI library will reset all related configurations. If you click INSTALL, follow the aforementioned steps to re-add the header file to ensure proper project operation.`
 
 .. image:: ../_static/imgs/Main/8_TFT_Clock/Chapter08_07.png
     :align: center
 
-Sketch_09_TFT_Clock
+Sketch_08_TFT_Clock
 --------------------------------
 
 The following is the program code:

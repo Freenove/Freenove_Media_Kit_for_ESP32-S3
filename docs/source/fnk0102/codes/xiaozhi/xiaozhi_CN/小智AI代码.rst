@@ -1,3 +1,5 @@
+.. _xiaozhi_code:
+
 ##############################################################################
 小智AI代码
 ##############################################################################
@@ -141,9 +143,9 @@ Mac系统：点击屏幕左上方的“Code” -> ”Preferences” -> ”Extens
 
 如果您始终无法正常安装，根据您的电脑系统，查看对应的链接：
 
-Window: https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/windows-setup.html 
+**Window:** https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/windows-setup.html 
 
-Mac & Linux: https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/linux-macos-setup.html 
+**Mac & Linux:** https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/linux-macos-setup.html 
 
 插件安装完成如下图所示。
 
@@ -170,7 +172,7 @@ Window
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_Code/Chapter02_24.png
     :align: center
 
-将下载的压缩文件解压到本地。请注意，将解压后的文件夹重命名为“xiaozhi-esp32”。
+将下载的压缩文件解压到本地。 **请注意，将解压后的文件夹重命名为“xiaozhi-esp32”** 。
 
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_Code/Chapter02_25.png
     :align: center

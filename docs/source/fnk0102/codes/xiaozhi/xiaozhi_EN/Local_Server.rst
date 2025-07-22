@@ -122,7 +122,7 @@ Open the Terminal and run the following command to install Ollama.
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_13.png
     :align: center
 
-The installation should appear as shown in the image above. You can verify Ollama's installation by running the command: ollama --version
+The installation should appear as shown in the image above. You can verify Ollama's installation by running the command: **ollama --version**
 
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_14.png
     :align: center
@@ -172,12 +172,12 @@ Use the shortcut "Win+R", enter "CMD" in the pop-up window, and open the CMD int
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_19.png
     :align: center
 
-Run the command "ollama --version" to see if ollama has been installed.
+Run the command **"ollama --version"** to see if ollama has been installed.
 
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_20.png
     :align: center
 
-Enter"ollama run qwen2.5:0.5b" to download the model to the local.machine.
+Enter **"ollama run qwen2.5:0.5b"** to download the model to the local.machine.
 
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_21.png
     :align: center
@@ -451,6 +451,9 @@ To install Anaconda, open a terminal and execute the following command:
     
     sh Anaconda3-2024.10-1-Linux-x86_64.sh
 
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_104.png
+    :align: center
+
 Keep pressing the Enter key and release it until you see the prompt as shown below. Type "Yes".
 
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_61.png
@@ -523,7 +526,9 @@ Please follow these steps to add Conda to your PATH:
 
 Edit the "**.bashrc**" file using nano:
 
- cd ~
+.. code-block:: console
+    
+    cd ~
     sudo nano ./.bashrc
 
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_69.png
@@ -531,7 +536,9 @@ Edit the "**.bashrc**" file using nano:
 
 Add the following contents to the end of the file.
 
-export PATH="$HOME/anaconda3/bin:$PATH"
+.. code-block:: console
+    
+    export PATH="$HOME/anaconda3/bin:$PATH"
 
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_70.png
     :align: center
@@ -586,9 +593,9 @@ You can also use the following two commands to activate or exit the virtual envi
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_75.png
     :align: center
 
-:red:`Important Note:`
+.. note::
 
-:red:`If you receive a prompt suggesting to run conda init when activating your environment, execute "conda init" and restart your terminal for changes to take effect`
+    :combo:`red font-bolder:If you receive a prompt suggesting to run conda init when activating your environment, execute "conda init" and restart your terminal for changes to take effect`
 
 Deploying xiaozhi-esp32-server
 ====================================
@@ -782,7 +789,7 @@ The testing steps are as follows.
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_93.png
     :align: center
 
-Click "连接".
+Click "Connect".
 
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_94.png
     :align: center

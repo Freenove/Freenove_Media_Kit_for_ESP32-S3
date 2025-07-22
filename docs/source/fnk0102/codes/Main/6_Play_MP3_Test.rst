@@ -11,6 +11,7 @@ In this project, we will read files in mp3 format from SD card, decode them thro
 
 .. list-table::
     :align: center
+    :class: table-line
 
     * - Freenove Media Kit for ESP32-S3 x1
       - USB cable x1
@@ -132,7 +133,9 @@ Continuously play music until the current track finishes. Upon receiving data th
 
 It is necessary to change the settings in Arduino IDE before clicking the Uploading button, as shown below.
 
-:red:`Caution: Incorrect settings will result in compilation error or uploading failure. To achieve desired result, please configure exactly the same as below.`
+.. caution::
+    
+    :combo:`red font-bolder:Incorrect settings will result in compilation error or uploading failure. To achieve desired result, please configure exactly the same as below.`
 
 .. image:: ../_static/imgs/Main/6_Play_MP3_Test/Chapter06_03.png
     :align: center
@@ -144,7 +147,7 @@ If you want to switch the music in the SD card, you can directly input the song 
 
 To adjust the volume, you can modify the parameter in the code, as shown below. 
 
-:red:`The range of the volume is between 0 to 21.`
+:combo:`red font-bolder:The range of the volume is between 0 to 21.`
 
 .. image:: ../_static/imgs/Main/6_Play_MP3_Test/Chapter06_05.png
     :align: center

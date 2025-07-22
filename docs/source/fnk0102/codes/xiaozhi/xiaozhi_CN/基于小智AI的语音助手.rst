@@ -46,7 +46,7 @@
 
   - 离线版本: 上述提到的各项子服务中, 均有收费服务或免费服务, 取决于您自己的选择。
 
-- 遇到问题, 如果您按照教程操作, 仍然无法使用, 请与我们联系(support.freenove.com)。由于在线服务由xiaozhi.me提供, 如果xiaozhi.me关闭了服务, 那么我们也将会关闭相关的文档、教程、代码。
+- 遇到问题, 如果您按照教程操作, 仍然无法使用, 请与我们联系(:red:`support.freenove.com`)。由于在线服务由xiaozhi.me提供, 如果xiaozhi.me关闭了服务, 那么我们也将会关闭相关的文档、教程、代码。
 
 小智AI使用声明
 *************************************
@@ -65,7 +65,7 @@ https://github.com/78/xiaozhi-esp32/issues
 
 在这个项目中，ESP32-S3使用websocket的方式，和小智AI服务器进行数据交互。
 
-.. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_83.png
+.. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_87.png
     :align: center
 
 ESP32 S3硬件说明
@@ -75,7 +75,7 @@ Freenove ESP32-S3 WROOM Board
 
 首先，我们使用Freenove ESP32-S3 Board作为主控板，它集成了16Mb的Flash和8Mb的Psram。
 
-.. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_00.png
+.. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_88.png
     :align: center
 
 更多关于Freenove ESP32-S3 Board的资料，请查看
@@ -87,7 +87,7 @@ https://github.com/Freenove/Freenove_Ultimate_Starter_Kit_for_ESP32_S3
 
 音频电路板集成了多个不同功能的硬件，比如1.14寸TFT显示屏，麦克风，电池充电电路，音频电路，耳机接口和集成喇叭等。如下图所示。
 
-.. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_01.png
+.. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_89.png
     :align: center
 
 安装CH343 (Importance)
@@ -132,7 +132,7 @@ Windows
     
     如果看到提示“驱动器已成功预安装”，则表明安装失败。
 
-请确保使用的是USB数据线，而不是普通充电线
+:combo:`red font-bolder:请确保使用的是USB数据线，而不是普通充电线`
 
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_08.png
     :align: center
@@ -156,7 +156,7 @@ MAC
 
 其次，打开 **“Freenove_Media_Kit_for_ESP32-S3/CH343/MAC/”** 目录。
 
-.. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_11.png
+.. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_90.png
     :align: center
 
 第三步，点击Continue。
@@ -179,7 +179,7 @@ MAC
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_15.png
     :align: center
 
-若按照上述步骤仍未成功安装CH340驱动，可查阅 readme.pdf 文件进行安装。
+若按照上述步骤仍未成功安装CH340驱动，可查阅 **readme.pdf** 文件进行安装。
 
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_16.png
     :align: center
@@ -206,6 +206,8 @@ Linux
     :align: center
 
 如果您的电脑没有CH343驱动，您可以按照接下来的步骤安装它。如果您的电脑能识别到CH343驱动，您可以跳过下面的步骤。
+
+使用指令下载CH343驱动。
 
 .. code-block:: console
     
@@ -332,7 +334,7 @@ MAC
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_34.png
     :align: center
 
-点击 "Install"。若电脑设有密码，请输入密码后继续安装。
+点击 **"Install"**。若电脑设有密码，请输入密码后继续安装。
 
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_35.png
     :align: center
@@ -410,7 +412,7 @@ Windows
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_42.png
     :align: center
 
-输入“python –version“，查看是否已经安装Python环境，如果没有打印Python的版本信息，说明Python没有正确安装环境，请重新安装。
+输入 **“python -version“** ，查看是否已经安装Python环境，如果没有打印Python的版本信息，说明Python没有正确安装环境，请重新安装。
 
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_43.png
     :align: center
@@ -420,7 +422,7 @@ Windows
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_44.png
     :align: center
 
-输入“python upload_xiaozhi_bin.py”，并按下回车。
+输入 **“python upload_xiaozhi_bin.py”** ，并按下回车。
 
 如果您的电脑没有安装esptool及其相关的软件库，它会自动安装这些库。
 
@@ -445,7 +447,7 @@ MAC
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_48.png
     :align: center
 
-输入“python –version“，查看是否已经安装Python环境，如果没有打印Python的版本信息，说明Python没有正确安装环境，请重新安装。
+输入 **“python -version“**，查看是否已经安装Python环境，如果没有打印Python的版本信息，说明Python没有正确安装环境，请重新安装。
 
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_49.png
     :align: center
@@ -455,7 +457,7 @@ MAC
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_50.png
     :align: center
 
-输入“python upload_xiaozhi_bin.py”，并按下回车。
+输入 **“python upload_xiaozhi_bin.py”**，并按下回车。
 
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_51.png
     :align: center
@@ -482,7 +484,7 @@ Linux
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_54.png
     :align: center
 
-输入“python –version“，查看是否已经安装Python环境，如果没有打印Python的版本信息，说明Python没有正确安装环境，请重新安装。
+输入 **“python -version“**，查看是否已经安装Python环境，如果没有打印Python的版本信息，说明Python没有正确安装环境，请重新安装。
 
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_55.png
     :align: center
@@ -491,6 +493,8 @@ Linux
 
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_56.png
     :align: center
+
+创建一个虚拟环境，并命名为“myvenv”。
 
 .. code-block:: console
     
@@ -513,6 +517,8 @@ Linux
 
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_59.png
     :align: center
+
+使用指令查看ESP32S3的端口号。
 
 .. code-block:: console
     
@@ -541,7 +547,7 @@ Linux
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_62.png
     :align: center
 
-在文本编辑器中，找到’“--port”, “COMx”’这一行，将“COMx”修改为ESP32S3在电脑上的端口号。
+在文本编辑器中，找到 **“--port”**, **“COMx”** 这一行，将“COMx”修改为ESP32S3在电脑上的端口号。
 
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_63.png
     :align: center
@@ -579,7 +585,7 @@ ESP32 S3 WROOM配网
 
 如果您的ESP32 S3 WROOM还没有集成小智AI固件，请跳转到 :ref:`小智AI固件 <upload_firmware>`。
 
-如果您想学习小智AI的代码，请跳转到小智AI代码, 请跳转到小智AI代码。
+如果您想学习小智AI的代码，请跳转到小智AI代码, 请跳转到:ref:`小智AI代码 <xiaozhi_code>`。
 
 如果您的ESP32 S3 WROOM已经集成了小智AI的固件，请使用您的手机，打开WiFi功能，您可以搜索到一个叫“Xiaozhi-XXXX”的路由器WiFi。请连接它，它是无密码的。
 

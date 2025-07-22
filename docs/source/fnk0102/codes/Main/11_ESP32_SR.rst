@@ -23,6 +23,7 @@ Component List
 .. list-table::
     :header-rows: 1
     :align: center
+    :class: table-line
 
     * - Freenove Media Kit for ESP32-S3 x1
       - USB cable x1
@@ -74,11 +75,11 @@ Or
 .. image:: ../_static/imgs/Main/11_ESP32_SR/Chapter11_02.png
     :align: center
 
-:red:`Important Notes:`
+:combo:`red font-bolder:Important Notes:`
 
-    :red:`1. Close the Arduino IDE Serial Monitor before running the upload_models.py script.`
+    :combo:`red font-bolder:1. Close the Arduino IDE Serial Monitor before running the upload_models.py script.`
 
-    :red:`2. If the prompt shown in the right-side diagram appears, please verify whether the serial port is already in use.`
+    :combo:`red font-bolder:2. If the prompt shown in the right-side diagram appears, please verify whether the serial port is already in use.`
 
 .. image:: ../_static/imgs/Main/11_ESP32_SR/Chapter11_03.png
     :align: center
@@ -91,12 +92,12 @@ The system supports fully customizable voice commands that can be generated loca
 Windows
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Enter the path Freenove_Media_Kit_for_ESP32-S3\\Sketches\\Sketch_10_ESP32_SR\\Get_Sr_Commands
+Enter the path **Freenove_Media_Kit_for_ESP32-S3\\Sketches\\Sketch_10_ESP32_SR\\Get_Sr_Commands**
 
 .. image:: ../_static/imgs/Main/11_ESP32_SR/Chapter11_04.png
     :align: center
 
-Type cmd in the input bar and press Enter to open the Terminal.
+Type **cmd** in the input bar and press Enter to open the Terminal.
 
 .. image:: ../_static/imgs/Main/11_ESP32_SR/Chapter11_05.png
     :align: center
@@ -121,17 +122,17 @@ Copy the generated commands to the code to use the voice commands.
 .. image:: ../_static/imgs/Main/11_ESP32_SR/Chapter11_07.png
     :align: center
 
-:red:`Important Notes:`
+:combo:`red font-bolder:Important Notes:`
 
-:red:`1. You can customize the voice commands you need based on your actual requirements.`
+:combo:`red font-bolder:1. You can customize the voice commands you need based on your actual requirements.`
     
 .. code-block:: console
 
     python gen_sr_commands.py "command sets"
 
-:red:`The contents inside the quotation marks can be multiple command. Each segment separated by a comma represents different expressions of the same command (i.e., equivalent voice commands). Different commands are separated by semicolons, representing distinct operational instructions.`
+:combo:`red font-bolder:The contents inside the quotation marks can be multiple command. Each segment separated by a comma represents different expressions of the same command (i.e., equivalent voice commands). Different commands are separated by semicolons, representing distinct operational instructions.`
 
-:red:`2. If you encounter a "command not found" error, please install the Python environment first.`
+:combo:`red font-bolder:2. If you encounter a "command not found" error, please install the Python environment first.`
 
 Mac
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -169,16 +170,15 @@ Copy the generated commands to the code to use voice commands.
 .. image:: ../_static/imgs/Main/11_ESP32_SR/Chapter11_12.png
     :align: center
 
-:red:`Important Notes:`
+:combo:`red font-bolder:Important Notes:`
 
-    :red:`You can customize the voice commands you need based on your actual requirements.`
+    :combo:`red font-bolder:You can customize the voice commands you need based on your actual requirements.`
 
+    .. code-block:: console
+        
+        python gen_sr_commands.py "command sets"
 
-.. code-block:: console
-    
-    python gen_sr_commands.py "command sets"
-
-The contents inside the quotation marks can be multiple command. Each segment separated by a comma represents different expressions of the same command (i.e., equivalent voice commands). Different commands are separated by semicolons, representing distinct operational instructions.
+    :combo:`red font-bolder:The contents inside the quotation marks can be multiple command. Each segment separated by a comma represents different expressions of the same command (i.e., equivalent voice commands). Different commands are separated by semicolons, representing distinct operational instructions.`
 
 Linux
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -211,15 +211,15 @@ Copy the generated commands to the code to use voice commands.
 .. image:: ../_static/imgs/Main/11_ESP32_SR/Chapter11_16.png
     :align: center
 
-:red:`Important Notes:`
+:combo:`red font-bolder:Important Notes:`
 
-:red:`You can customize the voice commands you need based on your actual requirements.`
+    :combo:`red font-bolder:You can customize the voice commands you need based on your actual requirements.`
 
-.. code-block:: console
-    
-    python gen_sr_commands.py "commands sets"
+    .. code-block:: console
+        
+        python gen_sr_commands.py "commands sets"
 
-:red:`The contents inside the quotation marks can be multiple command. Each segment separated by a comma represents different expressions of the same command (i.e., equivalent voice commands). Different commands are separated by semicolons, representing distinct operational instructions.`
+    :combo:`red font-bolder:The contents inside the quotation marks can be multiple command. Each segment separated by a comma represents different expressions of the same command (i.e., equivalent voice commands). Different commands are separated by semicolons, representing distinct operational instructions.`
 
 Sketch_11_ESP32_SR
 -----------------------------------
@@ -265,7 +265,9 @@ Initialize ESP32-SR and I2S.
 
 It is necessary to change the settings in Arduino IDE before clicking the Uploading button, as shown below.
 
-:red:`Caution: Incorrect settings will result in compilation error or uploading failure. To achieve desired result, please configure exactly the same as below.`
+.. caution::
+    
+    Incorrect settings will result in compilation error or uploading failure. To achieve desired result, please configure exactly the same as below.`
 
 .. image:: ../_static/imgs/Main/11_ESP32_SR/Chapter11_17.png
     :align: center

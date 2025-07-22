@@ -14,6 +14,7 @@ Component List
 
 .. list-table::
     :align: center
+    :class: table-line
 
     * - Freenove Media Kit for ESP32-S3 x1
       - USB cable x1
@@ -113,7 +114,9 @@ If you are interesting in the implementation of functions, you can check them ou
 
 It is necessary to change the settings in Arduino IDE before clicking the Uploading button, as shown below.
 
-:red:`Caution: Incorrect settings will result in compilation error or uploading failure. To achieve desired result, please configure exactly the same as below.`
+.. caution::
+
+    :combo:`red font-bolder:Incorrect settings will result in compilation error or uploading failure. To achieve desired result, please configure exactly the same as below.`
 
 .. image:: ../_static/imgs/Main/14_LVGL_Camera/Chapter14_01.png
     :align: center

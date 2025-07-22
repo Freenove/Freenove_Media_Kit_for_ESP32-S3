@@ -40,6 +40,7 @@ Component List
 .. list-table::
     :header-rows: 1
     :align: center
+    :class: table-line
 
     * - Freenove Media Kit for ESP32-S3 x1
       - USB cable x1
@@ -112,7 +113,7 @@ Set the ADC input attenuation level to define the measurable voltage range
 .. literalinclude:: ../../../freenove_Kit/Sketches/Sketch_03_1_Button_Value/Sketch_03_1_Button_Value.ino
     :linenos:
     :language: c
-    :lines: 17-17
+    :lines: 19-19
     :dedent:
 
 Read the voltage value from GPIO19 in millivolts (mV).
@@ -148,6 +149,43 @@ The serial monitor will display the ADC sampling values of the GPIO19 pin in rea
 
 **If you have any concerns, please feel free to contact us via** support@freenove.com
 
+Reference
+---------------------------------
+
+.. py:function:: analogReadResolution(uint8_t bits)
+
+    This function is used to configure the ADC's conversion resolution and measurement range.
+
+    **Parameters**
+    
+    **bits:** The resolution in bits. Higher bit values result in greater measurement precision.
+    
+    ADC sampling range: 0 to (2^bits - 1).
+    
+.. py:function:: analogSetAttenuation(adc_attenuation_t attenuation)
+
+    This function configures the input signal attenuation factor for the ADC.
+
+    **Parameters**
+    
+    **attenuation:** Attenuation multiple
+    
+    :red:`ADC_0dB:` Voltage measurement range: 0mV ~ 950mV.
+    
+    :red:`ADC_2_5dB:` Voltage measurement range: 0mV ~ 1250mV.
+    
+    :red:`ADC_6dB:` Voltage measurement range: 0mV ~ 1750mV.
+    
+    :red:`ADC_11dB:` Voltage measurement range: 0mV ~ 3100mV.
+
+.. py:function:: analogReadMilliVolts(uint8_t pin)	
+
+    This function reads the voltage value (in millivolts, mV) from an analog pin.
+
+    **Parameters**
+    
+    **pin:** Pin number.
+
 Project 3.2 Button
 ***************************************
 
@@ -159,6 +197,7 @@ Component List
 .. list-table::
     :header-rows: 1
     :align: center
+    :class: table-line
 
     * - Freenove Media Kit for ESP32-S3 x1
       - USB cable x1

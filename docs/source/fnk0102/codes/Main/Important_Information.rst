@@ -34,13 +34,13 @@ Please follow the following safety precautions when using or storing this produc
 
 - Keep this product out of the reach of children under 6 years old. 
 
-- This product should be used only when there is adult supervision present as young children lack necessary judgment regarding safety and the consequences of product misuse. 
+- This product should be **used only when there is adult supervision present** as young children lack necessary judgment regarding safety and the consequences of product misuse. 
 
-- This product contains small parts and parts, which are sharp. This product contains electrically conductive parts. Use caution with electrically conductive parts near or around power supplies, batteries and powered (live) circuits.
+- This product contains small parts and parts, which are sharp. This product contains electrically conductive parts. **Use caution with electrically conductive parts near or around power supplies, batteries and powered (live) circuits**.
 
-- When the product is turned ON, activated or tested, some parts will move or rotate. To avoid injuries to hands and fingers keep them away from any moving parts!
+- When the product is turned ON, activated or tested, some parts will move or rotate. **To avoid injuries to hands and fingers keep them away from any moving parts!**
 
-- It is possible that an improperly connected or shorted circuit may cause overheating. Should this happen, immediately disconnect the power supply or remove the batteries and do not touch anything until it cools down! When everything is safe and cool, review the product tutorial to identify the cause.
+- It is possible that an improperly connected or shorted circuit may cause overheating. **Should this happen, immediately disconnect the power supply or remove the batteries and do not touch anything until it cools down!** When everything is safe and cool, review the product tutorial to identify the cause.
 
 - Only operate the product in accordance with the instructions and guidelines of this tutorial, otherwise parts may be damaged or you could be injured.
 
@@ -61,7 +61,7 @@ Freenove is committed to assist customers in their education of robotics, progra
 
 - Electronic Component Assortments, Electronic Modules and Specialized Tools
 
-- Product Development and Customization Services
+- **Product Development and Customization Services**
 
 You can find more about Freenove and get our latest news and updates through our website:
 
@@ -72,7 +72,7 @@ sale@freenove.com
 Copyright
 *******************************
 
-All the files, materials and instructional guides provided are released under Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License. A copy of this license can be found in the folder containing the Tutorial and software files associated with this product.
+All the files, materials and instructional guides provided are released under `Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License <https://creativecommons.org/licenses/by-nc-sa/3.0/>`. A copy of this license can be found in the folder containing the Tutorial and software files associated with this product.
 
 .. image:: ../_static/imgs/Main/Welcome/Welcome00.png
     :align: center

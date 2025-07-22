@@ -10,6 +10,7 @@ Component List
 
 .. table:: 
     :align: center
+    :class: table-line
 
     +------------------------------------+----------------+
     | Freenove Media Kit for ESP32-S3 x1 | USB cable x1   |
@@ -27,6 +28,7 @@ LVGL is a widely-used embedded GUI library that is implemented in pure C, making
 
 .. table:: 
     :align: center
+    :class: zebra
 
     +-----+-----------------------------------------------------------------------------------------------------------------+
     |     |                                           Features supported by LVGL                                            |
@@ -71,13 +73,14 @@ Connect Freenove Media Kit for ESP32-S3 to your computer using the USB cable.
 Sketch
 ===================================
 
-This code uses a library named "lvgl". If you have not installed it, please do so first.
+This code uses a library named "**lvgl**". If you have not installed it, please do so first.
 
 How to install the library
+-----------------------------------
 
 Open Arduino IDE, click Sketch -> Include Library -> Add .ZIP Library. In the pop-up window, find the file named **"Freenove_Media_Kit_for_ESP32-S3\\Libraries\\lvgl.Zip"**, which locates in this directory, and click OPEN.
 
-.. image:: ../_static/imgs/Main/12_LVGL/Chapter12_01.png
+.. image:: ../_static/imgs/Main/12_LVGL/Chapter12_00.png
    :align: center
 
 Select lvgl.zip and click Open.

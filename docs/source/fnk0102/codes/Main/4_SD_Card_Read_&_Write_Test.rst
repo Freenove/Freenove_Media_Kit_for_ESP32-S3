@@ -12,6 +12,7 @@ Component List
 
 .. list-table::
     :align: center
+    :class: table-line
 
     * - Freenove Media Kit for ESP32-S3 x1
       - USB cable x1

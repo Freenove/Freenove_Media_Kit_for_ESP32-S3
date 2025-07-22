@@ -15,6 +15,7 @@ Component List
 .. list-table::
     :header-rows: 1
     :align: center
+    :class: table-line
 
     * - Freenove Media Kit for ESP32-S3 x1
       - USB cable x1
@@ -66,6 +67,14 @@ The following is the program code:
     :dedent:
 
 Include the header file for the I2S library.
+
+.. literalinclude:: ../../../freenove_Kit/Sketches/Sketch_05_Simple_Tone/Sketch_05_Simple_Tone.ino
+    :linenos:
+    :language: c
+    :lines: 10-10
+    :dedent:
+
+Set the frequency, volume and sampling rate of the sound.
 
 .. literalinclude:: ../../../freenove_Kit/Sketches/Sketch_05_Simple_Tone/Sketch_05_Simple_Tone.ino
     :linenos:
@@ -167,4 +176,4 @@ Reference
     
     slot_mask: slot mask (optional)
     
-If you have any concerns, please feel free to contact us via support@freenove.com
+**If you have any concerns, please feel free to contact us via** support@freenove.com

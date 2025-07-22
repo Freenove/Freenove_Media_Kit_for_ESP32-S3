@@ -13,7 +13,8 @@ Component List
 =================================
 
 .. table:: 
-    :align:  center
+    :align: center
+    :class: table-line
 
     +-------------------+-------------------+
     | SD card x1        | USB cable x1      |
@@ -146,6 +147,7 @@ Component List
 
 .. list-table::
     :align: center
+    :class: table-line
 
     * - Freenove Media Kit for ESP32-S3 x1
       - USB cable x1
@@ -235,7 +237,7 @@ Crop the image captured from the camera
 
 It is necessary to change the settings in Arduino IDE before clicking the Uploading button, as shown below.
 
-:red:`Caution: Incorrect settings will result in compilation error or uploading failure. To achieve desired result, please configure exactly the same as below.`
+:combo:`red font-bolder:Caution: Incorrect settings will result in compilation error or uploading failure. To achieve desired result, please configure exactly the same as below.`
 
 .. image:: ../_static/imgs/Main/9_Camera_TFT_Test/Chapter09_02.png
     :align: center

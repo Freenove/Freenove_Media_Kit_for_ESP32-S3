@@ -16,6 +16,7 @@ Component List
 
 .. table:: 
     :align: center
+    :class: table-line
 
     +------------------------------------+----------------+
     | Freenove Media Kit for ESP32-S3 x1 | USB cable x1   |
@@ -126,21 +127,21 @@ In the loop(), there are two "for" loops, the internal for loop is to light the 
     :lines: 31-38
     :dedent:
 
-Select Tools -> Board -> esp32 -> ESP32S3 Dev Module. 
+Select **Tools** -> **Board** -> **esp32** -> **ESP32S3 Dev Module**. 
 
 .. image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_07.png
     :align: center
 
-After connecting the Freenove Media Kit for ESP32-S3, the system will assign a serial communication port named in the format 'COMx' (where 'x' is a numeric ID that may vary across computers). You must select the correct port under Tools → Port.
+After connecting the Freenove Media Kit for ESP32-S3, the system will assign a serial communication port named in the format 'COMx' (**where 'x' is a numeric ID that may vary across computers**). You must select the correct port under Tools → Port.
 
 .. note::
     
-    COM1 is typically NOT the port used by the Freenove Media Kit for ESP32-S3.
+    :combo:`red font-bolder:COM1 is typically NOT the port used by the Freenove Media Kit for ESP32-S3.`
 
 .. image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_08.png
     :align: center
 
-Click upload to upload the sketch to ESP32S3 board.
+Click **upload** to upload the sketch to ESP32S3 board.
 
 .. image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_09.png
     :align: center
@@ -150,7 +151,7 @@ After successfully uploading the code, you will observe the WS2812 LEDs cycling 
 .. image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_10.png
     :align: center
 
-If you have any concerns, please feel free to contact us via support@freenove.com
+**If you have any concerns, please feel free to contact us via** support@freenove.com
 
 Reference
 ----------------------------

@@ -6,6 +6,7 @@ If you have any concerns, please feel free to contact us via support@freenove.co
 
 .. table:: 
     :align: center
+    :class: table-line
 
     +----------------------------------+----------------------------------+
     | Top of the Extension Board x1    | Bottom of the Extension Board x1 |
@@ -38,14 +39,14 @@ If you have any concerns, please feel free to contact us via support@freenove.co
 
 Important Notes:
 
-1.	Surface Finish: The housing is 3D-printed using FDM technology with a layer resolution of 0.1-0.2 mm. As a result, minor surface roughness and visible layer lines are normal.
+    1.	Surface Finish: The housing is 3D-printed using FDM technology with a layer resolution of 0.1-0.2 mm. As a result, minor surface roughness and visible layer lines are normal.
 
-2.	Color Change: The white PLA material may gradually develop a beige/yellowish tint over time due to environmental exposure. This is an inherent characteristic of the material.
+    2.	Color Change: The white PLA material may gradually develop a beige/yellowish tint over time due to environmental exposure. This is an inherent characteristic of the material.
 
-3.	Handling Care: PLA is less impact-resistant than conventional plastics. Please handle the housing gently and avoid excessive force during assembly.
+    3.	Handling Care: PLA is less impact-resistant than conventional plastics. Please handle the housing gently and avoid excessive force during assembly.
 
 Replacement Options:
 
-1.	3D model files are available in Freenove_Media_Kit_for_ESP32-S3\\3D_Models for self-printing if needed.
+    1.	3D model files are available in Freenove_Media_Kit_for_ESP32-S3\\3D_Models for self-printing if needed.
 
-2.	If you don't have a 3D printer, you can order a replacement by uploading the STL file at JLCPCB (https://jlc3dp.com/?href=easyeda-home).
+    2.	If you don't have a 3D printer, you can order a replacement by uploading the STL file at JLCPCB (https://jlc3dp.com/?href=easyeda-home).
