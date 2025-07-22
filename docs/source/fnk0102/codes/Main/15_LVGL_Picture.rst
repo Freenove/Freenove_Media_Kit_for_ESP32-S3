@@ -119,6 +119,7 @@ Before uploading the code, you need to use the sample code in :ref:`Chapter 13 <
     :align: center
 
 It is necessary to change the settings in Arduino IDE before clicking the Uploading button, as shown below.
+
 .. caution::
 
     :combo:`red font-bolder:Incorrect settings will result in compilation error or uploading failure. To achieve desired result, please configure exactly the same as below.`
