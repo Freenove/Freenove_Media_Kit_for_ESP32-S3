@@ -123,7 +123,7 @@ Switches 4 & 5 are disabled (no function).
 
 .. note::
     
-    :red:`In recording mode, long-press Button 1 to start recording. The recording duration depends on how long Button 1 is held down.`
+    :combo:`red font-bolder:In recording mode, long-press Button 1 to start recording. The recording duration depends on how long Button 1 is held down.`
 
 .. image:: ../_static/imgs/Main/17_LVGL_Sound_Recorder/Chapter17_02.png
     :align: center

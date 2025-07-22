@@ -11,7 +11,8 @@ Component List
 =================================
 
 .. table:: 
-    :align:  center
+    :align: center
+    :class: table-line
 
     +-------------------+-------------------+
     | SD card x1        | USB cable x1      |
@@ -54,8 +55,9 @@ The following is the program code:
     :dedent:
 
 It is necessary to change the settings in Arduino IDE before clicking the Uploading button, as shown below.
+.. caution:: 
 
-:red:`Caution: Incorrect settings will result in compilation error or uploading failure. To achieve desired result, please configure exactly the same as below.`
+    :combo:`red font-bolder:Incorrect settings will result in compilation error or uploading failure. To achieve desired result, please configure exactly the same as below.`
 
 .. image:: ../_static/imgs/Main/18_LVGL_Multifunctionality/Chapter18_00.png
     :align: center
@@ -71,7 +73,9 @@ The 5-way navigation switch triggers different functions based on directional in
     
     - Button 1 - Confirm selection (enters chosen mode)
 
-Note: Operational logic within each function remains unchanged from previous implementations.
+.. note::
+    
+    Operational logic within each function remains unchanged from previous implementations.
 
 To exit current function and return to main menu:
 
