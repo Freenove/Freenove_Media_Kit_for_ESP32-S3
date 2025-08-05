@@ -99,9 +99,22 @@ For more information about Freenove ESP32-S3 Board, please refer to https://gith
 Audio Circuit
 ===========================================
 
+:combo:`red font-bolder:As of the time of writing, the Freenove Media Kit for ESP32-S3 comes in two different models with varying screen sizes. However, this tutorial applies to both versions.`
+
+1.14inch
+--------------------------------------------
+
 The audio circuit board integrates multiple functional hardware modules, including a 1.14-inch TFT display, a microphone, a battery charging circuit, an audio processing circuit, a headphone jack, and an integrated speaker, as illustrated in the figures below.
 
 .. image:: ../_static/imgs/Openai/AI_Voice_Assistant_Based_on_OpenAI_Realtime_model/Chapter01_02.png
+    :align: center
+
+3.5inch
+--------------------------------------------
+
+The audio circuit board integrates multiple functional hardware modules, including a 3.5-inch TFT display, a microphone, a battery charging circuit, an audio processing circuit, a headphone jack, and an speaker jack, as illustrated in the figures below.
+
+.. image:: ../_static/imgs/Openai/AI_Voice_Assistant_Based_on_OpenAI_Realtime_model/Chapter01_26.png
     :align: center
 
 Install CH343 Driver (Required)

@@ -238,20 +238,8 @@ Please note: A pop-up notification 'Generate comple_commands.json' will appear i
 
 **Please disregard it. DO NOT click it.**
 
-.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_30.png
+.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_75.png
     :align: center
-
-Find "**privateConfig.common.json**" on the left, right click it and click copy.
-
-.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_31.png
-    :align: center
-
-Click on a blank area in the left project panel, then right-click and click Paste.
-
-.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_32.png
-    :align: center
-
-Rename it as "privateConfig.json" to protect your personal information.
 
 Connect the ESP32S3 WROOM board to your computer with the USB cable (do not use the wrong connector).
 
@@ -260,40 +248,28 @@ Connect the ESP32S3 WROOM board to your computer with the USB cable (do not use 
 
 Click on '**COMx**' in the bottom-left corner to display all available COM ports on your computer. Locate and select the entry labeled 'ESP32-S3'.
 
-.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_35.png
+.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_76.png
     :align: center
 
 Click the '**ESP32**' button in the bottom-left corner to display all available ESP32 models, then select '**ESP32S3**' from the list."
 
-.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_36.png
+.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_77.png
     :align: center
 
-From the new selection menu, choose 'ESP32-S3 Chip (via ESP-PROG) - ESP32-S3 debugging via ESP-PROG Board...'
+From the new selection menu, choose '**ESP32-S3 Chip (via ESP-PROG) - ESP32-S3 debugging via ESP-PROG Board...**'
 
-.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_37.png
+.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_78.png
     :align: center
 
-Wait until it shows "Target ESP32S3 Set Successfully" at the bottom right.
+Wait until it shows "**Target ESP32S3 Set Successfully**" at the bottom right.
 
-.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_38.png
+.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_79.png
     :align: center
 
-It if fails as shown in the figure below,
+:combo:`red font-bolder:As of the time of writing, the Freenove Media Kit for ESP32-S3 comes in two different models with varying screen sizes. However, this tutorial applies to both versions. Please select the corresponding macro definition based on your device's screen size (only one should be enabled, and the other must be commented out).`
 
-.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_39.png
+.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_74.png
     :align: center
-
-the most possible cause is that you do not copy privateConfig.common.json and rename it as privateConfig.json. Please operate this step again.
-
-.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_40.png
-    :align: center
-
-If it still fails, please delete the build folder, restart the software, and Set Espressif DeviceTarget again.
-
-.. image:: ../_static/imgs/Openai/OpenAI_Code/Chapter02_41.png
-    :align: center
-
-If it continues to fail, it indicates that the ESP-IDF is not successfully installed. Please install it again :ref:`ESP-IDF V5.4.1 <fnk0102/codes/openai/openai_code:esp-idf v5.4.1>`
 
 Registering Open API Keys
 ====================================

@@ -765,6 +765,13 @@ Find " **OllamaLLM:** " under " **LLM:** " , change " **model_name: qwen2.5** " 
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_91.png
     :align: center
 
+:combo:`red font-bolder:Important Note: To ensure smooth usage of XiaoZhi AI's visual recognition feature, please follow the steps below to configure the Visual Recognition Large Model (VLLM). If you do not require this feature at the moment, you may skip this step and proceed with the next steps.`
+
+Continue editing the config.yaml file: First, follow the prompted steps to register for the corresponding API key.Then, insert the generated API key into the code.
+
+.. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_106.png
+    :align: center
+
 Save and exit the file.
 
 You can also choose other models, such as the default ChatGLM-LLM. Please note that configuring different LLM models requires you to explore and set them up manually.

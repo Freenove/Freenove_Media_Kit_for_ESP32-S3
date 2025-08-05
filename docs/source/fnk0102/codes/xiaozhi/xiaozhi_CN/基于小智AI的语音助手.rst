@@ -85,9 +85,22 @@ https://github.com/Freenove/Freenove_Ultimate_Starter_Kit_for_ESP32_S3
 音频电路板
 ==============================
 
+:combo:`red font-bolder: 到目前为止，在本教程撰写之时，Freenove Media Kit for ESP32-S3有两个不同的型号，它们的屏幕大小不同，但是您都可以通过本教程来学习如何使用它们`
+
+1.14inch
+----------------------------------
+
 音频电路板集成了多个不同功能的硬件，比如1.14寸TFT显示屏，麦克风，电池充电电路，音频电路，耳机接口和集成喇叭等。如下图所示。
 
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_89.png
+    :align: center
+
+3.5inch
+----------------------------------
+
+音频电路板集成了多个不同功能的硬件，比如3.5寸TFT显示屏，麦克风，电池充电电路，音频电路，耳机接口，喇叭接口等。如下图所示。
+
+.. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_User_Guide_(Based_on_FNK0102)/Chapter01_92.png
     :align: center
 
 安装CH343 (Importance)

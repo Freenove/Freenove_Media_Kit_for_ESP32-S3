@@ -274,6 +274,11 @@ Linux
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_Code/Chapter02_41.png
     :align: center
 
+:combo:`red font-bolder: 到目前为止，在本教程撰写之时，Freenove_Media_Kit_for_ESP32-S3有两个不同的型号，它们的屏幕大小不同，但是您都可以通过本教程来学习如何使用它们, 请根据您手上Freenove_Media_Kit_for_ESP32-S3的屏幕大小来选择“Board Type”`
+
+.. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_Code/Chapter02_49.png
+    :align: center
+
 点击Load Multiple Wake Words”，并勾选“Hi, ESP”、“Hi, Lily”等选项。
 
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_Code/Chapter02_42.png

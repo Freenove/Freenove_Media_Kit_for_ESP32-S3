@@ -270,22 +270,27 @@ On the new interface, click 'Serial flasher config' and verify that the settings
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_Code/Chapter02_39.png
     :align: center
 
-Click "Partition Table" and verify that the settings match the configuration shown in the image below.
+Click "**Partition Table**" and verify that the settings match the configuration shown in the image below.
 
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_Code/Chapter02_40.png
     :align: center
 
-Click Xiao Assistant" and verify that the settings match the configuration shown in the image below.
+Click "**Xiao Assistant**" and verify that the settings match the configuration shown in the image below.
 
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_Code/Chapter02_41.png
     :align: center
 
-Click 'Load Multiple Wake Words' and check the boxes for 'Hi, ESP' and 'Hi, Lily' (and other desired options).
+:combo:`red font-bolder:As of the time of writing, the Freenove Media Kit for ESP32-S3 comes in two different models with varying screen sizes. However, this tutorial applies to both versions. Please select the appropriate "Board Type" based on the screen size of your model.`
+
+.. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_Code/Chapter02_49.png
+    :align: center
+
+Click '**Load Multiple Wake Words**' and check the boxes for 'Hi, ESP' and 'Hi, Lily' (and other desired options).
 
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_Code/Chapter02_42.png
     :align: center
 
-Finally, click 'Save' to store your configuration. A success message will appear at the bottom upon completion.
+Finally, click '**Save**' to store your configuration. A success message will appear at the bottom upon completion.
 
 .. image:: ../../_static/imgs/xiaozhi/XiaoZhi_AI_Code/Chapter02_43.png
     :align: center
