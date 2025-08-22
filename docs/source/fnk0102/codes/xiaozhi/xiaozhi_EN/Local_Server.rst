@@ -505,8 +505,8 @@ The following two commands allow you to activate or exit the conda virtual envir
 
 .. code-block:: console
     
-    onda activate
-    onda deactivate
+    conda activate
+    conda deactivate
 
 .. image:: ../../_static/imgs/xiaozhi/Local_Server/Chapter03_67.png
     :align: center

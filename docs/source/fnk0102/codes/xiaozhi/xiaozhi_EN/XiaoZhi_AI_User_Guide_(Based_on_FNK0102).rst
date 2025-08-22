@@ -81,7 +81,7 @@ In this project, the ESP32-S3 communicates with XiaoZhi AI server through WebSoc
 ESP32 S3 Hardware Specifications 
 ***************************************
 
-Freenove ESP32-S3 WROOM Board 
+Freenove ESP32-S3 WROOM Board
 ========================================
 
 We use the Freenove ESP32-S3 Board as the main control board, which integrates 16Mb Flash and 8Mb PSRAM.
