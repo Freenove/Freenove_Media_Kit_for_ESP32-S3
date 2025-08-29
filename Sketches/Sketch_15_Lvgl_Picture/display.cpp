@@ -5,12 +5,17 @@
 lv_indev_t *indev_keypad; // External declaration of the keypad input device
 
 // Define screen dimensions
+#ifdef FNK0102A_1P14_135x240_ST7789
 static const uint16_t screenWidth = 135;
 static const uint16_t screenHeight = 240;
+#elif defined FNK0102B_3P5_320x480_ST7796
+static const uint16_t screenWidth = 320;
+static const uint16_t screenHeight = 480;
+#endif
 
 // Buffer for drawing
 static lv_disp_draw_buf_t draw_buf;
-static lv_color_t buf[screenWidth * 10];
+static lv_color_t buf[screenWidth * screenHeight / 5];
 
 // TFT instance
 TFT_eSPI tft = TFT_eSPI(screenWidth, screenHeight);
@@ -148,7 +153,7 @@ void setupLVGL()
   lv_init(); // Initialize LVGL
 
   // Initialize the display buffer
-  lv_disp_draw_buf_init(&draw_buf, buf, NULL, screenWidth * 10);
+  lv_disp_draw_buf_init(&draw_buf, buf, NULL, screenWidth * screenHeight / 5);
 
   // Initialize the display driver
   static lv_disp_drv_t disp_drv;

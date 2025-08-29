@@ -16,9 +16,6 @@
 #define AUDIO_INPUT_SCK 3     //Please do not modify it.
 #define AUDIO_INPUT_WS 14     //Please do not modify it.
 #define AUDIO_INPUT_DIN 46    //Please do not modify it.
-#define AUDIO_OUTPUT_BCLK 42  //Please do not modify it.
-#define AUDIO_OUTPUT_LRC 41   //Please do not modify it.
-#define AUDIO_OUTPUT_DOUT 1   //Please do not modify it.
 
 Display screen;  // Create an instance of the Display class
 
@@ -31,9 +28,7 @@ void setup() {
 
   camera_init(0);
   audio_input_init(AUDIO_INPUT_SCK, AUDIO_INPUT_WS, AUDIO_INPUT_DIN);
-  audio_output_init(AUDIO_OUTPUT_BCLK, AUDIO_OUTPUT_LRC, AUDIO_OUTPUT_DOUT);
   sdmmc_init(SD_MMC_CLK, SD_MMC_CMD, SD_MMC_D0);
-  audio_output_set_volume(21);
 
   create_dir(CAMERA_FOLDER);
   create_dir(MUSIC_FOLDER);

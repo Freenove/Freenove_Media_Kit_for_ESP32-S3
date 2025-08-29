@@ -5,7 +5,7 @@
 * The recording and playback are controlled by a button press.
 * 
 * Author: Zhentao Lin
-* Date:   2025-04-07
+* Date:   2025-08-07
 */
 #include "driver_audio_input.h"
 #include "driver_audio_output.h"
@@ -40,6 +40,8 @@ Button button(BUTTON_PIN);
 int recorder_task_flag = 0;       
 // Flag to indicate the status of the player task (0=stopped, 1=running)
 int player_task_flag = 0;        
+// Save wav data
+uint8_t *wav_buffer;
 
 // Setup function to initialize the hardware and software components
 void setup() {
@@ -55,9 +57,7 @@ void setup() {
   // Initialize the I2S bus for audio input
   audio_input_init(AUDIO_INPUT_SCK, AUDIO_INPUT_WS, AUDIO_INPUT_DIN);
   // Initialize the I2S bus for audio output
-  audio_output_init(AUDIO_OUTPUT_BCLK, AUDIO_OUTPUT_LRC, AUDIO_OUTPUT_DOUT);
-  // Set the volume of the audio output (range 0...21)
-  audio_output_set_volume(21); 
+  i2s_output_init(AUDIO_OUTPUT_BCLK, AUDIO_OUTPUT_LRC, AUDIO_OUTPUT_DOUT);
 
   // Initialize the SD card
   sdmmc_init(SD_MMC_CLK, SD_MMC_CMD, SD_MMC_D0);
@@ -149,14 +149,20 @@ void loop_task_sound_recorder(void *pvParameters) {
   // Initialize the total size of recorded data
   int total_size = 0;
   // Allocate memory in PSRAM for storing audio data
-  char *buffer = (char *)heap_caps_malloc(MOLLOC_SIZE, MALLOC_CAP_SPIRAM);
+  if(wav_buffer!=NULL)
+  {
+    // Free the allocated memory in PSRAM
+    heap_caps_free(wav_buffer);
+    wav_buffer = NULL;
+  }
+  wav_buffer = (uint8_t *)heap_caps_malloc(MOLLOC_SIZE, MALLOC_CAP_SPIRAM);
 
   // Get the index for the next recording file
   int wav_index = read_file_num(RECORDER_FOLDER);
   // Generate the file name for the new recording
   String file_name = String(RECORDER_FOLDER) + "/recording_" + String(wav_index) + ".wav";
-  // Write the WAV header to the file
-  write_wav_header(file_name.c_str(), total_size);
+  Serial.printf("file_name:%s\r\n", file_name.c_str());
+
   // Loop while the recorder task is running
   while (recorder_task_flag == 1) {
     // Get the available IIS data size
@@ -170,21 +176,21 @@ void loop_task_sound_recorder(void *pvParameters) {
         break;
       }
       // Read IIS data into the buffer
-      int real_size = audio_input_read_iis_data(buffer + total_size, 512);
+      int real_size = audio_input_read_iis_data((char*)wav_buffer + total_size, 512);
       // Update the total size of recorded data
       total_size += real_size;
       // Decrease the available IIS data size
       iis_buffer_size -= real_size;
     }
   }
+  // Write the WAV header to the file
+  bool state = write_wav_header(file_name.c_str(), total_size);
+  Serial.printf("Write wav header state2:%d\r\n", state);
+
   // Append the recorded data to the file
-  append_file(file_name.c_str(), (uint8_t *)(buffer), total_size);
-  // Update the WAV header with the final file size
-  write_wav_header(file_name.c_str(), total_size);
-  // Load the recorded file into the audio output
-  audio_output_load_music(file_name.c_str());
-  // Free the allocated memory in PSRAM
-  heap_caps_free(buffer);
+  append_file(file_name.c_str(), wav_buffer, total_size);
+  
+  Serial.printf("write wav size:%d\r\n", total_size);
   // Print a message indicating the end of the recording task
   Serial.println("loop_task_sound_recorder stop...");
   // Delete the current task
@@ -225,20 +231,48 @@ void loop_task_play_handle(void *pvParameters) {
   Serial.println("loop_task_play_handle start...");
   // Loop while the player task is running
   while (player_task_flag == 1) {
-    // Handle the audio output loop
-    audio_output_loop();
-    // Check if the audio output is not running
-    if (!audio_output_is_running()) {
       // Get the number of recorded files
       int file_count = read_file_num(RECORDER_FOLDER);
       // Generate the file name for the last recorded file
       String file_name = String(RECORDER_FOLDER) + String("/") + String(get_file_name_by_index(RECORDER_FOLDER, (file_count - 1)));
-      // Load the last recorded file into the audio output
-      audio_output_load_music(file_name.c_str());
-    }
+      size_t length = read_file_size(file_name.c_str());
+      Serial.printf("file_name:%s, size:%d\r\n", file_name.c_str(), length);
+      if(wav_buffer!=NULL)
+      {
+        // Free the allocated memory in PSRAM
+        heap_caps_free(wav_buffer);
+        wav_buffer = NULL;
+      }
+      wav_buffer = (uint8_t *)heap_caps_malloc(MOLLOC_SIZE, MALLOC_CAP_SPIRAM);
+      read_file(file_name.c_str(), wav_buffer, length);
+      i2s_output_wav(wav_buffer, length);
+      // for(size_t i=0;i<44;i++)
+      // {
+      //   Serial.printf("0x%x ",wav_buffer[i]);
+      //   if(i%4==3)
+      //     Serial.println();
+      // }
+      player_task_flag=0;
   }
   // Print a message indicating the end of the player task
   Serial.println("loop_task_play_handle stop...");
   // Delete the current task
   vTaskDelete(NULL);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

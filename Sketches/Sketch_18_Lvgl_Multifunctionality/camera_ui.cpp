@@ -152,7 +152,11 @@ void loopTask_camera(void *pvParameters) {
         esp_camera_fb_return(fb);
         return;
       }
+#ifdef FNK0102A_1P14_135x240_ST7789
       rotate_and_crop_image(fb->buf, fb->width, fb->height, buffer, screen_width, screen_height, 90);
+#elif defined FNK0102B_3P5_320x480_ST7796
+      rotate_and_crop_image(fb->buf, fb->width, fb->height, buffer, screen_width, screen_height, 0);
+#endif
       photo_show.data = buffer;
       lv_img_set_src(guider_camera_ui.camera_video, &photo_show);
       free(buffer);  // Free image buffer
@@ -174,7 +178,11 @@ void loopTask_camera(void *pvParameters) {
           esp_camera_fb_return(fb);
           return;
         }
+#ifdef FNK0102A_1P14_135x240_ST7789
         rotate_and_crop_image(fb->buf, fb->width, fb->height, buffer, screen_width, screen_height, 90);
+#elif defined FNK0102B_3P5_320x480_ST7796
+        rotate_and_crop_image(fb->buf, fb->width, fb->height, buffer, screen_width, screen_height, 0);
+#endif
         write_bmp(filename, buffer, (screen_height * screen_width * 2), screen_height, screen_width);
         free(buffer);
       } else if (s->pixformat == PIXFORMAT_JPEG) {
@@ -227,16 +235,13 @@ static void camera_screen_gesture_event_handler(lv_event_t *event) {
 void setup_scr_camera(lvgl_camera_ui *ui) {
   // Write codes camera
   ui->camera = lv_obj_create(NULL);
+  lv_coord_t screen_width = lv_obj_get_width(ui->camera);    // Get screen width
+  lv_coord_t screen_height = lv_obj_get_height(ui->camera);  // Get screen height
 
   static lv_style_t bg_style;
   lv_style_init(&bg_style);
   lv_style_set_bg_color(&bg_style, lv_color_hex(0xffffff));
   lv_obj_add_style(ui->camera, &bg_style, LV_PART_MAIN);
-
-  // Get the current active screen width and height
-  lv_obj_t *scr = lv_disp_get_scr_act(NULL);          // Get the current screen
-  lv_coord_t screen_width = lv_obj_get_width(scr);    // Get screen width
-  lv_coord_t screen_height = lv_obj_get_height(scr);  // Get screen height
 
   // Write codes camera_video
   ui->camera_video = lv_img_create(ui->camera);
@@ -277,9 +282,13 @@ void camera_init(int state) {
   config.grab_mode = CAMERA_GRAB_LATEST;
   config.fb_location = CAMERA_FB_IN_PSRAM;
   config.jpeg_quality = 12;
-  config.fb_count = 1;
+  config.fb_count = 2;
   if (state == 0) {
+#ifdef FNK0102A_1P14_135x240_ST7789
     config.frame_size = FRAMESIZE_240X240;
+#elif defined FNK0102B_3P5_320x480_ST7796
+    config.frame_size = FRAMESIZE_HVGA;
+#endif
     config.pixel_format = PIXFORMAT_RGB565;
   } else {
     config.frame_size = FRAMESIZE_SVGA;
@@ -295,8 +304,13 @@ void camera_init(int state) {
   }
   sensor_t *s = esp_camera_sensor_get();
   // The initial sensor may be vertically flipped and have high color saturation
-  s->set_hmirror(s, 1);
+#ifdef FNK0102A_1P14_135x240_ST7789
+  s->set_hmirror(s, 1);     // Mirror image
   s->set_vflip(s, 0);       // Restore vertical orientation
+#elif defined FNK0102B_3P5_320x480_ST7796
+  s->set_hmirror(s, 0);     // Mirror image
+  s->set_vflip(s, 1);       // Flip image
+#endif
   s->set_brightness(s, 1);  // Slightly increase brightness
   s->set_saturation(s, 0);  // Reduce saturation
 }

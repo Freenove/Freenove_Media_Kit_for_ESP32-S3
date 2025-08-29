@@ -103,9 +103,8 @@ void setup_scr_main(lvgl_main_ui *ui) {
   // Write codes main
   ui->main = lv_obj_create(NULL);
   
-  lv_obj_t *scr = lv_disp_get_scr_act(NULL);          // Get the current active screen width and height
-  lv_coord_t screen_width = lv_obj_get_width(scr);    // Get screen width
-  lv_coord_t screen_height = lv_obj_get_height(scr);  // Get screen height
+  lv_coord_t screen_width = lv_obj_get_width(ui->main);    // Get screen width
+  lv_coord_t screen_height = lv_obj_get_height(ui->main);  // Get screen height
 
   static lv_style_t bg_style;
   lv_style_init(&bg_style);
@@ -129,10 +128,11 @@ void setup_scr_main(lvgl_main_ui *ui) {
   lv_obj_align(ui->main_label_logo, LV_ALIGN_TOP_MID, 0, 10);
 
   ui->main_panel = lv_obj_create(ui->main);
-  //lv_obj_remove_style_all(ui->main_panel);
-  lv_obj_set_size(ui->main_panel, (screen_width-10), (SELECT_IMG_SIZE+20));
+  lv_obj_set_size(ui->main_panel, (screen_width-10), (screen_height-35));
   lv_obj_set_scroll_snap_x(ui->main_panel, LV_SCROLL_SNAP_CENTER);
+  lv_obj_set_scroll_snap_y(ui->main_panel, LV_SCROLL_SNAP_CENTER);
   lv_obj_set_flex_flow(ui->main_panel, LV_FLEX_FLOW_ROW);
+  lv_obj_set_flex_align(ui->main_panel, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER);
   lv_obj_set_style_pad_column(ui->main_panel, (SELECT_IMG_SIZE/4), LV_PART_MAIN);  
   lv_obj_set_scrollbar_mode(ui->main_panel, LV_SCROLLBAR_MODE_OFF);
   lv_obj_align_to(ui->main_panel, ui->main_label_logo, LV_ALIGN_OUT_BOTTOM_MID, 0, 5);

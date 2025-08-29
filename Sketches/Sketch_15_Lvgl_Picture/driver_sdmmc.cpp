@@ -88,6 +88,17 @@ void remove_dir(const char *path) {
   }
 }
 
+size_t read_file_size(const char *path) {
+  File file = SD_MMC.open(path);
+  if (!file) {
+    Serial.println("Failed to open file for reading");
+    return 0;
+  }
+  size_t fileSize = file.size();
+  file.close();
+  return fileSize;
+}
+
 void read_file(const char *path, uint8_t *buffer, size_t length) {
   File file = SD_MMC.open(path);
   if (!file) {
@@ -100,11 +111,28 @@ void read_file(const char *path, uint8_t *buffer, size_t length) {
     length = fileSize;
   }
 
-  size_t bytesRead = file.read(buffer, length);
-  if (bytesRead != length) {
-    Serial.printf("Failed to read %u bytes, only read %u bytes\n", length, bytesRead);
+  size_t totalBytesRead = 0;
+  const size_t chunkSize = 512;
+  
+  while (totalBytesRead < length) {
+    size_t bytesToRead = length - totalBytesRead;
+    if (bytesToRead > chunkSize) {
+      bytesToRead = chunkSize;
+    }
+    
+    size_t bytesRead = file.read(buffer + totalBytesRead, bytesToRead);
+    totalBytesRead += bytesRead;
+    
+    if (bytesRead != bytesToRead) {
+      Serial.printf("Failed to read %u bytes, only read %u bytes\n", bytesToRead, bytesRead);
+      break; 
+    }
   }
-  buffer[bytesRead] = '\0';
+  
+  if (totalBytesRead > 0) {
+    buffer[totalBytesRead] = '\0';
+  }
+  Serial.printf("Successfully read %u bytes in total\n", totalBytesRead);
   file.close();
 }
 
@@ -302,18 +330,18 @@ bool write_wav_header(const char *path, uint32_t data_size) {
   }
   uint8_t header[] = {
     0x52, 0x49, 0x46, 0x46,                                                             // RIFF
-    0x00, 0x00, 0x00, 0x00,                                                             // File size
+    0x24, 0x00, 0x00, 0x00,  //                                                           // File size
     0x57, 0x41, 0x56, 0x45,                                                             // WAVE
     0x66, 0x6d, 0x74, 0x20,                                                             // fmt
     0x10, 0x00, 0x00, 0x00,                                                             // Subchunk1Size: 16
     0x01, 0x00,                                                                         // AudioFormat: 1 (PCM)
-    0x01, 0x00,                                                                         // NumChannels: 1
-    0x80, 0x3e, 0x00, 0x00,                                                             // SampleRate: 16000
-    0x80, 0x3e, 0x00, 0x00,                                                             // ByteRate: 16000
-    0x02, 0x00,                                                                         // BlockAlign: 2
-    0x10, 0x00,                                                                         // BitsPerSample: 16
+    0x02, 0x00,                                                                         // NumChannels: 1
+    0x00, 0x7d, 0x00, 0x00,                                                             // SampleRate: 32000
+    0x00, 0xe8, 0x03, 0x00,                                                             // ByteRate: 256000
+    0x08, 0x00,                                                                         // BlockAlign: 8
+    0x20, 0x00,                                                                         // BitsPerSample: 32
     0x64, 0x61, 0x74, 0x61,                                                             // data
-    0x00, 0x00, 0x00, 0x00                                                              // DataSize
+    0x00, 0x00, 0x00, 0x00   //                                                           // DataSize
   };
   header[4] = (data_size + 36) & 0xFF;
   header[5] = ((data_size + 36) >> 8) & 0xFF;
@@ -323,6 +351,7 @@ bool write_wav_header(const char *path, uint32_t data_size) {
   header[41] = (data_size >> 8) & 0xFF;
   header[42] = (data_size >> 16) & 0xFF;
   header[43] = (data_size >> 24) & 0xFF;
+
   file.seek(0, SeekSet);
   if (file.write(header, 44) != 44) {
     Serial.println("Failed to write WAV header");
@@ -333,3 +362,6 @@ bool write_wav_header(const char *path, uint32_t data_size) {
   file.close();
   return true;
 }
+
+
+

@@ -3,8 +3,13 @@
 
 #include "lvgl.h"
 #include "Arduino.h"
+#include <TFT_eSPI.h>
 
+#ifdef FNK0102A_1P14_135x240_ST7789
 #define LEDS_COUNT 1        // Number of LEDs
+#elif defined FNK0102B_3P5_320x480_ST7796
+#define LEDS_COUNT 4
+#endif
 #define LEDS_PIN 48         // Pin connected to the LEDs
 #define CHANNEL 0           // Channel for the LED strip
 

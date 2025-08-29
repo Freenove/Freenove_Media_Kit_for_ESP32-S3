@@ -8,20 +8,28 @@ Audio audio;
 I2SClass i2s_output; 
 
 bool i2s_output_init(int bclk, int lrc, int dout) {
-  i2s_output.setPins(bclk, lrc, dout, -1);
-  if (!i2s_output.begin(I2S_MODE_STD, 16000, I2S_DATA_BIT_WIDTH_16BIT, I2S_SLOT_MODE_MONO, I2S_STD_SLOT_RIGHT)) {
+  i2s_output.setPins(bclk, lrc, dout);
+  if (!i2s_output.begin(I2S_MODE_STD, 32000, I2S_DATA_BIT_WIDTH_32BIT, I2S_SLOT_MODE_STEREO, I2S_STD_SLOT_BOTH)) {
     Serial.println("Failed to initialize I2S output bus!");
     return false;
   }
-  i2s_output.write(0); 
-  i2s_output.write(0); 
-  i2s_output.end();
   return true;
+}
+
+void i2s_output_wav(uint8_t *data, size_t len)
+{
+    i2s_output.playWAV(data, len);
+}
+
+void i2s_output_deinit(void)
+{ 
+    i2s_output.end(); 
 }
 
 //Initialize the audio interface
 int audio_output_init(int bclk, int lrc, int dout) {
   i2s_output_init(bclk, lrc, dout);
+  i2s_output_deinit();
   return audio.setPinout(bclk, lrc, dout);
 }
 

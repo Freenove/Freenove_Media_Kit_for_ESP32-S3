@@ -13,11 +13,22 @@
 #define CAMERA_MODEL_ESP32S3_EYE  // Has PSRAM
 #include "camera_pins.h"
 
+#ifdef FNK0102A_1P14_135x240_ST7789
+  int screenWidth = 135;
+  int screenHeight = 240;
+#elif defined FNK0102B_3P5_320x480_ST7796
+  int screenWidth = 320;
+  int screenHeight = 480;
+#endif
+
 #define BUTTON_PIN 19  // Please do not modify it.
 #define SD_MMC_CMD 38  // Please do not modify it.
 #define SD_MMC_CLK 39  // Please do not modify it.
 #define SD_MMC_D0 40   // Please do not modify it.
 #define TFT_BL 20
+
+// Global variable to track if we're using 3.5 inch screen
+bool is35InchScreen = false;
 
 TFT_eSPI tft = TFT_eSPI();
 
@@ -33,9 +44,18 @@ void setup() {
   analogReadResolution(12);
   analogSetAttenuation(ADC_11db);
   pinMode(BUTTON_PIN, INPUT_PULLUP);
+
+  // Check if we're using 3.5 inch screen
+#ifdef FNK0102B_3P5_320x480_ST7796
+  is35InchScreen = true;
+#endif
+
   tft_rst();
   tft.init();
-  tft.setRotation(0);
+  if(is35InchScreen)
+    tft.setRotation(1);            // Set the rotation of the TFT display
+  else
+    tft.setRotation(0);// Set the rotation of the TFT display
   camera_init(0);
   sdmmc_init(SD_MMC_CLK, SD_MMC_CMD, SD_MMC_D0);
   remove_dir("/video");
@@ -81,7 +101,11 @@ void camera_init(int state) {
   config.jpeg_quality = 12;
   config.fb_count = 1;
   if (state == 0) {
-    config.frame_size = FRAMESIZE_240X240;
+    if (is35InchScreen) {
+      config.frame_size = FRAMESIZE_HVGA;
+    } else {
+      config.frame_size = FRAMESIZE_240X240;
+    }
     config.pixel_format = PIXFORMAT_RGB565;
   } else {
     config.frame_size = FRAMESIZE_VGA;
@@ -97,8 +121,8 @@ void camera_init(int state) {
   }
   sensor_t *s = esp_camera_sensor_get();
   // The initial sensor may be vertically flipped and have high color saturation
-  s->set_hmirror(s, 1);     // Mirror the image horizontally
-  s->set_vflip(s, 0);       // Restore vertical orientation
+  s->set_hmirror(s, 0);     // Mirror the image horizontally
+  s->set_vflip(s, 1);       // Restore vertical orientation
   s->set_brightness(s, 1);  // Slightly increase brightness
   s->set_saturation(s, 0);  // Reduce saturation
 }
@@ -111,47 +135,54 @@ void cameraShow(void) {
     return;
   }
 
-  // Define screen and camera dimensions
-  int screenWidth = 135;
-  int screenHeight = 240;
-  int camWidth = fb->width;
-  int camHeight = fb->height;
+  // For 3.5 inch screen, display directly without cropping
+  if (is35InchScreen) {
+    // Direct display when dimensions match
+    tft.startWrite();
+    tft.pushImage(0, 0, fb->width, fb->height, (uint16_t*)fb->buf);
+    tft.endWrite();
+  } 
+  else {
+    // For 1.14 inch screen, use original cropping logic
+    int camWidth = fb->width;
+    int camHeight = fb->height;
 
-  // Calculate cropping area
-  int cropWidth = screenWidth;
-  int cropHeight = screenHeight;
-  int cropStartX = (camWidth - cropWidth) / 2;
-  int cropStartY = (camHeight - cropHeight) / 2;
+    // Calculate cropping area
+    int cropWidth = screenWidth;
+    int cropHeight = screenHeight;
+    int cropStartX = (camWidth - cropWidth) / 2;
+    int cropStartY = (camHeight - cropHeight) / 2;
 
-  // Check if cropping is needed
-  if (camWidth > screenWidth || camHeight > screenHeight) {
-    // Allocate memory for cropped image
-    uint16_t *croppedBuffer = (uint16_t *)malloc(cropWidth * cropHeight * sizeof(uint16_t));
-    if (!croppedBuffer) {
-      Serial.println("Failed to allocate memory for cropped image");
-      esp_camera_fb_return(fb);
-      return;
-    }
-
-    // Crop the image
-    for (int y = 0; y < cropHeight; y++) {
-      for (int x = 0; x < cropWidth; x++) {
-        croppedBuffer[y * cropWidth + x] = ((uint16_t *)fb->buf)[(cropStartY + y) * camWidth + (cropStartX + x)];
+    // Check if cropping is needed
+    if (camWidth > screenWidth || camHeight > screenHeight) {
+      // Allocate memory for cropped image
+      uint16_t *croppedBuffer = (uint16_t *)malloc(cropWidth * cropHeight * sizeof(uint16_t));
+      if (!croppedBuffer) {
+        Serial.println("Failed to allocate memory for cropped image");
+        esp_camera_fb_return(fb);
+        return;
       }
+
+      // Crop the image
+      for (int y = 0; y < cropHeight; y++) {
+        for (int x = 0; x < cropWidth; x++) {
+          croppedBuffer[y * cropWidth + x] = ((uint16_t *)fb->buf)[(cropStartY + y) * camWidth + (cropStartX + x)];
+        }
+      }
+
+      // Display cropped image on the TFT screen
+      tft.startWrite();
+      tft.pushImage(0, 0, cropWidth, cropHeight, croppedBuffer);
+      tft.endWrite();
+
+      // Free the cropped image buffer
+      free(croppedBuffer);
+    } else {
+      // If camera size is less than or equal to screen size, display the image directly
+      tft.startWrite();
+      tft.pushImage(0, 0, camWidth, camHeight, fb->buf);
+      tft.endWrite();
     }
-
-    // Display cropped image on the TFT screen
-    tft.startWrite();
-    tft.pushImage(0, 0, cropWidth, cropHeight, croppedBuffer);
-    tft.endWrite();
-
-    // Free the cropped image buffer
-    free(croppedBuffer);
-  } else {
-    // If camera size is less than or equal to screen size, display the image directly
-    tft.startWrite();
-    tft.pushImage(0, 0, camWidth, camHeight, fb->buf);
-    tft.endWrite();
   }
 
   // Return the frame buffer to the driver for reuse
@@ -174,7 +205,6 @@ void cameraPhoto(void) {
     fileCounter++;
     camera_init(0);         // Reinitialize camera for live view
     list_dir("/video", 0);  // List the contents of the /video directory
-    while (analogRead(BUTTON_PIN) < 3000)
-      ;  // Wait for button release
+    while (analogRead(BUTTON_PIN) < 3000);  // Wait for button release
   }
 }

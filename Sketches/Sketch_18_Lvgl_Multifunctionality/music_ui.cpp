@@ -1,5 +1,9 @@
 #include "music_ui.h"
 
+#define AUDIO_OUTPUT_BCLK 42  //Please do not modify it.
+#define AUDIO_OUTPUT_LRC 41   //Please do not modify it.
+#define AUDIO_OUTPUT_DOUT 1   //Please do not modify it.
+
 lvgl_music_ui guider_music_ui;//music ui structure 
 int music_button_state = 0;   //UI Button status
 int music_index_num = 0;      //index number of the music
@@ -155,11 +159,12 @@ static void screen_music_event_handler(lv_event_t * event)
 
 //Parameter configuration function on the music screen
 void setup_scr_music(lvgl_music_ui *ui) {
+  audio_output_init(AUDIO_OUTPUT_BCLK, AUDIO_OUTPUT_LRC, AUDIO_OUTPUT_DOUT);
+  audio_output_set_volume(21);
+
   ui->music = lv_obj_create(NULL);
-  lv_obj_t *scr = lv_disp_get_scr_act(NULL);          // Get the current active screen width and height
-  lv_coord_t screen_width = lv_obj_get_width(scr);    // Get screen width
-  lv_coord_t screen_height = lv_obj_get_height(scr);  // Get screen height
-  lv_obj_set_size(ui->music, screen_width, screen_height);
+  lv_coord_t screen_width = lv_obj_get_width(ui->music);    // Get screen width
+  lv_coord_t screen_height = lv_obj_get_height(ui->music);  // Get screen height
   
   static lv_style_t bg_style;
   lv_style_init(&bg_style);
@@ -171,9 +176,14 @@ void setup_scr_music(lvgl_music_ui *ui) {
   lv_style_init(&style_pr);  //Initialize it
   lv_style_set_translate_y(&style_pr, 5);//Style: Every time you trigger, move down 5 pixels
 
+#ifdef FNK0102A_1P14_135x240_ST7789
+  int btn_size = 35;
+#elif defined FNK0102B_3P5_320x480_ST7796
+  int btn_size = 50;
+#endif
   ui->music_slider_label = lv_label_create(ui->music);
-  lv_obj_set_size(ui->music_slider_label, screen_width, 20);
-  lv_obj_set_pos(ui->music_slider_label, 0, 5);
+  lv_obj_set_size(ui->music_slider_label, screen_width-10, 20);
+  lv_obj_set_pos(ui->music_slider_label, 5, (int)((screen_height-55-btn_size)/6));
   lv_obj_set_style_text_align(ui->music_slider_label, LV_TEXT_ALIGN_CENTER, 0);
   char buf[16];
   lv_snprintf(buf, sizeof(buf), "Volume:%d", 10);
@@ -181,26 +191,26 @@ void setup_scr_music(lvgl_music_ui *ui) {
 
   ui->music_slider_valume = lv_slider_create(ui->music);
   lv_obj_set_size(ui->music_slider_valume, screen_width, 10);
-  lv_obj_align_to(ui->music_slider_valume, ui->music_slider_label, LV_ALIGN_OUT_BOTTOM_MID, 0, 10);
+  lv_obj_align_to(ui->music_slider_valume, ui->music_slider_label, LV_ALIGN_OUT_BOTTOM_MID, 0, (int)((screen_height-55-btn_size)/6));
   lv_slider_set_mode(ui->music_slider_valume, LV_SLIDER_MODE_NORMAL);
   lv_slider_set_range(ui->music_slider_valume, 0, 21);
   lv_slider_set_value(ui->music_slider_valume, 10, LV_ANIM_OFF);
 
   ui->music_mp3_label = lv_label_create(ui->music);
   lv_obj_set_size(ui->music_mp3_label, screen_width, 20);
-  lv_obj_align_to(ui->music_mp3_label, ui->music_slider_valume, LV_ALIGN_OUT_BOTTOM_MID, 0, 10);
+  lv_obj_align_to(ui->music_mp3_label, ui->music_slider_valume, LV_ALIGN_OUT_BOTTOM_MID, 0, (int)((screen_height-55-btn_size)/6));
   lv_label_set_long_mode(ui->music_mp3_label, LV_LABEL_LONG_SCROLL_CIRCULAR );
   lv_obj_set_style_text_align(ui->music_mp3_label, LV_TEXT_ALIGN_CENTER, 0);
 
-  int btn_size = 35;
   int spacing_distance = (screen_width - (4 * btn_size)) / 5;
   ui->music_btn_left = lv_btn_create(ui->music);
   lv_obj_set_size(ui->music_btn_left, btn_size, btn_size);
-  lv_obj_align_to(ui->music_btn_left, ui->music_mp3_label, LV_ALIGN_OUT_BOTTOM_LEFT, spacing_distance, 10);
+  lv_obj_align_to(ui->music_btn_left, ui->music_mp3_label, LV_ALIGN_OUT_BOTTOM_LEFT, spacing_distance, (int)((screen_height-55-btn_size)/6));
   lv_obj_add_style(ui->music_btn_left, &style_pr, LV_STATE_PRESSED);//Triggered when the button is pressed
   ui->music_btn_left_label = lv_label_create(ui->music_btn_left);
   lv_obj_set_style_text_align(ui->music_btn_left_label, LV_TEXT_ALIGN_CENTER, 0);
   lv_label_set_text(ui->music_btn_left_label, LV_SYMBOL_PREV);
+  lv_obj_align(ui->music_btn_left_label, LV_ALIGN_CENTER, 0, 0);
 
   ui->music_btn_play = lv_btn_create(ui->music);
   lv_obj_set_size(ui->music_btn_play, btn_size, btn_size);
@@ -209,6 +219,7 @@ void setup_scr_music(lvgl_music_ui *ui) {
   ui->music_btn_play_label = lv_label_create(ui->music_btn_play);
   lv_obj_set_style_text_align(ui->music_btn_play_label, LV_TEXT_ALIGN_CENTER, 0);
   lv_label_set_text(ui->music_btn_play_label, LV_SYMBOL_PLAY);
+  lv_obj_align(ui->music_btn_play_label, LV_ALIGN_CENTER, 0, 0);
 
   ui->music_btn_stop = lv_btn_create(ui->music);
   lv_obj_set_size(ui->music_btn_stop, btn_size, btn_size);
@@ -217,6 +228,7 @@ void setup_scr_music(lvgl_music_ui *ui) {
   ui->music_btn_stop_label = lv_label_create(ui->music_btn_stop);
   lv_obj_set_style_text_align(ui->music_btn_stop_label, LV_TEXT_ALIGN_CENTER, 0);
   lv_label_set_text(ui->music_btn_stop_label, LV_SYMBOL_STOP);
+  lv_obj_align(ui->music_btn_stop_label, LV_ALIGN_CENTER, 0, 0);
 
   ui->music_btn_right = lv_btn_create(ui->music);
   lv_obj_set_size(ui->music_btn_right, btn_size, btn_size);
@@ -225,10 +237,12 @@ void setup_scr_music(lvgl_music_ui *ui) {
   ui->music_btn_right_label = lv_label_create(ui->music_btn_right);
   lv_obj_set_style_text_align(ui->music_btn_right_label, LV_TEXT_ALIGN_CENTER, 0);
   lv_label_set_text(ui->music_btn_right_label, LV_SYMBOL_NEXT);
+  lv_obj_align(ui->music_btn_right_label, LV_ALIGN_CENTER, 0, 0);
 
   ui->music_bar_time = lv_bar_create(ui->music);
   lv_obj_set_size(ui->music_bar_time, screen_width, 5);
-  lv_obj_set_pos(ui->music_bar_time, 0, (screen_height-10));
+  lv_obj_set_pos(ui->music_bar_time, 0, (int)((screen_height-55-btn_size)/6));
+  lv_obj_align_to(ui->music_bar_time, ui->music_mp3_label, LV_ALIGN_OUT_BOTTOM_MID, 0, (int)((screen_height-55-btn_size)/6)*2+btn_size);
   lv_slider_set_mode(ui->music_bar_time, LV_SLIDER_MODE_NORMAL);
   lv_bar_set_range(ui->music_bar_time, 0, 100);
   lv_bar_set_value(ui->music_bar_time, 0, LV_ANIM_OFF);
@@ -266,8 +280,6 @@ void music_set_label_text(const char *text){
     lv_label_set_text(guider_music_ui.music_mp3_label, "The music folder has no files.");
   }
 }
-
-
 
 //music player thread
 void loopTask_music(void *pvParameters) {

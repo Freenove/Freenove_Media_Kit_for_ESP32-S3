@@ -23,7 +23,7 @@ static void screen_ws2812_event_cb(lv_event_t *event)
       }
       else if(key == LV_KEY_LEFT || key == LV_KEY_RIGHT)
       {
-        strip.setLedColorData(0, 0, 0, 0);
+        strip.setAllLedsColorData(0, 0, 0);
         strip.show();
         Serial.println("Jump to Main Screen!");
         if (!lv_obj_is_valid(guider_main_ui.main))
@@ -64,15 +64,16 @@ static void slider_event_cb(lv_event_t *e) {
 
   // Set LED strip color and brightness
   strip.setBrightness(brightness);
-  strip.setLedColorData(0, red, green, blue);
+  strip.setAllLedsColorData(red, green, blue);
   strip.show();  // Update the LED strip
 }
 
 // Create a slider with specified color
 static lv_obj_t *create_slider(lvgl_ws2812_ui *ui, lv_color_t color) {
   lv_obj_t *slider = lv_slider_create(ui->ws2812);                             // Create a slider object
+  int screen_width = lv_obj_get_width(ui->ws2812);
   lv_slider_set_range(slider, 0, 50);                                          // Set slider range from 0 to 50
-  lv_obj_set_size(slider, 120, 10);                                            // Set slider size
+  lv_obj_set_size(slider, (screen_width - 120), 10);                                            // Set slider size
   lv_obj_set_style_bg_color(slider, color, LV_PART_KNOB);                      // Set knob color
   lv_obj_set_style_bg_color(slider, color, LV_PART_INDICATOR);                 // Set indicator color
   lv_obj_add_event_cb(slider, slider_event_cb, LV_EVENT_VALUE_CHANGED, NULL);  // Add event callback for value changes

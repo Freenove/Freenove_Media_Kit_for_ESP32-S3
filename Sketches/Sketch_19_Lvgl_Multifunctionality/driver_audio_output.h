@@ -2,6 +2,13 @@
 #ifndef __DRIVER_AUDIO_OUTPUT_H
 #define __DRIVER_AUDIO_OUTPUT_H
 
+#include "Arduino.h"
+#include "stdint.h"
+
+bool i2s_output_init(int bclk, int lrc, int dout);
+void i2s_output_wav(uint8_t *data, size_t len);
+void i2s_output_deinit(void);
+
 int audio_output_init(int bclk, int lrc, int dout);
 void audio_output_set_volume(int volume);
 int audio_read_output_volume(void);
@@ -16,6 +23,11 @@ long audio_read_output_play_position(void);
 void audio_output_loop(void);
 void audio_info(const char *info);
 void audio_eof_mp3(const char *info);
+
+
+
+
+
 
 #endif
 

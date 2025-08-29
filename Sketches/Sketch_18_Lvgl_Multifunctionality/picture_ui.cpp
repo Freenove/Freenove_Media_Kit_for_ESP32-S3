@@ -2,6 +2,19 @@
 
 lvgl_picture_ui guider_picture_ui;  // picture ui structure
 static int picture_index = 0;
+static int current_picture_index = -1;
+
+void picture_timer_event_handler(lv_timer_t *timer) {
+  if (picture_index != current_picture_index) {
+      String file_name = get_file_name_by_index(PICTURE_FOLDER, picture_index);
+      picture_display(file_name.c_str());
+      current_picture_index = picture_index;
+  }
+  if (guider_picture_ui.picture_timer) {
+    lv_timer_del(guider_picture_ui.picture_timer);
+    guider_picture_ui.picture_timer = NULL;
+  }
+}
 
 static void picture_btn_left_event_handler(lv_event_t *event) {
   lv_event_code_t code = lv_event_get_code(event);
@@ -14,8 +27,9 @@ static void picture_btn_left_event_handler(lv_event_t *event) {
         int sd_picture_count = read_file_num(PICTURE_FOLDER);
         picture_index = sd_picture_count - 1;
       }
-      String file_name = get_file_name_by_index(PICTURE_FOLDER, picture_index);
-      picture_display(file_name.c_str());
+      if(!guider_picture_ui.picture_timer)
+        guider_picture_ui.picture_timer = lv_timer_create(picture_timer_event_handler, 10, NULL);
+      lv_timer_set_repeat_count(guider_picture_ui.picture_timer, 1);
     }
   }
 }
@@ -31,8 +45,9 @@ static void picture_btn_right_event_handler(lv_event_t *event) {
       if (picture_index >= sd_picture_count){
         picture_index = 0;
       }
-      String file_name = get_file_name_by_index(PICTURE_FOLDER, picture_index);
-      picture_display(file_name.c_str());
+      if(!guider_picture_ui.picture_timer)
+        guider_picture_ui.picture_timer = lv_timer_create(picture_timer_event_handler, 10, NULL);
+      lv_timer_set_repeat_count(guider_picture_ui.picture_timer, 1);
     }
   }
 }
@@ -50,6 +65,10 @@ static void picture_event_handler(lv_event_t *event) {
       else if(key == LV_KEY_LEFT || key == LV_KEY_RIGHT)
       {
         Serial.println("Jump to Main Screen!");
+        if (guider_picture_ui.picture_timer) {
+          lv_timer_del(guider_picture_ui.picture_timer);
+          guider_picture_ui.picture_timer = NULL;
+        }
         if (!lv_obj_is_valid(guider_main_ui.main))
             setup_scr_main(&guider_main_ui);
         lv_scr_load(guider_main_ui.main);
@@ -77,7 +96,11 @@ void setup_scr_picture(lvgl_picture_ui *ui) {
   lv_obj_set_pos(ui->picture_show, 0, 0);
 
   ui->picture_left = lv_btn_create(ui->picture);
+#ifdef FNK0102A_1P14_135x240_ST7789
   lv_obj_set_size(ui->picture_left, 40, 40);
+#elif defined FNK0102B_3P5_320x480_ST7796
+  lv_obj_set_size(ui->picture_left, 50, 50);
+#endif
   lv_obj_align(ui->picture_left, LV_ALIGN_LEFT_MID, 0, 0);
   lv_obj_t *left_btn_label = lv_label_create(ui->picture_left);
   lv_label_set_text(left_btn_label, LV_SYMBOL_LEFT);
@@ -85,7 +108,11 @@ void setup_scr_picture(lvgl_picture_ui *ui) {
   lv_obj_move_foreground(ui->picture_left);
 
   ui->picture_right = lv_btn_create(ui->picture);
+#ifdef FNK0102A_1P14_135x240_ST7789
   lv_obj_set_size(ui->picture_right, 40, 40);
+#elif defined FNK0102B_3P5_320x480_ST7796
+  lv_obj_set_size(ui->picture_right, 50, 50);
+#endif
   lv_obj_align(ui->picture_right, LV_ALIGN_RIGHT_MID, 0, 0);
   lv_obj_t *right_btn_label = lv_label_create(ui->picture_right);
   lv_label_set_text(right_btn_label, LV_SYMBOL_RIGHT);
@@ -104,10 +131,10 @@ void setup_scr_picture(lvgl_picture_ui *ui) {
   lv_obj_add_event_cb(ui->picture_right, picture_btn_right_event_handler, LV_EVENT_KEY, NULL);
   lv_obj_add_event_cb(ui->picture, picture_event_handler, LV_EVENT_KEY, NULL);
 
-  if (read_file_num(PICTURE_FOLDER) > 0) {
-    String file_name = get_file_name_by_index(PICTURE_FOLDER, picture_index);
-    picture_display(file_name.c_str());
-  }
+  current_picture_index = -1;
+  if(!ui->picture_timer)
+    ui->picture_timer = lv_timer_create(picture_timer_event_handler, 10, NULL);
+  lv_timer_set_repeat_count(ui->picture_timer, 1);
 }
 
 //Read the image file and display it

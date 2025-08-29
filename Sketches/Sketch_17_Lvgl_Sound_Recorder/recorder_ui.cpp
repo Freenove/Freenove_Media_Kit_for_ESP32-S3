@@ -8,13 +8,15 @@
 
 // I2S interface pin definitions (DO NOT MODIFY)
 #define I2S_BCLK 42  // Bit clock pin
-#define I2S_DOUT 1   // Data output pin
 #define I2S_LRC 41   // Left/Right channel select pin
+#define I2S_DOUT 1   // Data output pin
 
 // Global instances and flags for audio tasks
 lvgl_recorder_ui guider_recorder_ui;  // UI structure instance
 int recorder_task_flag = 0;           // Task status flag (0=stopped, 1=running)
 int play_task_flag = 0;               // Playback task status flag
+// Save wav data
+uint8_t *wav_buffer;
 
 /* Event handler for record button */
 static void record_btn_sound_record_event_handler(lv_event_t *event) {
@@ -67,6 +69,7 @@ static void screen_sound_record_event_handler(lv_event_t *event) {
 
 /* Initialize the sound recorder screen */
 void setup_scr_sound_recorder(lvgl_recorder_ui *ui) {
+  i2s_output_init(I2S_BCLK, I2S_LRC, I2S_DOUT);
   // Create main screen container
   ui->recorder = lv_obj_create(NULL);
   lv_obj_t *scr = lv_disp_get_scr_act(NULL);
@@ -88,8 +91,7 @@ void setup_scr_sound_recorder(lvgl_recorder_ui *ui) {
   // Create record button
   ui->recorder_btn_sound_record = lv_btn_create(ui->recorder);
   lv_obj_set_size(ui->recorder_btn_sound_record, 75, 50);
-  lv_obj_set_pos(ui->recorder_btn_sound_record,
-                 (screen_width - (75 * 2)) / 3, ((screen_height - 50) / 2));
+  lv_obj_align(ui->recorder_btn_sound_record, LV_ALIGN_CENTER, -((screen_width - (75 * 2)) / 6 + (75 / 2)), 0);
   lv_obj_add_style(ui->recorder_btn_sound_record, &style_pr, LV_STATE_PRESSED);
   ui->recorder_btn_sound_record_label = lv_label_create(ui->recorder_btn_sound_record);
   lv_obj_set_style_text_align(ui->recorder_btn_sound_record_label, LV_TEXT_ALIGN_CENTER, 0);
@@ -99,8 +101,7 @@ void setup_scr_sound_recorder(lvgl_recorder_ui *ui) {
   // Create play button
   ui->recorder_btn_sound_play = lv_btn_create(ui->recorder);
   lv_obj_set_size(ui->recorder_btn_sound_play, 75, 50);
-  lv_obj_align_to(ui->recorder_btn_sound_play, ui->recorder_btn_sound_record,
-                  LV_ALIGN_OUT_RIGHT_MID, 30, 0);
+  lv_obj_align(ui->recorder_btn_sound_play, LV_ALIGN_CENTER, ((screen_width - (75 * 2)) / 6 + (75 / 2)), 0);
   lv_obj_add_style(ui->recorder_btn_sound_play, &style_pr, LV_STATE_PRESSED);
   ui->recorder_btn_sound_play_label = lv_label_create(ui->recorder_btn_sound_play);
   lv_obj_set_style_text_align(ui->recorder_btn_sound_play_label, LV_TEXT_ALIGN_CENTER, 0);
@@ -151,13 +152,19 @@ void loopTask_sound_recorder(void *pvParameters) {
   // Initialize the total size of recorded data
   int total_size = 0;
   // Allocate memory in PSRAM for storing audio data
-  char *buffer = (char *)heap_caps_malloc(MOLLOC_SIZE, MALLOC_CAP_SPIRAM);
+  if(wav_buffer!=NULL)
+  {
+    // Free the allocated memory in PSRAM
+    heap_caps_free(wav_buffer);
+    wav_buffer = NULL;
+  }
+  wav_buffer = (uint8_t *)heap_caps_malloc(MOLLOC_SIZE, MALLOC_CAP_SPIRAM);
   // Get the index for the next recording file
   int wav_index = read_file_num(RECORDER_FOLDER);
   // Generate the file name for the new recording
   String file_name = String(RECORDER_FOLDER) + "/recording_" + String(wav_index) + ".wav";
-  // Write the WAV header to the file
-  write_wav_header(file_name.c_str(), total_size);
+  // // Write the WAV header to the file
+  // write_wav_header(file_name.c_str(), total_size);
   // Loop while the recorder task is running
   while (recorder_task_flag == 1) {
     // Get the available IIS data size
@@ -171,19 +178,21 @@ void loopTask_sound_recorder(void *pvParameters) {
         break;
       }
       // Read IIS data into the buffer
-      int real_size = audio_input_read_iis_data(buffer + total_size, 512);
+      int real_size = audio_input_read_iis_data((char*)wav_buffer + total_size, 512);
       // Update the total size of recorded data
       total_size += real_size;
       // Decrease the available IIS data size
       iis_buffer_size -= real_size;
     }
   }
+  // Write the WAV header to the file
+  bool state = write_wav_header(file_name.c_str(), total_size);
+  Serial.printf("Write wav header state2:%d\r\n", state);
+
   // Append the recorded data to the file
-  append_file(file_name.c_str(), (uint8_t *)(buffer), total_size);
-  // Update the WAV header with the final file size
-  write_wav_header(file_name.c_str(), total_size);
-  // Free the allocated memory in PSRAM
-  heap_caps_free(buffer);
+  append_file(file_name.c_str(), wav_buffer, total_size);
+  Serial.printf("write wav size:%d\r\n", total_size);
+  
   // Print a message indicating the end of the recording task
   Serial.println("loopTask_sound_recorder stop...");
   vTaskDelete(NULL);
@@ -193,19 +202,7 @@ void loopTask_sound_recorder(void *pvParameters) {
 void start_audio_play_task(void) {
   if (play_task_flag == 0) {
     play_task_flag = 1;
-    int file_count = read_file_num(RECORDER_FOLDER) - 1;
-    if (file_count >= 0) {
-      String file_name = get_file_name_by_index(RECORDER_FOLDER, file_count);
-      char path[255] = { 0 };
-      strcat(path, RECORDER_FOLDER);
-      strcat(path, "/");
-      strcat(path, file_name.c_str());
-      Serial.println(path);
-      audio_output_load_music(path);
-      xTaskCreate(loopTask_audio_play, "loopTask_audio_play", 4096, NULL, 1, NULL);
-    } else {
-      Serial.println("No wav to play!");
-    }
+    xTaskCreate(loopTask_audio_play, "loopTask_audio_play", 4096, NULL, 1, NULL);
   } else {
     Serial.println("loopTask_audio_play is running...");
   }
@@ -227,9 +224,30 @@ int play_task_is_running(void) {
 /* Main audio playback loop */
 void loopTask_audio_play(void *pvParameters) {
   Serial.println("loopTask_audio_play start...");
+  // Loop while the player task is running
   while (play_task_flag == 1) {
-    audio_output_loop();
-    play_task_flag = audio_output_is_running() ? 1 : 0;
+      // Get the number of recorded files
+      int file_count = read_file_num(RECORDER_FOLDER);
+      // Generate the file name for the last recorded file
+      String file_name = String(RECORDER_FOLDER) + String("/") + String(get_file_name_by_index(RECORDER_FOLDER, (file_count - 1)));
+      size_t length = read_file_size(file_name.c_str());
+      Serial.printf("file_name:%s, size:%d\r\n", file_name.c_str(), length);
+      if(wav_buffer!=NULL)
+      {
+        // Free the allocated memory in PSRAM
+        heap_caps_free(wav_buffer);
+        wav_buffer = NULL;
+      }
+      wav_buffer = (uint8_t *)heap_caps_malloc(MOLLOC_SIZE, MALLOC_CAP_SPIRAM);
+      read_file(file_name.c_str(), wav_buffer, length);
+      i2s_output_wav(wav_buffer, length);
+      // for(size_t i=0;i<44;i++)
+      // {
+      //   Serial.printf("0x%x ",wav_buffer[i]);
+      //   if(i%4==3)
+      //     Serial.println();
+      // }
+      play_task_flag=0;
   }
   Serial.println("loopTask_audio_play stop...");
   vTaskDelete(NULL);

@@ -93,43 +93,72 @@ void setup_scr_main(lvgl_main_ui *ui) {
   lv_obj_add_style(ui->main, &bg_style, LV_PART_MAIN);
 
   ui->main_label_logo = lv_label_create(ui->main);
+#ifdef FNK0102A_1P14_135x240_ST7789
   lv_obj_set_size(ui->main_label_logo, 100, 20);
+  lv_obj_align(ui->main_label_logo, LV_ALIGN_TOP_MID, 0, 10);
+#elif defined FNK0102B_3P5_320x480_ST7796
+  lv_obj_set_size(ui->main_label_logo, 200, 40);
+  lv_obj_align(ui->main_label_logo, LV_ALIGN_TOP_MID, 0, 20);
+#endif
   lv_obj_set_style_text_align(ui->main_label_logo, LV_TEXT_ALIGN_CENTER, 0);
   lv_label_set_text(ui->main_label_logo, "Freenove");
-  // lv_obj_set_style_text_font(ui->main_label_logo, &lv_font_montserrat_20, 0);
-  lv_obj_align(ui->main_label_logo, LV_ALIGN_TOP_MID, 0, 10);
 
   ui->main_btn_ws2812 = lv_btn_create(ui->main);
+#ifdef FNK0102A_1P14_135x240_ST7789
   lv_obj_set_size(ui->main_btn_ws2812, 70, 30);
   lv_obj_align(ui->main_btn_ws2812, LV_ALIGN_LEFT_MID, 10, -10);
+#elif defined FNK0102B_3P5_320x480_ST7796
+  lv_obj_set_size(ui->main_btn_ws2812, 140, 60);
+  lv_obj_align(ui->main_btn_ws2812, LV_ALIGN_LEFT_MID, 20, -20);
+#endif
   lv_obj_t *label_ws2812 = lv_label_create(ui->main_btn_ws2812);
   lv_label_set_text(label_ws2812, "WS2812");
   lv_obj_align(label_ws2812, LV_ALIGN_CENTER, 0, 0);
 
   ui->main_btn_camera = lv_btn_create(ui->main);
+#ifdef FNK0102A_1P14_135x240_ST7789
   lv_obj_set_size(ui->main_btn_camera, 70, 30);
   lv_obj_align_to(ui->main_btn_camera, ui->main_btn_ws2812, LV_ALIGN_OUT_RIGHT_MID, 5, 0);
+#elif defined FNK0102B_3P5_320x480_ST7796
+  lv_obj_set_size(ui->main_btn_camera, 140, 60);
+  lv_obj_align_to(ui->main_btn_camera, ui->main_btn_ws2812, LV_ALIGN_OUT_RIGHT_MID, 10, 0);
+#endif
   lv_obj_t *label_camera = lv_label_create(ui->main_btn_camera);
   lv_label_set_text(label_camera, "Camera");
   lv_obj_align(label_camera, LV_ALIGN_CENTER, 0, 0);
 
   ui->main_btn_picture = lv_btn_create(ui->main);
+#ifdef FNK0102A_1P14_135x240_ST7789
   lv_obj_set_size(ui->main_btn_picture, 70, 30);
   lv_obj_align_to(ui->main_btn_picture, ui->main_btn_camera, LV_ALIGN_OUT_RIGHT_MID, 5, 0);
+#elif defined FNK0102B_3P5_320x480_ST7796
+  lv_obj_set_size(ui->main_btn_picture, 140, 60);
+  lv_obj_align_to(ui->main_btn_picture, ui->main_btn_camera, LV_ALIGN_OUT_RIGHT_MID, 10, 0);
+#endif
   lv_obj_t *label_picture = lv_label_create(ui->main_btn_picture);
   lv_label_set_text(label_picture, "Picture");
   lv_obj_align(label_picture, LV_ALIGN_CENTER, 0, 0);
 
   ui->main_btn_music = lv_btn_create(ui->main);
+#ifdef FNK0102A_1P14_135x240_ST7789
   lv_obj_set_size(ui->main_btn_music, 70, 30);
   lv_obj_align_to(ui->main_btn_music, ui->main_btn_ws2812, LV_ALIGN_OUT_BOTTOM_MID, 0, 15);
+#elif defined FNK0102B_3P5_320x480_ST7796
+  lv_obj_set_size(ui->main_btn_music, 140, 60);
+  lv_obj_align_to(ui->main_btn_music, ui->main_btn_ws2812, LV_ALIGN_OUT_BOTTOM_MID, 0, 30);
+#endif
   lv_obj_t *label_music = lv_label_create(ui->main_btn_music);
   lv_label_set_text(label_music, "Music");
   lv_obj_align(label_music, LV_ALIGN_CENTER, 0, 0);
 
   ui->main_btn_recorder = lv_btn_create(ui->main);
+#ifdef FNK0102A_1P14_135x240_ST7789
   lv_obj_set_size(ui->main_btn_recorder, 70, 30);
   lv_obj_align_to(ui->main_btn_recorder, ui->main_btn_music, LV_ALIGN_OUT_RIGHT_MID, 5, 0);
+#elif defined FNK0102B_3P5_320x480_ST7796
+  lv_obj_set_size(ui->main_btn_recorder, 140, 60);
+  lv_obj_align_to(ui->main_btn_recorder, ui->main_btn_music, LV_ALIGN_OUT_RIGHT_MID, 10, 0);
+#endif
   lv_obj_t *label_recorder = lv_label_create(ui->main_btn_recorder);
   lv_label_set_text(label_recorder, "Recorder");
   lv_obj_align(label_recorder, LV_ALIGN_CENTER, 0, 0);

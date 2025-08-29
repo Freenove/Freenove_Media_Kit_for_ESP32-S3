@@ -4,6 +4,8 @@
 
 #include "public.h"
 
+#define RECORDER_FOLDER "/recorder"
+
 // Structure definition for LVGL recorder UI components
 typedef struct lvgl_recorder {
     lv_obj_t *recorder;                  // Main container object for recorder UI

@@ -90,7 +90,7 @@ void setup() {
   // Configure I2S for audio input
   i2s.setPins(I2S_PIN_BCK, I2S_PIN_WS, -1, I2S_PIN_DIN);
   i2s.setTimeout(1000);
-  i2s.begin(I2S_MODE_STD, 16000, I2S_DATA_BIT_WIDTH_16BIT, I2S_SLOT_MODE_STEREO);
+  i2s.begin(I2S_MODE_STD, 32000, I2S_DATA_BIT_WIDTH_32BIT, I2S_SLOT_MODE_STEREO, I2S_STD_SLOT_BOTH);
 
   // Initialize voice recognition library with commands and event callback
   ESP_SR.onEvent(onSrEvent);
