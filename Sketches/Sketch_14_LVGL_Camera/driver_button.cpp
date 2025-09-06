@@ -10,11 +10,11 @@ Button::Button(int pin): pin(pin) {
 }
 
 void Button::init() {
-  int thresholds[] = { 2800, 0, 700, 2000, 1350, 2660 };
+  int thresholds[] = { 2800, 0, 700, 2000, 1350, 2600};
   analogReadResolution(12);
   analogSetAttenuation(ADC_11db);
   set_voltage_thresholds(thresholds);
-  set_threshold_range(50);
+  set_threshold_range(100);
 }
 
 void Button::set_voltage_thresholds(const int thresholds[6]) {

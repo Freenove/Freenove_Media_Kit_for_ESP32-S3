@@ -157,6 +157,13 @@ static void screen_music_event_handler(lv_event_t * event)
 
 //Parameter configuration function on the music screen
 void setup_scr_music(lvgl_music_ui *ui) {
+  audio_output_init(AUDIO_OUTPUT_BCLK, AUDIO_OUTPUT_LRC, AUDIO_OUTPUT_DOUT);
+#ifdef FNK0102A_1P14_135x240_ST7789
+  audio_output_set_volume(21);
+#elif defined FNK0102B_3P5_320x480_ST7796
+  audio_output_set_volume(5);
+#endif
+
   ui->music = lv_obj_create(NULL);
   lv_coord_t screen_width = lv_obj_get_width(ui->music);    // Get screen width
   lv_coord_t screen_height = lv_obj_get_height(ui->music);  // Get screen height
@@ -181,14 +188,22 @@ void setup_scr_music(lvgl_music_ui *ui) {
   lv_obj_set_pos(ui->music_slider_label, 5, (int)((screen_height-55-btn_size)/6));
   lv_obj_set_style_text_align(ui->music_slider_label, LV_TEXT_ALIGN_CENTER, 0);
   char buf[16];
+#ifdef FNK0102A_1P14_135x240_ST7789
   lv_snprintf(buf, sizeof(buf), "Volume:%d", 10);
+#elif defined FNK0102B_3P5_320x480_ST7796
+  lv_snprintf(buf, sizeof(buf), "Volume:%d", 5);
+#endif
   lv_label_set_text(ui->music_slider_label, buf);
 
   ui->music_slider_valume = lv_slider_create(ui->music);
   lv_obj_set_size(ui->music_slider_valume, screen_width, 10);
   lv_obj_align_to(ui->music_slider_valume, ui->music_slider_label, LV_ALIGN_OUT_BOTTOM_MID, 0, (int)((screen_height-55-btn_size)/6));
   lv_slider_set_mode(ui->music_slider_valume, LV_SLIDER_MODE_NORMAL);
+#ifdef FNK0102A_1P14_135x240_ST7789
   lv_slider_set_range(ui->music_slider_valume, 0, 21);
+#elif defined FNK0102B_3P5_320x480_ST7796
+  lv_slider_set_range(ui->music_slider_valume, 0, 8);
+#endif
   lv_slider_set_value(ui->music_slider_valume, 10, LV_ANIM_OFF);
 
   ui->music_mp3_label = lv_label_create(ui->music);
