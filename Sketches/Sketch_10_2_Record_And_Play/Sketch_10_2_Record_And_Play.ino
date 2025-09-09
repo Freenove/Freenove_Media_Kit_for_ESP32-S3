@@ -58,7 +58,7 @@ void loop() {
       int file_count = read_file_num(RECORDER_FOLDER);
       String file_name = String(RECORDER_FOLDER) + "/recorder_" + String(file_count) + ".wav";
       Serial.println(file_name);
-      wav_buffer = audio_input_record_wav(3, &wav_size);    // Record 5 seconds of audio
+      wav_buffer = audio_input_record_wav(3, &wav_size);    // Record 3 seconds of audio
       write_file(file_name.c_str(), wav_buffer, wav_size);  // Save the recorded audio to the SD card
       Serial.println("Writing audio data to file..." + String(wav_size));
       recorder_task_flag = 1;                               // Stop the recording task
