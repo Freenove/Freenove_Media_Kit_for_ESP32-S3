@@ -14,18 +14,26 @@ Note: Both the LED Pixels on the ESP32S3 board and on the extension board are co
 Component List 
 ==========================================
 
+:combo:`red font-bolder:As of the time of writing, the Freenove Media Kit for ESP32-S3 comes in two different models with varying screen sizes. However, this tutorial applies to both versions.`
+
 .. table:: 
     :align: center
     :class: table-line
+    :width: 80%
 
     +------------------------------------+----------------+
     | Freenove Media Kit for ESP32-S3 x1 | USB cable x1   |
     |                                    |                |
     | |Chapter01_00|                     | |Chapter01_01| |
     +------------------------------------+----------------+
+    | Extension Board x1(1.14 inch/3.5 inch)              |
+    |                                                     |
+    | |Chapter01_11|                                      |
+    +-----------------------------------------------------+
 
 .. |Chapter01_00| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_00.png
 .. |Chapter01_01| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_01.png
+.. |Chapter01_11| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_11.png
 
 Related Knowledge
 ===========================================

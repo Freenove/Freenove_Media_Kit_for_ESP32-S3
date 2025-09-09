@@ -9,24 +9,33 @@ Project 6.1 Play MP3
 
 In this project, we will read files in mp3 format from SD card, decode them through ESP32-S3, and use Audio Converter & Amplifier module to transcode into stereo output.
 
-.. list-table::
+Component List 
+================================
+
+:combo:`red font-bolder:As of the time of writing, the Freenove Media Kit for ESP32-S3 comes in two different models with varying screen sizes. However, this tutorial applies to both versions.`
+
+.. table:: 
     :align: center
     :class: table-line
+    :width: 80%
 
-    * - Freenove Media Kit for ESP32-S3 x1
-      - USB cable x1
+    +------------------------------------+----------------+
+    | Freenove Media Kit for ESP32-S3 x1 | USB cable x1   |
+    |                                    |                |
+    | |Chapter01_00|                     | |Chapter01_01| |
+    +------------------------------------+----------------+
+    | Extension Board x1(1.14 inch/3.5 inch)              |
+    |                                                     |
+    | |Chapter01_11|                                      |
+    +----------------------+------------------------------+
+    | SD card x1           | Card reader x1 (random color)|
+    |                      |                              |
+    | |Chapter04_00|       | |Chapter04_01|               |
+    +----------------------+------------------------------+
 
-    * - |Chapter03_01|
-      - |Chapter03_02|
-
-    * - SD card x1
-      - Card reader x1 (random color)
-
-    * - |Chapter04_00|
-      - |Chapter04_01|
-
-.. |Chapter03_01| image:: ../_static/imgs/Main/3_5-Way_Navigation_Switch_Test/Chapter03_01.png
-.. |Chapter03_02| image:: ../_static/imgs/Main/3_5-Way_Navigation_Switch_Test/Chapter03_02.png
+.. |Chapter01_00| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_00.png
+.. |Chapter01_01| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_01.png
+.. |Chapter01_11| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_11.png
 .. |Chapter04_00| image:: ../_static/imgs/Main/4_SD_Card_Read_&_Write_Test/Chapter04_00.png
 .. |Chapter04_01| image:: ../_static/imgs/Main/4_SD_Card_Read_&_Write_Test/Chapter04_01.png
 
@@ -37,16 +46,16 @@ Before compling code, we should copy music to SD card first, as illustrated belo
 
 We have placed a folder called "music" in:
 
-**Freenove_Media_Kit_for_ESP32-S3\\Sketch\\Sketch_05_I2S_Audio,**
-
-please copy this folder to the SD card.
-
-.. image:: ../_static/imgs/Main/6_Play_MP3_Test/Chapter06_00.png
-    :align: center
+**Freenove_Media_Kit_for_ESP32-S3\Sketch\Sketch_06_Play_MP3**
 
 Before connecting the USB cable, insert the SD card into the SD card slot on the back of the ESP32-S3.
 
-.. image:: ../_static/imgs/Main/4_SD_Card_Read_&_Write_Test/Chapter04_14.png
+.. image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_12.png
+    :align: center
+
+Connect Freenove ESP32-S3 to the computer using the USB cable. 
+
+.. image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_04.png
     :align: center
 
 Sketch

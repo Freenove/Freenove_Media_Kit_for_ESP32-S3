@@ -12,35 +12,44 @@ Capture image data using the camera module and display it on the TFT screen.
 Component List 
 =================================
 
+:combo:`red font-bolder:As of the time of writing, the Freenove Media Kit for ESP32-S3 comes in two different models with varying screen sizes. However, this tutorial applies to both versions.`
+
 .. table:: 
     :align: center
     :class: table-line
+    :width: 80%
 
-    +-------------------+-------------------+
-    | SD card x1        | USB cable x1      |
-    |                   |                   |
-    | |Chapter07_00|    | |Chapter07_01|    |
-    +-------------------+-------------------+
-    | Freenove Media Kit for ESP32-S3 x1    |
-    |                                       |
-    | |Chapter07_02|                        |
-    +---------------------------------------+
+    +------------------------------------+----------------+
+    | Freenove Media Kit for ESP32-S3 x1 | USB cable x1   |
+    |                                    |                |
+    | |Chapter01_00|                     | |Chapter01_01| |
+    +------------------------------------+----------------+
+    | Extension Board x1(1.14 inch/3.5 inch)              |
+    |                                                     |
+    | |Chapter01_11|                                      |
+    +----------------------+------------------------------+
+    | SD card x1           | Card reader x1 (random color)|
+    |                      |                              |
+    | |Chapter04_00|       | |Chapter04_01|               |
+    +----------------------+------------------------------+
 
-.. |Chapter07_00| image:: ../_static/imgs/Main/7_Video_Web_Server/Chapter07_00.png
-.. |Chapter07_01| image:: ../_static/imgs/Main/7_Video_Web_Server/Chapter07_01.png
-.. |Chapter07_02| image:: ../_static/imgs/Main/7_Video_Web_Server/Chapter07_02.png
+.. |Chapter01_00| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_00.png
+.. |Chapter01_01| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_01.png
+.. |Chapter01_11| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_11.png
+.. |Chapter04_00| image:: ../_static/imgs/Main/4_SD_Card_Read_&_Write_Test/Chapter04_00.png
+.. |Chapter04_01| image:: ../_static/imgs/Main/4_SD_Card_Read_&_Write_Test/Chapter04_01.png
 
 Circuit
 =================================
 
-Connect Freenove Media Kit for ESP32-S3 to your computer using the USB cable.
-
-.. image:: ../_static/imgs/Main/3_5-Way_Navigation_Switch_Test/Chapter03_03.png
-    :align: center
-
 Before connecting the USB cable, insert the SD card into the SD card slot on the back of the ESP32-S3.
 
-.. image:: ../_static/imgs/Main/7_Video_Web_Server/Chapter07_03.png
+.. image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_12.png
+    :align: center
+
+Connect Freenove ESP32-S3 to the computer using the USB cable. 
+
+.. image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_04.png
     :align: center
 
 Sketch
@@ -145,38 +154,44 @@ In the previous section, we learned how to capture camera images and display the
 Component List 
 ============================
 
-.. list-table::
+:combo:`red font-bolder:As of the time of writing, the Freenove Media Kit for ESP32-S3 comes in two different models with varying screen sizes. However, this tutorial applies to both versions.`
+
+.. table:: 
     :align: center
     :class: table-line
+    :width: 80%
 
-    * - Freenove Media Kit for ESP32-S3 x1
-      - USB cable x1
+    +------------------------------------+----------------+
+    | Freenove Media Kit for ESP32-S3 x1 | USB cable x1   |
+    |                                    |                |
+    | |Chapter01_00|                     | |Chapter01_01| |
+    +------------------------------------+----------------+
+    | Extension Board x1(1.14 inch/3.5 inch)              |
+    |                                                     |
+    | |Chapter01_11|                                      |
+    +----------------------+------------------------------+
+    | SD card x1           | Card reader x1 (random color)|
+    |                      |                              |
+    | |Chapter04_00|       | |Chapter04_01|               |
+    +----------------------+------------------------------+
 
-    * - |Chapter03_01|
-      - |Chapter03_02|
-
-    * - SD card x1
-      - Card reader x1 (random color)
-
-    * - |Chapter04_00|
-      - |Chapter04_01|
-
-.. |Chapter03_01| image:: ../_static/imgs/Main/3_5-Way_Navigation_Switch_Test/Chapter03_01.png
-.. |Chapter03_02| image:: ../_static/imgs/Main/3_5-Way_Navigation_Switch_Test/Chapter03_02.png
+.. |Chapter01_00| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_00.png
+.. |Chapter01_01| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_01.png
+.. |Chapter01_11| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_11.png
 .. |Chapter04_00| image:: ../_static/imgs/Main/4_SD_Card_Read_&_Write_Test/Chapter04_00.png
 .. |Chapter04_01| image:: ../_static/imgs/Main/4_SD_Card_Read_&_Write_Test/Chapter04_01.png
 
 Circuit
 =================================
 
-Connect Freenove Media Kit for ESP32-S3 to your computer using the USB cable.
-
-.. image:: ../_static/imgs/Main/3_5-Way_Navigation_Switch_Test/Chapter03_03.png
-    :align: center
-
 Before connecting the USB cable, insert the SD card into the SD card slot on the back of the ESP32-S3.
 
-.. image:: ../_static/imgs/Main/7_Video_Web_Server/Chapter07_03.png
+.. image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_12.png
+    :align: center
+
+Connect Freenove ESP32-S3 to the computer using the USB cable. 
+
+.. image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_04.png
     :align: center
 
 Sketch
@@ -243,6 +258,10 @@ It is necessary to change the settings in Arduino IDE before clicking the Upload
     :align: center
 
 After uploading the code, the image from the camera will be displayed on the TFT screen. Pressing the button down (center) will automatically save the photo to the SD card
+
+.. note:: 
+    
+    :combo:`red font-bolder:Here, take 1.14 inches as an example; the usage is the same for 3.5 inches.`
 
 .. image:: ../_static/imgs/Main/9_Camera_TFT_Test/Chapter09_03.png
     :align: center

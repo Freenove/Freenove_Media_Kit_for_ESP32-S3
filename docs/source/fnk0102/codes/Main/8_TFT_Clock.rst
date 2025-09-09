@@ -10,26 +10,33 @@ Project 8.1 TFT Clock
 Component List 
 =================================
 
-.. list-table::
-    :header-rows: 1
+:combo:`red font-bolder:As of the time of writing, the Freenove Media Kit for ESP32-S3 comes in two different models with varying screen sizes. However, this tutorial applies to both versions.`
+
+.. table:: 
     :align: center
     :class: table-line
+    :width: 80%
 
-    * - Freenove Media Kit for ESP32-S3 x1
-      - USB cable x1
+    +------------------------------------+----------------+
+    | Freenove Media Kit for ESP32-S3 x1 | USB cable x1   |
+    |                                    |                |
+    | |Chapter01_00|                     | |Chapter01_01| |
+    +------------------------------------+----------------+
+    | Extension Board x1(1.14 inch/3.5 inch)              |
+    |                                                     |
+    | |Chapter01_11|                                      |
+    +-----------------------------------------------------+
 
-    * - |Chapter03_01|
-      - |Chapter03_02|
-
-.. |Chapter03_01| image:: ../_static/imgs/Main/3_5-Way_Navigation_Switch_Test/Chapter03_01.png
-.. |Chapter03_02| image:: ../_static/imgs/Main/3_5-Way_Navigation_Switch_Test/Chapter03_02.png
+.. |Chapter01_00| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_00.png
+.. |Chapter01_01| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_01.png
+.. |Chapter01_11| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_11.png
 
 Circuit
 =================================
 
 Connect Freenove Media Kit for ESP32-S3 to your computer using the USB cable.
 
-.. image:: ../_static/imgs/Main/3_5-Way_Navigation_Switch_Test/Chapter03_03.png
+.. image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_04.png
     :align: center
 
 Sketch
@@ -65,8 +72,9 @@ Select **TFT_eSPI_Setups.Zip** and click Open.
     :align: center
 
 How to configure (Important)
+---------------------------------
 
-Open This PC, input **%USERPROFILE%\\Documents\\Arduino\\libraries\\TFT_eSPI** and press the **Enter** key.
+Open This PC, input **%USERPROFILE%\\Documents\\Arduino\\libraries\\TFT_eSPI_Setups** and press the **Enter** key.
 
 .. image:: ../_static/imgs/Main/8_TFT_Clock/Chapter08_04.png
     :align: center
@@ -76,17 +84,19 @@ Right click User_Setup_Select.h, click **Edit**.
 .. image:: ../_static/imgs/Main/8_TFT_Clock/Chapter08_05.png
     :align: center
 
-Add the following contents to **Line 28** of the file.
+Uncomment the corresponding macro definition based on the model purchased.
 
-.. code-block:: c
-    :linenos:
-
-    #include <../TFT_eSPI_Setups/Freenove_1.14_135x240_ST7789.h>
-
-Save the change and exit the file.
+If it is **1.14inch**, configure as below:
 
 .. image:: ../_static/imgs/Main/8_TFT_Clock/Chapter08_06.png
     :align: center
+
+If it is **3.5inch**, configure as below:
+
+.. image:: ../_static/imgs/Main/8_TFT_Clock/Chapter08_09.png
+    :align: center
+
+Save the change and exit the file.
 
 .. warning::
     

@@ -2,6 +2,9 @@
 Chapter 0 Assembly
 ##############################################################################
 
+1.14inch
+**********************************
+
 If the product you received is pre-assembled, you can skip this chapter.
 
 .. table:: 
@@ -86,7 +89,7 @@ If you need to assemble it, please follow the following instructions step by ste
     |                                                                                                            |
     | |Chapter00_10|                                                                                             |
     +------------------------------------------------------------------------------------------------------------+
-    
+
 To depart the housing, please do as following:
 
 .. table:: 
@@ -113,3 +116,99 @@ To depart the housing, please do as following:
 .. |Chapter00_09| image:: ../_static/imgs/Main/0_Assembly/Chapter00_09.png
 .. |Chapter00_10| image:: ../_static/imgs/Main/0_Assembly/Chapter00_10.png
 .. |Chapter00_11| image:: ../_static/imgs/Main/0_Assembly/Chapter00_11.png
+
+3.5inch
+****************************************
+
+If the product you received is pre-assembled, you can skip this chapter.
+
+.. table:: 
+    :align: center
+    :class: table-line
+
+    +----------------+----------------+
+    | |Chapter00_12| | |Chapter00_13| |
+    +----------------+----------------+
+
+.. |Chapter00_12| image:: ../_static/imgs/Main/0_Assembly/Chapter00_12.png
+.. |Chapter00_13| image:: ../_static/imgs/Main/0_Assembly/Chapter00_13.png
+
+If you need to assemble it, please follow the following instructions step by step to proceed.
+
+.. table:: 
+    :align: center
+    :class: table-line
+
+    +------------------------------------------------------------------------------------------------------------+
+    | First, connect the camera to the board.                                                                    |
+    |                                                                                                            |
+    | |Chapter00_02|                                                                                             |
+    |                                                                                                            |
+    | 1. Do not remove or install the camera while power is on to avoids potential short circuits                |
+    |                                                                                                            |
+    |    or damage during hot-plugging.                                                                          |
+    |                                                                                                            |
+    | 2. The camera socket features a flip-top design—gently lift the cover to install the camera.               |
+    |                                                                                                            |
+    |    Avoid forceful handling.                                                                                |
+    |                                                                                                            |
+    | 3. Fully insert the camera into the socket until it reaches the end.                                       |
+    +------------------------------------------------------------------------------------------------------------+
+    | Plug the ESP32S3 onto the extension board.                                                                 |
+    |                                                                                                            |
+    | |Chapter00_14|                                                                                             |
+    |                                                                                                            |
+    | :red:`1. Pay attention to the orientation of the board. Installing reversely may damage the board.`        |
+    |                                                                                                            |
+    | :red:`2. Align the two board pin to pin.`                                                                  |
+    +------------------------------------------------------------------------------------------------------------+
+    | Connect the battery to the battery interface.                                                              |
+    |                                                                                                            |
+    | (Note: The battery is optional. You can also power the device via USB cable without installing a battery.) |
+    |                                                                                                            |
+    | |Chapter00_15|                                                                                             |
+    |                                                                                                            |
+    | Caution: Observe correct battery polarity during connection. Reverse polarity may damage the product.      |
+    |                                                                                                            |
+    | (If you do not use the battery, you may skip this step.)                                                   |
+    +------------------------------------------------------------------------------------------------------------+
+    | Peel off the double-sided tape on the speaker surface and attach it to the correct position on the housing.|
+    |                                                                                                            |
+    | |Chapter00_16|                                                                                             |
+    +------------------------------------------------------------------------------------------------------------+
+    | Attach the battery to the back of the speaker with double-sided tape.                                      |
+    |                                                                                                            |
+    | |Chapter00_17|                                                                                             |
+    +------------------------------------------------------------------------------------------------------------+
+    | Conenct the speaker cable to the extension board.                                                          |
+    |                                                                                                            |
+    | |Chapter00_18|                                                                                             |
+    +------------------------------------------------------------------------------------------------------------+
+    | Put the extension board to the housing.                                                                    |
+    |                                                                                                            |
+    | |Chapter00_19|                                                                                             |
+    +------------------------------------------------------------------------------------------------------------+
+    | After assembly                                                                                             |
+    |                                                                                                            |
+    | |Chapter00_20|                                                                                             |
+    +------------------------------------------------------------------------------------------------------------+
+    | Align the housing with the slot for installation.                                                          |
+    |                                                                                                            |
+    | Caution: The housing is fragile. Please handle with care during installation.                              |
+    |                                                                                                            |
+    | |Chapter00_21|                                                                                             |
+    +------------------------------------------------------------------------------------------------------------+
+    | Assembly Complete                                                                                          |
+    |                                                                                                            |
+    | |Chapter00_22|                                                                                             |
+    +------------------------------------------------------------------------------------------------------------+
+
+.. |Chapter00_14| image:: ../_static/imgs/Main/0_Assembly/Chapter00_14.png
+.. |Chapter00_15| image:: ../_static/imgs/Main/0_Assembly/Chapter00_15.png
+.. |Chapter00_16| image:: ../_static/imgs/Main/0_Assembly/Chapter00_16.png
+.. |Chapter00_17| image:: ../_static/imgs/Main/0_Assembly/Chapter00_17.png
+.. |Chapter00_18| image:: ../_static/imgs/Main/0_Assembly/Chapter00_18.png
+.. |Chapter00_19| image:: ../_static/imgs/Main/0_Assembly/Chapter00_19.png
+.. |Chapter00_20| image:: ../_static/imgs/Main/0_Assembly/Chapter00_20.png
+.. |Chapter00_21| image:: ../_static/imgs/Main/0_Assembly/Chapter00_21.png
+.. |Chapter00_22| image:: ../_static/imgs/Main/0_Assembly/Chapter00_22.png

@@ -80,9 +80,25 @@ For more information, please visit: https://www.espressif.com.cn/sites/default/f
 Freenove Media Kit for ESP32-S3
 *******************************************
 
-Freenove Media Kit for ESP32-S3 is an expansion board designed for the Freenove ESP32-S3 WROOM Board. Its key features are illustrated below.
+:combo:`red font-bolder:As of the time of writing, the Freenove Media Kit for ESP32-S3 comes in two different models with varying screen sizes. However, this tutorial applies to both versions.`
+
+1.14inch
+===========================================
+
+The audio circuit board integrates multiple functional hardware modules, including a 1.14-inch TFT display, a microphone, a battery charging circuit, an audio processing circuit, a headphone jack, and an integrated speaker, as illustrated in the figures below.
 
 .. image:: ../_static/imgs/Main/Preface/Preface09.png
+    :align: center
+
+3.5inch
+============================================
+
+The audio circuit board integrates multiple functional hardware modules, including a 3.5-inch TFT display, a microphone, a battery charging circuit, an audio processing circuit, a headphone jack, and an speaker jack, as illustrated in the figures below.
+
+.. image:: ../_static/imgs/Main/Preface/Preface94.png
+    :align: center
+
+.. image:: ../_static/imgs/Main/Preface/Preface95.png
     :align: center
 
 Power Button
@@ -102,30 +118,56 @@ The schematic of the power button is as shown below:
     :align: center
 
 Battery (Optional)
-------------------------------------
+==========================================
 
-This product does not include a lithium battery. Please purchase one separately.
+1.14inch
+------------------------------------------
 
-The device supports both USB direct power supply and lithium battery power supply.
+:combo:`red font-bolder:This product does not include a lithium battery. Please purchase one separately.`
 
-We strongly recommend using USB power whenever possible, as lithium batteries can be hazardous and require careful handling. Avoid using a battery unless absolutely necessary.
+The device supports both **USB direct power supply** and **lithium battery power supply**.
+
+We strongly recommend using USB power whenever possible, as lithium batteries can be :combo:`red font-bolder:hazardous` and require careful handling. Avoid using a battery unless absolutely necessary.
 
 The recommended size of lithium batteries for this product is: 7.5mmx20mmx35mm. Search for "702035 battery" on any shopping platform.
 
 .. image:: ../_static/imgs/Main/Preface/Preface12.png
     :align: center
 
-This product uses a PH2.0mm 2P connector for power supply. You may purchase lithium batteries of any capacity, but please note that the rated input voltage range must be 3.7V–4.2V.
+This product uses a **PH2.0mm 2P connector** for power supply. You may purchase lithium batteries of any capacity, but please note that the rated input voltage range must be **3.7V-4.2V**.
 
-Commercially available batteries may have two different wiring polarities (positive/negative reversed). You must verify that the purchased battery’s pinout matches the product’s requirements (as shown in the diagram below). Incorrect polarity may cause device damage or safety hazards.
+Commercially available batteries may have two different wiring polarities (positive/negative reversed). You must verify that the purchased battery's pinout matches the product's requirements (as shown in the diagram below). Incorrect polarity may cause device damage or safety hazards.
 
 **The red wire is Positive (+) and black wire Negative (-)**
 
 .. image:: ../_static/imgs/Main/Preface/Preface13.png
     :align: center
 
-.. image:: ../_static/imgs/Main/Preface/Preface14.png
+3.5inch
+-------------------------------------------
+
+:combo:`red font-bolder:This product does not include a lithium battery. Please purchase one separately.`
+
+The device supports both **USB direct power supply** and **lithium battery power supply**.
+
+We strongly recommend using USB power whenever possible, as lithium batteries can be hazardous and require careful handling. Avoid using a battery unless absolutely necessary.
+
+The recommended size of lithium batteries for this product is: 10mmx34mmx50mm. Search for “103450 battery” on any shopping platform.
+
+.. image:: ../_static/imgs/Main/Preface/Preface96.png
     :align: center
+
+This product uses **a PH2.0mm 2P connector** for power supply. You may purchase lithium batteries of any capacity, but please note that the rated input voltage range must be **3.7V-4.2V**.
+
+Commercially available batteries may have two different wiring polarities (positive/negative reversed). You must verify that the purchased battery's pinout matches the product's requirements (as shown in the diagram below). Incorrect polarity may cause device damage or safety hazards.
+
+**The red wire is Positive (+) and black wire Negative (-)**
+
+.. image:: ../_static/imgs/Main/Preface/Preface97.png
+    :align: center
+
+Note
+------------------------------------------
 
 **We recommend using the dedicated charger designed for your lithium battery.**
 
@@ -133,7 +175,7 @@ Commercially available batteries may have two different wiring polarities (posit
 
 **While our product also supports USB charging as a backup option, please note that this method does not support fast charging and provides only a slow, standard charge.**
 
-.. image:: ../_static/imgs/Main/Preface/Preface15.png
+.. image:: ../_static/imgs/Main/Preface/Preface98.png
     :align: center
 
 **Charging & Power Indicators:**
@@ -151,12 +193,15 @@ Commercially available batteries may have two different wiring polarities (posit
 Speaker and Headphone Connector
 ==========================================
 
-The Freenove Media Kit for ESP32-S3 is equipped with a speaker that supports high-quality audio output, capable of meeting the playback requirements for various sound effects and music. You can learn how to generate simple tones in Chapter 5: Simple Tone Test, and how to play music in Chapter 6: Play MP3 Test.
+The Freenove Media Kit for ESP32-S3 is equipped with a speaker that supports high-quality audio output, capable of meeting the playback requirements for various sound effects and music. You can learn how to generate simple tones in :ref:`Chapter 5 <fnk0102/codes/main/5_simple_tone_test:chapter 5 simple tone test>`: Simple Tone Test, and how to play music in :ref:`Chapter 6: Play MP3 Test <fnk0102/codes/main/6_play_mp3_test:chapter 6 play mp3 test>`.
 
 .. image:: ../_static/imgs/Main/Preface/Preface16.png
     :align: center
 
 The following table shows the specifications of the speaker.
+
+1.14inch
+-----------------------------------------
 
 .. table::
     :class: freenove-ow
@@ -184,6 +229,34 @@ The following table shows the specifications of the speaker.
     +----------------------+----------------------------------------+---------------+
     | Dimensions           | The length and width of the speaker.   | 18mm * 18mm   |
     +----------------------+----------------------------------------+---------------+
+
+3.5inch
+-----------------------------------------
+
+.. table::
+    :class: freenove-ow
+
+    +----------------------+-----------------------------------------------------+---------------+
+    | Specifications       | Description                                         | Typical value |
+    +======================+=====================================================+===============+
+    | Rated Impedance      | The resistance of the speaker to AC                 | 4Ω            |
+    |                      |                                                     |               |
+    |                      | current, affecting amplifier matching.              |               |
+    +----------------------+-----------------------------------------------------+---------------+
+    | Rated Power          | The maximum continuous power the                    | 3W            |
+    |                      |                                                     |               |
+    |                      | speaker can handle.                                 |               |
+    +----------------------+-----------------------------------------------------+---------------+
+    | Frequency Range      | The effective operating frequency                   | 550~20kHz     |
+    |                      |                                                     |               |
+    |                      | range of the speaker.                               |               |
+    +----------------------+-----------------------------------------------------+---------------+
+    | Maximum Sound        | The highest sound intensity the                     | 98±3dB        |
+    |                      |                                                     |               |
+    | Pressure Level (SPL) | speaker can produce under **specific conditions.**  |               |
+    +----------------------+-----------------------------------------------------+---------------+
+    | Dimensions           | The length and width of the speaker.                | 35mm * 25mm   |
+    +----------------------+-----------------------------------------------------+---------------+
 
 1.	**Resistor R15 is not soldered by default** (as shown in the figure below).
     
@@ -304,13 +377,13 @@ The following table shows the pin definition of the SD card.
 TFT Display
 ===================================
 
-Freenove Media Kit for ESP32-S3 features a **1.14-inch** TFT display. With each pixel is individually controlled by a tiny transistor, TFT (Thin-Film Transistor) displays, a common type of LCD screen, offer high responsiveness, brightness, and contrast.
+Freenove Media Kit for ESP32-S3 features a TFT display. With each pixel is individually controlled by a tiny transistor, TFT (Thin-Film Transistor) displays, a common type of LCD screen, offer high responsiveness, brightness, and contrast.
+
+1.14inch
+-----------------------------------
 
 .. image:: ../_static/imgs/Main/Preface/Preface25.png
     :align: center
-
-Specifications of the TFT Display
------------------------------------
 
 .. table::
     :class: freenove-ow
@@ -331,7 +404,35 @@ Specifications of the TFT Display
     | Communication  | SPI             |
     +----------------+-----------------+
 
-The 1.14-inch screen size specification refers to the diagonal measurement of the display's active viewing area, which equals approximately 2.6 centimeters (1.14 inches).
+**The 1.14-inch screen size specification refers to the diagonal measurement of the display's active viewing area, which equals approximately 2.6 centimeters (1.14 inches).**
+
+3.5inch
+-----------------------------------
+
+.. image:: ../_static/imgs/Main/Preface/Preface99.png
+    :align: center
+
+Specifications	Description
+
+.. table::
+    :class: zebra
+    :align: center
+
+    +---------------+------------------+
+    |  Dimensions   |     3.5 inch     |
+    +===============+==================+
+    | Resolution    | 320x480 pixel    |
+    +---------------+------------------+
+    | Drvier        | ST7365/ST7796    |
+    +---------------+------------------+
+    | Display Area  | 48.96mm x73.44mm |
+    +---------------+------------------+
+    | Rated Voltage | 3.3V             |
+    +---------------+------------------+
+    | Communication | SPI              |
+    +---------------+------------------+
+
+**The 3.5inch screen size specification refers to the diagonal measurement of the display's active viewing area, which equals approximately 8.9 centimeters (3.5 inches).**
 
 Schematic of the TFT Display
 ------------------------------------
@@ -341,7 +442,7 @@ Schematic of the TFT Display
 
 .. note::
     
-    During display reset operations, GPIO20 must be configured in output mode. 
+    **During display reset operations, GPIO20 must be configured in output mode.** 
 
 **The reset sequence requires:**
 
@@ -350,7 +451,6 @@ Schematic of the TFT Display
 **Then switch to high level to complete the reset timing**
 
 The following table shows the pin definition of the TFT display.
-
 
 .. table::
     :class: freenove-ow
@@ -391,8 +491,22 @@ For further details on MEMS microphone technology, refer to Chapter 10
 Shematic
 -----------------------
 
-.. image:: ../_static/imgs/Main/Preface/Preface29.png
+.. table:: 
     :align: center
+    :class: table-line
+    
+    +--------------+
+    | 1.14inch     |
+    +--------------+
+    | |Preface100| |
+    +--------------+
+    | 3.5inch      |
+    +--------------+
+    | |Preface101| |
+    +--------------+
+
+.. |Preface100| image:: ../_static/imgs/Main/Preface/Preface100.png
+.. |Preface101| image:: ../_static/imgs/Main/Preface/Preface101.png
 
 The following table shows the pin definition of the microphone
 
@@ -412,7 +526,7 @@ The following table shows the pin definition of the microphone
 5-way Navigation Switch
 ==============================
 
-Freenove Media Kit for ESP32-S3 utilizes a 5-way navigation button for human-machine interaction. For more details about the 5-way button, please refer to Chapter 3.
+Freenove Media Kit for ESP32-S3 utilizes a 5-way navigation button for human-machine interaction. For more details about the 5-way button, please refer to :ref:`Chapter 3 <fnk0102/codes/main/3_5-way_navigation_switch_test:chapter 3 5-way navigation switch test>`.
 
 .. image:: ../_static/imgs/Main/Preface/Preface30.png
     :align: center

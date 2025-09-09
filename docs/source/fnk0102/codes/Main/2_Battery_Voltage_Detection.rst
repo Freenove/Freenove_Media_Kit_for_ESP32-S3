@@ -9,6 +9,30 @@ For battery precautions and selection guidelines, please refer to :ref:`Battery 
 Project 2.1 Battery Voltage Value
 *******************************************
 
+Component List 
+==========================================
+
+:combo:`red font-bolder:As of the time of writing, the Freenove Media Kit for ESP32-S3 comes in two different models with varying screen sizes. However, this tutorial applies to both versions.`
+
+.. table:: 
+    :align: center
+    :class: table-line
+    :width: 80%
+
+    +------------------------------------+----------------+
+    | Freenove Media Kit for ESP32-S3 x1 | USB cable x1   |
+    |                                    |                |
+    | |Chapter01_00|                     | |Chapter01_01| |
+    +------------------------------------+----------------+
+    | Extension Board x1(1.14 inch/3.5 inch)              |
+    |                                                     |
+    | |Chapter01_11|                                      |
+    +-----------------------------------------------------+
+
+.. |Chapter01_00| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_00.png
+.. |Chapter01_01| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_01.png
+.. |Chapter01_11| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_11.png
+
 Related Knowledge
 ========================================
 
@@ -143,17 +167,14 @@ Where:
 Circuit
 ==============================
 
-Connect Freenove Media Kit for ESP32-S3 to your computer using the USB cable. 
+Connect Freenove Media Kit for ESP32-S3 to your computer using the USB cable.
 
-.. image:: ../_static/imgs/Main/2_Battery_Voltage_Detection/Chapter02_03.png
+.. image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_04.png
     :align: center
 
 Connect the battery to Freenove Media Kit for ESP32-S3.
 
 For battery precautions and selection guidelines, please refer to :ref:`Battery <fnk0102/codes/main/preface:battery (optional)>`. 
-
-.. image:: ../_static/imgs/Main/2_Battery_Voltage_Detection/Chapter02_04.png
-    :align: center
 
 Sketch
 ==============================

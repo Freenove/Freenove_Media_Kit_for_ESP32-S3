@@ -10,23 +10,32 @@ Project 18.1 LVGL Multifunctionality
 Component List 
 =================================
 
+:combo:`red font-bolder:As of the time of writing, the Freenove Media Kit for ESP32-S3 comes in two different models with varying screen sizes. However, this tutorial applies to both versions.`
+
 .. table:: 
     :align: center
     :class: table-line
+    :width: 80%
 
-    +-------------------+-------------------+
-    | SD card x1        | USB cable x1      |
-    |                   |                   |
-    | |Chapter07_00|    | |Chapter07_01|    |
-    +-------------------+-------------------+
-    | Freenove Media Kit for ESP32-S3 x1    |
-    |                                       |
-    | |Chapter07_02|                        |
-    +---------------------------------------+
+    +------------------------------------+----------------+
+    | Freenove Media Kit for ESP32-S3 x1 | USB cable x1   |
+    |                                    |                |
+    | |Chapter10_07|                     | |Chapter10_08| |
+    +------------------------------------+----------------+
+    | Extension Board x1(1.14 inch/3.5 inch)              |
+    |                                                     |
+    | |Chapter01_11|                                      |
+    +----------------------+------------------------------+
+    | SD card x1           | Card reader x1 (random color)|
+    |                      |                              |
+    | |Chapter10_09|       | |Chapter04_01|               |
+    +----------------------+------------------------------+
 
-.. |Chapter07_00| image:: ../_static/imgs/Main/7_Video_Web_Server/Chapter07_00.png
-.. |Chapter07_01| image:: ../_static/imgs/Main/7_Video_Web_Server/Chapter07_01.png
-.. |Chapter07_02| image:: ../_static/imgs/Main/7_Video_Web_Server/Chapter07_02.png
+.. |Chapter10_07| image:: ../_static/imgs/Main/10_Record_Test/Chapter10_07.png
+.. |Chapter10_08| image:: ../_static/imgs/Main/10_Record_Test/Chapter10_08.png
+.. |Chapter01_11| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_11.png
+.. |Chapter10_09| image:: ../_static/imgs/Main/10_Record_Test/Chapter10_09.png
+.. |Chapter04_01| image:: ../_static/imgs/Main/4_SD_Card_Read_&_Write_Test/Chapter04_01.png
 
 Circuit
 ======================================
@@ -55,6 +64,7 @@ The following is the program code:
     :dedent:
 
 It is necessary to change the settings in Arduino IDE before clicking the Uploading button, as shown below.
+
 .. caution:: 
 
     :combo:`red font-bolder:Incorrect settings will result in compilation error or uploading failure. To achieve desired result, please configure exactly the same as below.`
@@ -63,6 +73,10 @@ It is necessary to change the settings in Arduino IDE before clicking the Upload
     :align: center
 
 After uploading the code, you can see the following interface on the screen.
+
+.. note::
+    
+    :combo:`red font-bolder:Here, take 1.14 inches as an example; the usage is the same for 3.5 inches.`
 
 .. image:: ../_static/imgs/Main/18_LVGL_Multifunctionality/Chapter18_01.png
     :align: center

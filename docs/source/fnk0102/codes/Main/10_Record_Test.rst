@@ -10,25 +10,31 @@ Project 10.1 Record To WAV
 Component List 
 =================================
 
-.. list-table::
+:combo:`red font-bolder:As of the time of writing, the Freenove Media Kit for ESP32-S3 comes in two different models with varying screen sizes. However, this tutorial applies to both versions.`
+
+.. table:: 
     :align: center
     :class: table-line
+    :width: 80%
 
-    * - Freenove Media Kit for ESP32-S3 x1
-      - USB cable x1
+    +------------------------------------+----------------+
+    | Freenove Media Kit for ESP32-S3 x1 | USB cable x1   |
+    |                                    |                |
+    | |Chapter10_07|                     | |Chapter10_08| |
+    +------------------------------------+----------------+
+    | Extension Board x1(1.14 inch/3.5 inch)              |
+    |                                                     |
+    | |Chapter01_11|                                      |
+    +----------------------+------------------------------+
+    | SD card x1           | Card reader x1 (random color)|
+    |                      |                              |
+    | |Chapter10_09|       | |Chapter04_01|               |
+    +----------------------+------------------------------+
 
-    * - |Chapter03_01|
-      - |Chapter03_02|
-
-    * - SD card x1
-      - Card reader x1 (random color)
-
-    * - |Chapter04_00|
-      - |Chapter04_01|
-
-.. |Chapter03_01| image:: ../_static/imgs/Main/3_5-Way_Navigation_Switch_Test/Chapter03_01.png
-.. |Chapter03_02| image:: ../_static/imgs/Main/3_5-Way_Navigation_Switch_Test/Chapter03_02.png
-.. |Chapter04_00| image:: ../_static/imgs/Main/4_SD_Card_Read_&_Write_Test/Chapter04_00.png
+.. |Chapter10_07| image:: ../_static/imgs/Main/10_Record_Test/Chapter10_07.png
+.. |Chapter10_08| image:: ../_static/imgs/Main/10_Record_Test/Chapter10_08.png
+.. |Chapter01_11| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_11.png
+.. |Chapter10_09| image:: ../_static/imgs/Main/10_Record_Test/Chapter10_09.png
 .. |Chapter04_01| image:: ../_static/imgs/Main/4_SD_Card_Read_&_Write_Test/Chapter04_01.png
 
 Component knowledge
@@ -47,14 +53,14 @@ MEMS microphones are characterized by their compact size, high sensitivity, exce
 Circuit
 =================================
 
-Connect Freenove Media Kit for ESP32-S3 to your computer using the USB cable.
-
-.. image:: ../_static/imgs/Main/3_5-Way_Navigation_Switch_Test/Chapter03_03.png
-    :align: center
-
 Before connecting the USB cable, insert the SD card into the SD card slot on the back of the ESP32-S3.
 
-.. image:: ../_static/imgs/Main/7_Video_Web_Server/Chapter07_03.png
+.. image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_12.png
+    :align: center
+
+Connect Freenove ESP32-S3 to the computer using the USB cable. 
+
+.. image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_04.png
     :align: center
 
 Sketch
@@ -164,33 +170,38 @@ Project 10.2 Record and Play
 Component List 
 =============================================
 
-.. list-table::
+:combo:`red font-bolder:As of the time of writing, the Freenove Media Kit for ESP32-S3 comes in two different models with varying screen sizes. However, this tutorial applies to both versions.`
+
+.. table:: 
     :align: center
     :class: table-line
+    :width: 80%
 
-    * - Freenove Media Kit for ESP32-S3 x1
-      - USB cable x1
-
-    * - |Chapter03_01|
-      - |Chapter03_02|
-
-    * - SD card x1
-      - Card reader x1 (random color)
-
-    * - |Chapter04_00|
-      - |Chapter04_01|
+    +------------------------------------+----------------+
+    | Freenove Media Kit for ESP32-S3 x1 | USB cable x1   |
+    |                                    |                |
+    | |Chapter10_07|                     | |Chapter10_08| |
+    +------------------------------------+----------------+
+    | Extension Board x1(1.14 inch/3.5 inch)              |
+    |                                                     |
+    | |Chapter01_11|                                      |
+    +----------------------+------------------------------+
+    | SD card x1           | Card reader x1 (random color)|
+    |                      |                              |
+    | |Chapter10_09|       | |Chapter04_01|               |
+    +----------------------+------------------------------+
 
 Circuit
 =================================
 
-Connect Freenove Media Kit for ESP32-S3 to your computer using the USB cable.
-
-.. image:: ../_static/imgs/Main/3_5-Way_Navigation_Switch_Test/Chapter03_03.png
-    :align: center
-
 Before connecting the USB cable, insert the SD card into the SD card slot on the back of the ESP32-S3.
 
-.. image:: ../_static/imgs/Main/7_Video_Web_Server/Chapter07_03.png
+.. image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_12.png
+    :align: center
+
+Connect Freenove ESP32-S3 to the computer using the USB cable. 
+
+.. image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_04.png
     :align: center
 
 Sketch
@@ -255,21 +266,39 @@ Project 10.3 Record and Play
 Component List 
 =======================================
 
-.. list-table::
+:combo:`red font-bolder:As of the time of writing, the Freenove Media Kit for ESP32-S3 comes in two different models with varying screen sizes. However, this tutorial applies to both versions.`
+
+.. table:: 
     :align: center
     :class: table-line
+    :width: 80%
 
-    * - Freenove Media Kit for ESP32-S3 x1
-      - USB cable x1
+    +------------------------------------+----------------+
+    | Freenove Media Kit for ESP32-S3 x1 | USB cable x1   |
+    |                                    |                |
+    | |Chapter10_07|                     | |Chapter10_08| |
+    +------------------------------------+----------------+
+    | Extension Board x1(1.14 inch/3.5 inch)              |
+    |                                                     |
+    | |Chapter01_11|                                      |
+    +----------------------+------------------------------+
+    | SD card x1           | Card reader x1 (random color)|
+    |                      |                              |
+    | |Chapter10_09|       | |Chapter04_01|               |
+    +----------------------+------------------------------+
 
-    * - |Chapter03_01|
-      - |Chapter03_02|
+Circuit
+==========================
 
-    * - SD card x1
-      - Card reader x1 (random color)
+Before connecting the USB cable, insert the SD card into the SD card slot on the back of the ESP32-S3.
 
-    * - |Chapter04_00|
-      - |Chapter04_01|
+.. image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_12.png
+    :align: center
+
+Connect Freenove ESP32-S3 to the computer using the USB cable. 
+
+.. image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_04.png
+    :align: center
 
 Sketch
 =======================================
@@ -293,6 +322,10 @@ Pressing different directions of the 5-way navigation switch will trigger corres
     :dedent:
 
 After uploading the code, pressing different directions of the 5-way navigation switch will trigger corresponding function events. Note that directions 4 and 5 currently have no assigned functions.
+
+:combo:`red font-bolder:Note: Here, take 1.14 inches as an example; the usage is the same for 3.5 inches.`
+
+Note that directions 4 and 5 currently have no assigned functions.
 
     - Long-pressing Button 1 starts recording, and releasing it stops recording.
     

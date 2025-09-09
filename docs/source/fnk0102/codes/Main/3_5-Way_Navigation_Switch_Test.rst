@@ -37,26 +37,33 @@ This switch is widely used in applications requiring directional input, such as 
 Component List 
 ==================================
 
-.. list-table::
-    :header-rows: 1
+:combo:`red font-bolder:As of the time of writing, the Freenove Media Kit for ESP32-S3 comes in two different models with varying screen sizes. However, this tutorial applies to both versions.`
+
+.. table:: 
     :align: center
     :class: table-line
+    :width: 80%
 
-    * - Freenove Media Kit for ESP32-S3 x1
-      - USB cable x1
+    +------------------------------------+----------------+
+    | Freenove Media Kit for ESP32-S3 x1 | USB cable x1   |
+    |                                    |                |
+    | |Chapter01_00|                     | |Chapter01_01| |
+    +------------------------------------+----------------+
+    | Extension Board x1(1.14 inch/3.5 inch)              |
+    |                                                     |
+    | |Chapter01_11|                                      |
+    +-----------------------------------------------------+
 
-    * - |Chapter03_01|
-      - |Chapter03_02|
-
-.. |Chapter03_01| image:: ../_static/imgs/Main/3_5-Way_Navigation_Switch_Test/Chapter03_01.png
-.. |Chapter03_02| image:: ../_static/imgs/Main/3_5-Way_Navigation_Switch_Test/Chapter03_02.png
+.. |Chapter01_00| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_00.png
+.. |Chapter01_01| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_01.png
+.. |Chapter01_11| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_11.png
 
 Circuit
 ==================================
 
 Connect Freenove Media Kit for ESP32-S3 to your computer using the USB cable. 
 
-.. image:: ../_static/imgs/Main/3_5-Way_Navigation_Switch_Test/Chapter03_03.png
+.. image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_04.png
     :align: center
 
 Schematic
@@ -194,23 +201,29 @@ In the previous section, we learned how to read the ADC values of the 5-way navi
 Component List 
 ==========================
 
-.. list-table::
-    :header-rows: 1
+:combo:`red font-bolder:As of the time of writing, the Freenove Media Kit for ESP32-S3 comes in two different models with varying screen sizes. However, this tutorial applies to both versions.`
+
+.. table:: 
     :align: center
     :class: table-line
+    :width: 80%
 
-    * - Freenove Media Kit for ESP32-S3 x1
-      - USB cable x1
-
-    * - |Chapter03_01|
-      - |Chapter03_02|
+    +------------------------------------+----------------+
+    | Freenove Media Kit for ESP32-S3 x1 | USB cable x1   |
+    |                                    |                |
+    | |Chapter01_00|                     | |Chapter01_01| |
+    +------------------------------------+----------------+
+    | Extension Board x1(1.14 inch/3.5 inch)              |
+    |                                                     |
+    | |Chapter01_11|                                      |
+    +-----------------------------------------------------+
 
 Circuit
 ==========================
 
 Connect Freenove Media Kit for ESP32-S3 to your computer using the USB cable. 
 
-.. image:: ../_static/imgs/Main/3_5-Way_Navigation_Switch_Test/Chapter03_03.png
+.. image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_04.png
     :align: center
 
 Component Knowledge

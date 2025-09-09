@@ -12,29 +12,38 @@ Connect the ESP32-S3 to your computer with the USB cable. Check its IP address t
 Component List 
 =========================================
 
+:combo:`red font-bolder:As of the time of writing, the Freenove Media Kit for ESP32-S3 comes in two different models with varying screen sizes. However, this tutorial applies to both versions.`
+
 .. table:: 
-    :align:  center
+    :align: center
+    :class: table-line
+    :width: 80%
 
-    +-------------------+-------------------+
-    | SD card x1        | USB cable x1      |
-    |                   |                   |
-    | |Chapter07_00|    | |Chapter07_01|    |
-    +-------------------+-------------------+
-    | Freenove Media Kit for ESP32-S3 x1    |
-    |                                       |
-    | |Chapter07_02|                        |
-    +---------------------------------------+
+    +------------------------------------+----------------+
+    | Freenove Media Kit for ESP32-S3 x1 | USB cable x1   |
+    |                                    |                |
+    | |Chapter01_00|                     | |Chapter01_01| |
+    +------------------------------------+----------------+
+    | Extension Board x1(1.14 inch/3.5 inch)              |
+    |                                                     |
+    | |Chapter01_11|                                      |
+    +-----------------------------------------------------+
 
-.. |Chapter07_00| image:: ../_static/imgs/Main/7_Video_Web_Server/Chapter07_00.png
-.. |Chapter07_01| image:: ../_static/imgs/Main/7_Video_Web_Server/Chapter07_01.png
-.. |Chapter07_02| image:: ../_static/imgs/Main/7_Video_Web_Server/Chapter07_02.png
+.. |Chapter01_00| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_00.png
+.. |Chapter01_01| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_01.png
+.. |Chapter01_11| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_11.png
 
 Circuit
 ========================================
 
 Before connecting the USB cable, insert the SD card into the SD card slot on the back of the ESP32-S3.
 
-.. image:: ../_static/imgs/Main/7_Video_Web_Server/Chapter07_03.png
+.. image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_12.png
+    :align: center
+
+Connect Freenove ESP32-S3 to the computer using the USB cable. 
+
+.. image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_04.png
     :align: center
 
 Sketch	

@@ -5,22 +5,6 @@ Chapter 12 LVGL
 Project 12.1 LVGL
 *************************************
 
-Component List 
-===================================
-
-.. table:: 
-    :align: center
-    :class: table-line
-
-    +------------------------------------+----------------+
-    | Freenove Media Kit for ESP32-S3 x1 | USB cable x1   |
-    |                                    |                |
-    | |Chapter01_00|                     | |Chapter01_01| |
-    +------------------------------------+----------------+
-
-.. |Chapter01_00| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_00.png
-.. |Chapter01_01| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_01.png
-
 Component knowledge
 ====================================
 
@@ -62,12 +46,36 @@ LVGL is a widely-used embedded GUI library that is implemented in pure C, making
     | 14  | A wide range of resources.                                                                                      |
     +-----+-----------------------------------------------------------------------------------------------------------------+
 
+Component List
+=====================================
+
+:combo:`red font-bolder:As of the time of writing, the Freenove Media Kit for ESP32-S3 comes in two different models with varying screen sizes. However, this tutorial applies to both versions.`
+
+.. table:: 
+    :align: center
+    :class: table-line
+    :width: 80%
+
+    +------------------------------------+----------------+
+    | Freenove Media Kit for ESP32-S3 x1 | USB cable x1   |
+    |                                    |                |
+    | |Chapter01_00|                     | |Chapter01_01| |
+    +------------------------------------+----------------+
+    | Extension Board x1(1.14 inch/3.5 inch)              |
+    |                                                     |
+    | |Chapter01_11|                                      |
+    +-----------------------------------------------------+
+
+.. |Chapter01_00| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_00.png
+.. |Chapter01_01| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_01.png
+.. |Chapter01_11| image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_11.png
+
 Circuit
-===================================
+====================================
 
-Connect Freenove Media Kit for ESP32-S3 to your computer using the USB cable.
+Connect Freenove Media Kit for ESP32-S3 to your computer using the USB cable. 
 
-.. image:: ../_static/imgs/Main/3_5-Way_Navigation_Switch_Test/Chapter03_03.png
+.. image:: ../_static/imgs/Main/1_LEDPixel_Test/Chapter01_04.png
     :align: center
 
 Sketch
@@ -170,6 +178,10 @@ Implement a 5-way directional key event handler to detect and respond to key val
     :dedent:
 
 After the code uploads, the TFT screen will display the following contents.
+
+.. note::
+    
+    :combo:`red font-bolder:Here, take 1.14 inches as an example; the usage is the same for 3.5 inches.`
 
 .. image:: ../_static/imgs/Main/12_LVGL/Chapter12_02.png
    :align: center

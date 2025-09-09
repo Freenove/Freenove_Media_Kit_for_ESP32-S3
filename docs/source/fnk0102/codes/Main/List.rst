@@ -2,11 +2,15 @@
 List
 ##############################################################################
 
-If you have any concerns, please feel free to contact us via support@freenove.com
+:combo:`red font-bolder:As of the time of writing, the Freenove Media Kit for ESP32-S3 comes in two different models with varying screen sizes. However, this tutorial applies to both versions.`
+
+1.14inch
+***********************************
 
 .. table:: 
     :align: center
     :class: table-line
+    :width: 80%
 
     +----------------------------------+----------------------------------+
     | Top of the Extension Board x1    | Bottom of the Extension Board x1 |
@@ -36,6 +40,42 @@ If you have any concerns, please feel free to contact us via support@freenove.co
 .. |List05| image:: ../_static/imgs/Main/List/List05.png
 .. |List06| image:: ../_static/imgs/Main/List/List06.png
 .. |List07| image:: ../_static/imgs/Main/List/List07.png
+
+3.5inch
+************************************
+
+.. table:: 
+    :align: center
+    :class: table-line
+    :width: 80%
+
+    +----------------------------------+----------------------------------+
+    | Top of the Extension Board x1    | Bottom of the Extension Board x1 |
+    |                                  |                                  |
+    | |List08|                         | |List09|                         |
+    +----------------------------------+----------------------------------+
+    | Top of ESP32-S3 N16R8 x1         | Bottom of ESP32-S3 N16R8 x1      |
+    |                                  |                                  |
+    | |List02|                         | |List03|                         |
+    +----------------------------------+----------------------------------+
+    | Housing Base (3D Printed) x1     | Housing Cover (3D Printed) x1    |
+    |                                  |                                  |
+    | |List10|                         | |List11|                         |
+    +----------------------------------+----------------------------------+
+    | SD card reader x1 (random color) | SDcard x1                        |
+    |                                  |                                  |
+    | |List06|                         | |List07|                         |
+    |                                  |                                  |
+    | :red:`(Not a USB flash drive.)`  |                                  |
+    +----------------------------------+----------------------------------+
+
+.. |List08| image:: ../_static/imgs/Main/List/List08.png
+.. |List09| image:: ../_static/imgs/Main/List/List09.png
+.. |List10| image:: ../_static/imgs/Main/List/List10.png
+.. |List11| image:: ../_static/imgs/Main/List/List11.png
+
+Note
+***********************************
 
 Important Notes:
 
