@@ -165,4 +165,5 @@ void camera_init(void) {
   s->set_vflip(s, 1);       // Restore vertical orientation
   s->set_brightness(s, 0);  // Slightly increase brightness
   s->set_saturation(s, 0);  // Reduce saturation
+  s->set_ae_level(s, -3);   // Set exposure compensation level
 }

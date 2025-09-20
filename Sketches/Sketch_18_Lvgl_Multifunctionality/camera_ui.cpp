@@ -313,4 +313,5 @@ void camera_init(int state) {
 #endif
   s->set_brightness(s, 1);  // Slightly increase brightness
   s->set_saturation(s, 0);  // Reduce saturation
+  s->set_ae_level(s, -3);   // Set exposure compensation level
 }
