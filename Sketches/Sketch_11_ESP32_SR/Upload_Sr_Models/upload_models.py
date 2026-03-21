@@ -34,7 +34,7 @@ def run_esptool_command():
         "--flash_mode", "keep",
         "--flash_freq", "keep",
         "--flash_size", "keep",
-        "0x510000", "srmodels.bin"
+        "0xD10000", "srmodels.bin"
     ]
     try:
         print("Executing esptool command...")
