@@ -1,5 +1,5 @@
-/*
-* Sketch_08_2_Take_A_Photo.ino
+/*  
+* Sketch_09_2_Take_A_Photo.ino
 * This sketch captures images from an ESP32S3 Eye camera module and displays them on a TFT screen.
 * It also allows taking photos by pressing a button and saving them to an SD card.
 * 
@@ -12,6 +12,7 @@
 #include "driver_sdmmc.h"
 #define CAMERA_MODEL_ESP32S3_EYE  // Has PSRAM
 #include "camera_pins.h"
+#include <ESP_I2S.h>
 
 #ifdef FNK0102A_1P14_135x240_ST7789
   int screenWidth = 135;
@@ -27,6 +28,20 @@
 #define SD_MMC_D0 40   // Please do not modify it.
 #define TFT_BL 20
 
+I2SClass i2s_output; 
+
+bool i2s_output_init(int bclk, int lrc, int dout) {
+  i2s_output.setPins(bclk, lrc, dout, -1);
+  if (!i2s_output.begin(I2S_MODE_STD, 16000, I2S_DATA_BIT_WIDTH_16BIT, I2S_SLOT_MODE_MONO, I2S_STD_SLOT_RIGHT)) {
+    Serial.println("Failed to initialize I2S output bus!");
+    return false;
+  }
+  i2s_output.write(0); 
+  i2s_output.write(0); 
+  i2s_output.end();
+  return true;
+}
+
 // Global variable to track if we're using 3.5 inch screen
 bool is35InchScreen = false;
 
@@ -41,6 +56,7 @@ void setup() {
   Serial.begin(115200);
   Serial.setDebugOutput(true);
   Serial.println();
+  i2s_output_init(I2S_BCLK, I2S_LRC, I2S_DOUT);
   analogReadResolution(12);
   analogSetAttenuation(ADC_11db);
   pinMode(BUTTON_PIN, INPUT_PULLUP);
@@ -119,12 +135,31 @@ void camera_init(int state) {
     Serial.printf("Camera initialization failed, error code 0x%x", err);
     return;
   }
-  sensor_t *s = esp_camera_sensor_get();
-  // The initial sensor may be vertically flipped and have high color saturation
-  s->set_hmirror(s, 0);     // Mirror the image horizontally
-  s->set_vflip(s, 1);       // Restore vertical orientation
-  s->set_brightness(s, 1);  // Slightly increase brightness
-  s->set_saturation(s, 0);  // Reduce saturation
+  sensor_t* s = esp_camera_sensor_get();
+
+  uint8_t pid = s->id.PID;
+
+  if(pid == 0x45)
+  {
+    s->set_hmirror(s, 1);
+    vTaskDelay(500);
+    s->set_vflip(s, 1);       // Flip the image vertically
+  }else if(pid == 0x26)
+  {
+    s->set_hmirror(s, 0);
+    s->set_vflip(s, 0);       // Flip the image vertically
+  }else if(pid == 0x9B)
+  {
+    s->set_hmirror(s, 0);
+    vTaskDelay(500);
+    s->set_vflip(s, 0);       // Flip the image vertically
+  }
+  else{
+    s->set_hmirror(s, 0);
+    s->set_vflip(s, 1);       // Flip the image vertically
+  }
+  s->set_brightness(s, 1);  // Increase brightness
+  s->set_saturation(s, 0);  // Decrease saturation
   s->set_ae_level(s, -3);   // Set exposure compensation level
 }
 

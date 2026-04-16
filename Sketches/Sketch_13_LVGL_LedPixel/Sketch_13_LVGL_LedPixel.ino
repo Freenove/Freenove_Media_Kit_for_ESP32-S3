@@ -1,5 +1,5 @@
 /**
- * Sketch_12_LVGL_LedPixel.ino
+ * Sketch_13_LVGL_LedPixel.ino
  * This sketch demonstrates the use of the LVGL library along with WS2812 LED pixels to create a graphical user interface (GUI)
  * on an ESP32 microcontroller. It initializes a display, sets up WS2812 LEDs, and loads a specific UI screen using LVGL.
  * The GUI includes elements managed by LVGL, and the WS2812 LEDs are controlled via a custom UI setup.

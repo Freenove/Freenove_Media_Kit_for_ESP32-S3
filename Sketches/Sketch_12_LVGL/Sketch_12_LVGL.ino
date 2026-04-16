@@ -1,5 +1,5 @@
 /**
- * Sketch_11_LVGL.ino
+ * Sketch_12_LVGL.ino
  * This sketch demonstrates the use of the LVGL library to create a simple graphical user interface (GUI)
  *        on an ESP32 microcontroller. It initializes a display, creates labels and buttons, and handles button
  *        events using LVGL. The GUI includes a label displaying the LVGL version and two buttons labeled "Left"

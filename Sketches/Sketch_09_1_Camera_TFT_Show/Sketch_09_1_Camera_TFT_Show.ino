@@ -11,6 +11,7 @@
 #include "esp_camera.h"
 #define CAMERA_MODEL_ESP32S3_EYE  // Has PSRAM
 #include "camera_pins.h"
+#include <ESP_I2S.h>
 
 #ifdef FNK0102A_1P14_135x240_ST7789
   int screenWidth = 135;
@@ -21,8 +22,23 @@
 #endif
 
 #define TFT_BL 20
-#define TFT_DIRECTION 0
+#define TFT_114_DIRECTION 0
+#define TFT_35_DIRECTION 1
 TFT_eSPI tft = TFT_eSPI();
+
+I2SClass i2s_output; 
+
+bool i2s_output_init(int bclk, int lrc, int dout) {
+  i2s_output.setPins(bclk, lrc, dout, -1);
+  if (!i2s_output.begin(I2S_MODE_STD, 16000, I2S_DATA_BIT_WIDTH_16BIT, I2S_SLOT_MODE_MONO, I2S_STD_SLOT_RIGHT)) {
+    Serial.println("Failed to initialize I2S output bus!");
+    return false;
+  }
+  i2s_output.write(0); 
+  i2s_output.write(0); 
+  i2s_output.end();
+  return true;
+}
 
 // Global variable to track if we're using 3.5 inch screen
 bool is35InchScreen = false;
@@ -39,7 +55,7 @@ void setup() {
   Serial.begin(115200);
   Serial.setDebugOutput(true);
   Serial.println();
-
+  i2s_output_init(I2S_BCLK, I2S_LRC, I2S_DOUT);
   // Check if we're using 3.5 inch screen
 #ifdef FNK0102B_3P5_320x480_ST7796
   is35InchScreen = true;
@@ -48,9 +64,9 @@ void setup() {
   tftRst();
   tft.init();                      // Initialize the TFT display
   if(is35InchScreen)
-    tft.setRotation(1);            // Set the rotation of the TFT display
+    tft.setRotation(TFT_35_DIRECTION);// Set the rotation of the TFT display
   else
-    tft.setRotation(TFT_DIRECTION);// Set the rotation of the TFT display
+    tft.setRotation(TFT_114_DIRECTION);// Set the rotation of the TFT display
   
   camera_init();                   // Initialize the camera
 }
@@ -152,18 +168,38 @@ void camera_init(void) {
   config.jpeg_quality = 12;
   config.fb_count = 1;
 
-  // Initialize the camera
+  // Initialize the camera with the specified configuration
   esp_err_t err = esp_camera_init(&config);
   if (err != ESP_OK) {
-    Serial.printf("Camera initialization failed, error code 0x%x", err);
+    Serial.printf("Camera init failed with error 0x%x", err);
     return;
   }
 
-  sensor_t *s = esp_camera_sensor_get();
-  // The initial sensor may be vertically flipped and have high color saturation
-  s->set_hmirror(s, 0);     // Mirror the image horizontally
-  s->set_vflip(s, 1);       // Restore vertical orientation
-  s->set_brightness(s, 0);  // Slightly increase brightness
-  s->set_saturation(s, 0);  // Reduce saturation
+  // Get the camera sensor and adjust settings
+  sensor_t* s = esp_camera_sensor_get();
+
+  uint8_t pid = s->id.PID;
+
+  if(pid == 0x45)
+  {
+    s->set_hmirror(s, 1);
+    vTaskDelay(500);
+    s->set_vflip(s, 1);       // Flip the image vertically
+  }else if(pid == 0x26)
+  {
+    s->set_hmirror(s, 0);
+    s->set_vflip(s, 0);       // Flip the image vertically
+  }else if(pid == 0x9B)
+  {
+    s->set_hmirror(s, 0);
+    vTaskDelay(500);
+    s->set_vflip(s, 0);       // Flip the image vertically
+  }
+  else{
+    s->set_hmirror(s, 0);
+    s->set_vflip(s, 1);       // Flip the image vertically
+  }
+  s->set_brightness(s, 1);  // Increase brightness
+  s->set_saturation(s, 0);  // Decrease saturation
   s->set_ae_level(s, -3);   // Set exposure compensation level
 }

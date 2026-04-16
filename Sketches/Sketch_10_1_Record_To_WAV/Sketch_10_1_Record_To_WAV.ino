@@ -1,5 +1,5 @@
 /*
-* Sketch_09_1_Record_To_WAV.ino
+* Sketch_10_1_Record_To_WAV.ino
 * This sketch records audio data from an audio input using the I2S bus and saves it as a WAV file on an SD card.
 * It initializes the I2S bus, records audio for 5 seconds, and writes the audio data to the SD card.
 * 

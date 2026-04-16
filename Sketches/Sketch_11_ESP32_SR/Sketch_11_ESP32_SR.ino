@@ -1,5 +1,5 @@
 /**
- * Sketch_10_ESP32_SR.ino
+ * Sketch_11_ESP32_SR.ino
  * This sketch uses the ESP_SR library to recognize specific voice commands
  *        and control an LED light on an ESP32 microcontroller. The voice commands
  *        are processed using the I2S bus for audio input. The recognized commands

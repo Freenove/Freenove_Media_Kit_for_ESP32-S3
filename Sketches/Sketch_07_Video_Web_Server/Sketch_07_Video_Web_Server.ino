@@ -16,7 +16,7 @@
 #include "camera_pins.h"
 
 const char* ssid = "********";         // Input your Wi-Fi name
-const char* password = "**********";  // Input your Wi-Fi password
+const char* password = "********";  // Input your Wi-Fi password
 
 #define SD_MMC_CMD 38  // Please do not modify it.
 #define SD_MMC_CLK 39  // Please do not modify it.
@@ -87,7 +87,7 @@ void camera_init(void) {
  config.pin_reset = RESET_GPIO_NUM;
  config.xclk_freq_hz = 10000000;
  config.frame_size = FRAMESIZE_VGA;
- config.pixel_format = PIXFORMAT_JPEG;  // for streaming
+ config.pixel_format = PIXFORMAT_RGB565;  // for streaming
  config.grab_mode = CAMERA_GRAB_WHEN_EMPTY;
  config.fb_location = CAMERA_FB_IN_PSRAM;
  config.jpeg_quality = 12;
@@ -113,8 +113,28 @@ void camera_init(void) {
 
  // Get the camera sensor and adjust settings
  sensor_t* s = esp_camera_sensor_get();
- s->set_vflip(s, 0);       // Flip the image vertically
- s->set_brightness(s, 1);  // Increase brightness
- s->set_saturation(s, 0);  // Decrease saturation
+ uint8_t pid = s->id.PID;
+
+ if(pid == 0x45)
+ {
+   s->set_hmirror(s, 0);
+   vTaskDelay(500);
+   s->set_vflip(s, 0);       // Flip the image vertically
+ }else if(pid == 0x26)
+ {
+   s->set_hmirror(s, 1);
+   s->set_vflip(s, 1);       // Flip the image vertically
+ }else if(pid == 0x9B)
+ {
+   s->set_hmirror(s, 1);
+   vTaskDelay(500);
+   s->set_vflip(s, 1);       // Flip the image vertically
+ }
+ else{
+   s->set_hmirror(s, 1);
+   s->set_vflip(s, 0);       // Flip the image vertically
+ }
+ s->set_brightness(s, 1);  // Slightly increase brightness
+ s->set_saturation(s, 0);  // Reduce saturation
  s->set_ae_level(s, -3);   // Set exposure compensation level
 }

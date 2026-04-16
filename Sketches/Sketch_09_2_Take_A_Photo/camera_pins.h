@@ -268,6 +268,10 @@
 #define HREF_GPIO_NUM 7
 #define PCLK_GPIO_NUM 13
 
+#define I2S_BCLK 42
+#define I2S_DOUT 1
+#define I2S_LRC 41
+
 #else
 #error "Camera model not selected"
 #endif

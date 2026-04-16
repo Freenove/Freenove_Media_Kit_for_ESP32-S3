@@ -1,5 +1,5 @@
 /*
-* Sketch_09_2_Record_And_Play.ino
+* Sketch_10_2_Record_And_Play.ino
 * This sketch records audio data from an audio input using the I2S bus and saves it as a WAV file on an SD card.
 * It also plays back the recorded audio files using the same I2S bus.
 * The recording and playback are controlled by a button press.

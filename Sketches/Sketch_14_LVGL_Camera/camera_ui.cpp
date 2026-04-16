@@ -305,13 +305,48 @@ void camera_init(int state) {
     return;
   }
   sensor_t *s = esp_camera_sensor_get();
+  uint8_t pid = s->id.PID;
   // The initial sensor may be vertically flipped and have high color saturation
 #ifdef FNK0102A_1P14_135x240_ST7789
-  s->set_hmirror(s, 1);     // Mirror image
-  s->set_vflip(s, 0);       // Restore vertical orientation
+  if(pid == 0x45)
+  {
+    s->set_hmirror(s, 0);
+    vTaskDelay(500);
+    s->set_vflip(s, 0);       // Flip the image vertically
+  }else if(pid == 0x26)
+  {
+    s->set_hmirror(s, 1);
+    s->set_vflip(s, 1);       // Flip the image vertically
+  }else if(pid == 0x9B)
+  {
+    s->set_hmirror(s, 1);
+    vTaskDelay(500);
+    s->set_vflip(s, 1);       // Flip the image vertically
+  }
+  else{
+    s->set_hmirror(s, 1);
+    s->set_vflip(s, 0);       // Flip the image vertically
+  }
 #elif defined FNK0102B_3P5_320x480_ST7796
-  s->set_hmirror(s, 0);     // Mirror image
-  s->set_vflip(s, 1);       // Flip image
+  if(pid == 0x45)
+  {
+    s->set_hmirror(s, 1);
+    vTaskDelay(500);
+    s->set_vflip(s, 1);       // Flip the image vertically
+  }else if(pid == 0x26)
+  {
+    s->set_hmirror(s, 0);
+    s->set_vflip(s, 0);       // Flip the image vertically
+  }else if(pid == 0x9B)
+  {
+    s->set_hmirror(s, 0);
+    vTaskDelay(500);
+    s->set_vflip(s, 0);       // Flip the image vertically
+  }
+  else{
+    s->set_hmirror(s, 0);
+    s->set_vflip(s, 1);       // Flip the image vertically
+  }
 #endif
   s->set_brightness(s, 1);  // Slightly increase brightness
   s->set_saturation(s, 0);  // Reduce saturation
