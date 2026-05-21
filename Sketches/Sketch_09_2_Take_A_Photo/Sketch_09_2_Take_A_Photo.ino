@@ -47,7 +47,7 @@ bool is35InchScreen = false;
 
 TFT_eSPI tft = TFT_eSPI();
 
-void camera_init(int state);
+void camera_init(void);
 void cameraShow(void);
 void cameraPhoto(void);
 void tft_rst(void);
@@ -72,10 +72,10 @@ void setup() {
     tft.setRotation(1);            // Set the rotation of the TFT display
   else
     tft.setRotation(0);// Set the rotation of the TFT display
-  camera_init(0);
+  camera_init();
   sdmmc_init(SD_MMC_CLK, SD_MMC_CMD, SD_MMC_D0);
-  remove_dir("/video");
-  create_dir("/video");
+  // remove_dir("/video");
+  // create_dir("/video");
 }
 
 void loop() {
@@ -91,7 +91,7 @@ void tft_rst(void) {
   delay(50);
 }
 
-void camera_init(int state) {
+void camera_init(void) {
   camera_config_t config;
   config.ledc_channel = LEDC_CHANNEL_0;
   config.ledc_timer = LEDC_TIMER_0;
@@ -112,51 +112,51 @@ void camera_init(int state) {
   config.pin_pwdn = PWDN_GPIO_NUM;
   config.pin_reset = RESET_GPIO_NUM;
   config.xclk_freq_hz = 10000000;
-  config.grab_mode = CAMERA_GRAB_LATEST;
+  
+  // Set frame size based on screen type
+  if (is35InchScreen) {
+    config.frame_size = FRAMESIZE_HVGA;  // 320x240 for 3.5 inch screen
+  } else {
+    config.frame_size = FRAMESIZE_240X240;  // 240x240 for 1.14 inch screen
+  }
+  
+  config.pixel_format = PIXFORMAT_RGB565;
+  config.grab_mode = CAMERA_GRAB_WHEN_EMPTY;
   config.fb_location = CAMERA_FB_IN_PSRAM;
   config.jpeg_quality = 12;
   config.fb_count = 1;
-  if (state == 0) {
-    if (is35InchScreen) {
-      config.frame_size = FRAMESIZE_HVGA;
-    } else {
-      config.frame_size = FRAMESIZE_240X240;
-    }
-    config.pixel_format = PIXFORMAT_RGB565;
-  } else {
-    config.frame_size = FRAMESIZE_VGA;
-    config.pixel_format = PIXFORMAT_JPEG;
-  }
-  // Deinitialize and reinitialize the camera with the new configuration
-  esp_camera_deinit();
-  esp_camera_return_all();
+
+  // Initialize the camera with the specified configuration
   esp_err_t err = esp_camera_init(&config);
   if (err != ESP_OK) {
-    Serial.printf("Camera initialization failed, error code 0x%x", err);
+    Serial.printf("Camera init failed with error 0x%x", err);
     return;
   }
+
+  // Get the camera sensor and adjust settings
   sensor_t* s = esp_camera_sensor_get();
-
-  uint8_t pid = s->id.PID;
-
-  if(pid == 0x45)
-  {
+  uint16_t pid = s->id.PID;
+  if(pid == OV2640_PID){
+    s->set_hmirror(s, 0);
+    s->set_vflip(s, 0);     
+  }
+  else if(pid == OV3660_PID){
+    s->set_hmirror(s, 0);
+    s->set_vflip(s, 1);     
+  }
+  else if(pid == GC2145_PID){
     s->set_hmirror(s, 1);
-    vTaskDelay(500);
-    s->set_vflip(s, 1);       // Flip the image vertically
-  }else if(pid == 0x26)
-  {
+    delay(500);
+    s->set_vflip(s, 1);      
+  }
+  else if(pid == GC0308_PID){
     s->set_hmirror(s, 0);
-    s->set_vflip(s, 0);       // Flip the image vertically
-  }else if(pid == 0x9B)
-  {
-    s->set_hmirror(s, 0);
-    vTaskDelay(500);
-    s->set_vflip(s, 0);       // Flip the image vertically
+    delay(500);
+    s->set_vflip(s, 0);     
   }
   else{
     s->set_hmirror(s, 0);
-    s->set_vflip(s, 1);       // Flip the image vertically
+    s->set_vflip(s, 1);       
   }
   s->set_brightness(s, 1);  // Increase brightness
   s->set_saturation(s, 0);  // Decrease saturation
@@ -229,17 +229,46 @@ void cameraPhoto(void) {
   static int fileCounter = 0;
   int analogValue = analogRead(BUTTON_PIN);
   if (analogValue < 100) {
-    camera_init(1);  // Reinitialize camera for photo capture
+    size_t _jpg_buf_len = 0;
+    uint8_t *_jpg_buf = NULL;
     camera_fb_t *fb = esp_camera_fb_get();
     if (!fb) {
       Serial.println("Camera capture failed");
       return;
     }
+    else {
+      if (fb->format != PIXFORMAT_JPEG){
+          bool jpeg_converted = frame2jpg(fb, 80, &_jpg_buf, &_jpg_buf_len);
+          esp_camera_fb_return(fb);
+          fb = NULL;
+          if (!jpeg_converted){
+              Serial.println("JPEG compression failed");
+              if(_jpg_buf){
+                  free(_jpg_buf);
+                  _jpg_buf = NULL;
+              }
+              return;
+          }
+      }
+      else{
+        _jpg_buf_len = fb->len;
+        _jpg_buf = fb->buf;
+      }
+    }
     char filename[32];
     snprintf(filename, sizeof(filename), "/video/photo_%04d.jpg", fileCounter);
-    write_jpg(filename, fb->buf, fb->len);  // Save the photo to the SD card
+    Serial.println(filename);
+    write_jpg(filename, _jpg_buf, _jpg_buf_len);  // Save the photo to the SD card
+    if(fb){
+        esp_camera_fb_return(fb);
+        fb = NULL;
+        _jpg_buf = NULL;
+    }
+    else{
+        free(_jpg_buf);
+        _jpg_buf = NULL;
+    }
     fileCounter++;
-    camera_init(0);         // Reinitialize camera for live view
     list_dir("/video", 0);  // List the contents of the /video directory
     while (analogRead(BUTTON_PIN) < 3000);  // Wait for button release
   }
