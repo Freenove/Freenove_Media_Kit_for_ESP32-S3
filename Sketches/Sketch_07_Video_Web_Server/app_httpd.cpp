@@ -222,7 +222,7 @@ const char index_web[]=R"rawliteral(
   </head>
   <body>
     <p><h1>Video Streaming Demonstration</h1></p>
-    <p><img id="stream" src="" style="transform:rotate(180deg)"/></p>
+    <p><img id="stream" src="" style="transform:rotate(0deg)"/></p>
     <iframe  width=0 height=0 frameborder=0 id="myiframe" name="myiframe"></iframe>
     <p><form action="/button" method="POST" target="myiframe"><input type="submit" value="Save it to SDcard"></form></p>
   </body>
@@ -258,6 +258,8 @@ static esp_err_t __BUTTON_Handler(httpd_req_t *req)
 {
     esp_err_t err;
     camera_fb_t *fb = NULL;
+    size_t _jpg_buf_len = 0;
+    uint8_t *_jpg_buf = NULL;
     fb = esp_camera_fb_get();
     if (!fb)
     {
@@ -266,12 +268,35 @@ static esp_err_t __BUTTON_Handler(httpd_req_t *req)
     }
     else
     {
+        if (fb->format != PIXFORMAT_JPEG)
+        {
+            bool jpeg_converted = frame2jpg(fb, 80, &_jpg_buf, &_jpg_buf_len);
+            esp_camera_fb_return(fb);
+            fb = NULL;
+            if (!jpeg_converted)
+            {
+                ESP_LOGE(TAG, "JPEG compression failed");
+                err = ESP_FAIL;
+            }
+        }
+        else{
+            _jpg_buf_len = fb->len;
+            _jpg_buf = fb->buf;
+        }
         String video = "/video";
         int jpgCount = read_file_num(video.c_str());
         String path = video + "/" + String(jpgCount) + ".jpg";
-        write_jpg(path.c_str(), fb->buf, fb->len);
-        esp_camera_fb_return(fb);
-        fb = NULL;
+        write_jpg(path.c_str(), _jpg_buf, _jpg_buf_len);
+        if(fb)
+        {
+            esp_camera_fb_return(fb);
+            fb = NULL;
+            _jpg_buf = NULL;
+        }
+        else{
+            free(_jpg_buf);
+            _jpg_buf = NULL;
+        }
         err = ESP_OK;
     }
 
