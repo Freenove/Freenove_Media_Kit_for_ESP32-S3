@@ -177,27 +177,28 @@ void camera_init(void) {
 
   // Get the camera sensor and adjust settings
   sensor_t* s = esp_camera_sensor_get();
-
-  uint8_t pid = s->id.PID;
-
-  if(pid == 0x45)
-  {
+  uint16_t pid = s->id.PID;
+  if(pid == OV2640_PID){
+    s->set_hmirror(s, 0);
+    s->set_vflip(s, 0);     
+  }
+  else if(pid == OV3660_PID){
+    s->set_hmirror(s, 0);
+    s->set_vflip(s, 1);     
+  }
+  else if(pid == GC2145_PID){
     s->set_hmirror(s, 1);
-    vTaskDelay(500);
-    s->set_vflip(s, 1);       // Flip the image vertically
-  }else if(pid == 0x26)
-  {
+    delay(500);
+    s->set_vflip(s, 1);      
+  }
+  else if(pid == GC0308_PID){
     s->set_hmirror(s, 0);
-    s->set_vflip(s, 0);       // Flip the image vertically
-  }else if(pid == 0x9B)
-  {
-    s->set_hmirror(s, 0);
-    vTaskDelay(500);
-    s->set_vflip(s, 0);       // Flip the image vertically
+    delay(500);
+    s->set_vflip(s, 0);     
   }
   else{
     s->set_hmirror(s, 0);
-    s->set_vflip(s, 1);       // Flip the image vertically
+    s->set_vflip(s, 1);       
   }
   s->set_brightness(s, 1);  // Increase brightness
   s->set_saturation(s, 0);  // Decrease saturation
