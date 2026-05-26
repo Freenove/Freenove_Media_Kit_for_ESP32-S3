@@ -74,8 +74,8 @@ void setup() {
     tft.setRotation(0);// Set the rotation of the TFT display
   camera_init();
   sdmmc_init(SD_MMC_CLK, SD_MMC_CMD, SD_MMC_D0);
-  // remove_dir("/video");
-  // create_dir("/video");
+  remove_dir("/video");
+  create_dir("/video");
 }
 
 void loop() {
