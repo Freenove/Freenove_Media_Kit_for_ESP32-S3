@@ -15,7 +15,7 @@
 #define CAMERA_MODEL_ESP32S3_EYE  // Has PSRAM
 #include "camera_pins.h"
 
-const char* ssid = "********";         // Input your Wi-Fi name
+const char* ssid = "********";      // Input your Wi-Fi name
 const char* password = "********";  // Input your Wi-Fi password
 
 #define SD_MMC_CMD 38  // Please do not modify it.
@@ -26,43 +26,42 @@ void camera_init(void);
 void startCameraServer();
 
 void setup() {
- Serial.begin(115200);
- while (!Serial)
-   ;
- Serial.setDebugOutput(true);
- Serial.println();
+  Serial.begin(115200);
+  while (!Serial);
+  Serial.setDebugOutput(true);
+  Serial.println();
 
- // Initialize the camera
- camera_init();
- // Initialize the SDMMC interface for SD card operations
- sdmmc_init(SD_MMC_CLK, SD_MMC_CMD, SD_MMC_D0);
- // Remove and create a new directory for video storage
- remove_dir("/video");
- create_dir("/video");
+  // Initialize the camera
+  camera_init();
+  // Initialize the SDMMC interface for SD card operations
+  sdmmc_init(SD_MMC_CLK, SD_MMC_CMD, SD_MMC_D0);
+  // Remove and create a new directory for video storage
+  remove_dir("/video");
+  create_dir("/video");
 
- // Connect to Wi-Fi network
- WiFi.begin(ssid, password);
+  // Connect to Wi-Fi network
+  WiFi.begin(ssid, password);
 
- // Wait for Wi-Fi connection
- while (WiFi.status() != WL_CONNECTED) {
-   delay(500);
-   Serial.print(".");
- }
- Serial.println("");
- Serial.println("WiFi connected");
+  // Wait for Wi-Fi connection
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("");
+  Serial.println("WiFi connected");
 
- // Start the camera web server
- startCameraServer();
+  // Start the camera web server
+  startCameraServer();
 
- // Print the IP address to connect to the web server
- Serial.print("Camera Ready! Use 'http://");
- Serial.print(WiFi.localIP());
- Serial.println("' to connect");
+  // Print the IP address to connect to the web server
+  Serial.print("Camera Ready! Use 'http://");
+  Serial.print(WiFi.localIP());
+  Serial.println("' to connect");
 }
 
 void loop() {
- // Main loop code, can be used for additional tasks
- delay(10000);
+  // Main loop code, can be used for additional tasks
+  delay(10000);
 }
 
 void camera_init(void) {
@@ -87,7 +86,7 @@ void camera_init(void) {
   config.pin_reset = RESET_GPIO_NUM;
   config.xclk_freq_hz = 10000000;
   config.frame_size = FRAMESIZE_QVGA;
-  config.pixel_format = PIXFORMAT_JPEG; // for streaming
+  config.pixel_format = PIXFORMAT_JPEG;  // for streaming
   config.grab_mode = CAMERA_GRAB_WHEN_EMPTY;
   config.fb_location = CAMERA_FB_IN_PSRAM;
   config.jpeg_quality = 10;
@@ -96,7 +95,7 @@ void camera_init(void) {
   // Initialize the camera with the specified configuration
   esp_err_t err = esp_camera_init(&config);
   if (err != ESP_OK) {
-    if(err==ESP_ERR_NOT_SUPPORTED){
+    if (err == ESP_ERR_NOT_SUPPORTED) {
       config.pixel_format = PIXFORMAT_RGB565;
       esp_err_t err = esp_camera_init(&config);
       if (err != ESP_OK) {
@@ -107,27 +106,23 @@ void camera_init(void) {
   }
   sensor_t* s = esp_camera_sensor_get();
   uint16_t pid = s->id.PID;
-  if(pid == OV2640_PID){
+  if (pid == OV2640_PID) {
     s->set_hmirror(s, 0);
-    s->set_vflip(s, 0);     
-  }
-  else if(pid == OV3660_PID){
+    s->set_vflip(s, 0);
+  } else if (pid == OV3660_PID) {
     s->set_hmirror(s, 0);
-    s->set_vflip(s, 1);     
-  }
-  else if(pid == GC2145_PID){
+    s->set_vflip(s, 1);
+  } else if (pid == GC2145_PID) {
     s->set_hmirror(s, 1);
     delay(500);
-    s->set_vflip(s, 1);      
-  }
-  else if(pid == GC0308_PID){
+    s->set_vflip(s, 1);
+  } else if (pid == GC0308_PID) {
     s->set_hmirror(s, 0);
     delay(500);
-    s->set_vflip(s, 0);     
-  }
-  else{
+    s->set_vflip(s, 0);
+  } else {
     s->set_hmirror(s, 0);
-    s->set_vflip(s, 1);       
+    s->set_vflip(s, 1);
   }
   s->set_brightness(s, 1);  // Slightly increase brightness
   s->set_saturation(s, 0);  // Reduce saturation
